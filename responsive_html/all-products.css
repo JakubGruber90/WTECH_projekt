@@ -5,23 +5,21 @@ html {
 
   /* Body styling */
   body {
-	width: 100%;
-	max-width: 1440px;
-	min-width: 1024px;
+    width: 100%;
+    max-width: 1440px;
+    min-width: 1024px;
     height: 100%;
     max-height: 1280px;
-    min-height: 1024px;
-	margin: 0 auto;
-	background-color: rgb(218, 218, 218);
-	position: relative;
+    min-height: 1000px;
+    margin: 0 auto;
+    background-color: rgb(218, 218, 218);
+    position: relative;
     align-self: center;
     vertical-align: top;
   }
-
   p {
 	line-height: 0;
   }
-
   h1,h2 {
     margin-left: 5px;
   }
@@ -38,7 +36,6 @@ html {
     display: flex;
     flex-direction: row;
   }
-
   .container div {
     margin: 10px;
   }
@@ -110,19 +107,15 @@ html {
     margin-left: 40px;
     overflow-y: scroll;
   }
-
   .product_section::-webkit-scrollbar {
     height: 8px;
   }
-  
   .product_section::-webkit-scrollbar-thumb {
     background: #ccc;
   }
-  
   .product_section::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
   .product_card {
     width: 200px;
     min-width: 200px;
@@ -134,7 +127,6 @@ html {
     margin-bottom: 20px;
     padding: 20px 15px;
   }
-  
   .product_card img {
     max-width: 100%;
     height: 100px;
@@ -142,22 +134,18 @@ html {
     align-self: center;
     margin: 10px;
   }
-  
   .product_card h3 {
     font-size: 16px;
     margin: 10px;
   }
-  
   .product_card p {
     font-size: 12px;
     font-weight: bold;
     margin: 10px;
   }
-
   .product_card button {
     margin: 10px;
   }
-
   .product_card button:hover {
     cursor: pointer;
   }
