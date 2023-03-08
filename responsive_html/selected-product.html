@@ -3,67 +3,64 @@
   <!-- head -->
   <head>
     <title>Footwear Shop</title>
+    <link href="selected-product.css" rel="stylesheet">
   </head>
   <body>
-
+    <header></header>
     <!-- PRODUCT -->
-    <section>
-      <h1>@product_name</h1>
-      <h2>@product_price</h2>
+    <section class="product_section">
       <!-- fotky produktu -->
       <div class="photos">
-        <img src="product-image_1.jpg" alt="Product Img 1">
-        <img src="product-image_2.jpg" alt="Product Img 2">
-        <img src="product-image_3.jpg" alt="Product Img 3">
-        <img src="product-image_4.jpg" alt="Product Img 4">
-        <br>
+        <img src="src/kb_1.jpg" alt=" ">
+        <img src="src/kb_2.jpg" alt=" ">
+        <img src="src/kb_3.jpg" alt=" ">
+        <img src="src/kb_4.jpg" alt=" ">
       </div>
 
       <!-- velkost topanky -->
-      <div class="shoe_size">
-        <section>
-            <h3>Select shoe size</h3>
-            <div class="line_1">
-                <input type="radio" id="shoe_size_1"><label for="shoe_size_1" id="label_shoe_size_1"></label>
-                <input type="radio" id="shoe_size_2"><label for="shoe_size_2" id="label_shoe_size_2"></label>
-                <input type="radio" id="shoe_size_3"><label for="shoe_size_3" id="label_shoe_size_3"></label>
-                <input type="radio" id="shoe_size_4"><label for="shoe_size_4" id="label_shoe_size_4"></label>
-                <input type="radio" id="shoe_size_5"><label for="shoe_size_5" id="label_shoe_size_5"></label>
+      <div class="shoe_info">
+        <h1>@product_name</h1>
+        <h2>@product_price</h2>
+        <h3 class="h_shoe_size">Select shoe size (EU)</h3>
+        <section class="shoe_size">
+            <div class="line" id="line_1">
+                <label id="label_shoe_size_1"><input type="radio" id="shoe_size_1"><span>36</span></label>
+                <label id="label_shoe_size_2"><input type="radio" id="shoe_size_2"><span>37</span></label>
+                <label id="label_shoe_size_3"><input type="radio" id="shoe_size_3"><span>38</span></label>
+                <label id="label_shoe_size_4"><input type="radio" id="shoe_size_4"><span>39</span></label>
+                <label id="label_shoe_size_5"><input type="radio" id="shoe_size_5"><span>40</span></label>
             </div>
-            <br>
-            <div class="line_2">
-                <input type="radio" id="shoe_size_6"><label for="shoe_size_6" id="label_shoe_size_6"></label>
-                <input type="radio" id="shoe_size_7"><label for="shoe_size_7" id="label_shoe_size_7"></label>
-                <input type="radio" id="shoe_size_8"><label for="shoe_size_8" id="label_shoe_size_8"></label>
-                <input type="radio" id="shoe_size_9"><label for="shoe_size_9" id="label_shoe_size_9"></label>
-                <input type="radio" id="shoe_size_10"><label for="shoe_size_10" id="label_shoe_size_10"></label>
+            <div class="line" id="line_2">
+                <label id="label_shoe_size_6" class="pad"><input type="radio" id="shoe_size_6"><span>40.5</span></label>
+                <label id="label_shoe_size_7"><input type="radio" id="shoe_size_7"><span>41</span></label>
+                <label id="label_shoe_size_8"><input type="radio" id="shoe_size_8"><span>41.5</span></label>
+                <label id="label_shoe_size_9"><input type="radio" id="shoe_size_9"><span>42</span></label>
+                <label id="label_shoe_size_10"><input type="radio" id="shoe_size_10"><span>42.5</span></label>
             </div>
-            <br>
-            <div class="line_3">
-                <input type="radio" id="shoe_size_11"><label for="shoe_size_11" id="label_shoe_size_11"></label>
-                <input type="radio" id="shoe_size_12"><label for="shoe_size_12" id="label_shoe_size_12"></label>
-                <input type="radio" id="shoe_size_13"><label for="shoe_size_13" id="label_shoe_size_13"></label>
-                <input type="radio" id="shoe_size_14"><label for="shoe_size_14" id="label_shoe_size_14"></label>
-                <input type="radio" id="shoe_size_15"><label for="shoe_size_15" id="label_shoe_size_15"></label>
+            <div class="line" id="line_3">
+                <label id="label_shoe_size_11"><input type="radio" id="shoe_size_11"><span>43</span></label>
+                <label id="label_shoe_size_12"><input type="radio" id="shoe_size_12"><span>43.5</span></label>
+                <label id="label_shoe_size_13"><input type="radio" id="shoe_size_13"><span>44</span></label>
+                <label id="label_shoe_size_14"><input type="radio" id="shoe_size_14"><span>44.5</span></label>
+                <label id="label_shoe_size_15"><input type="radio" id="shoe_size_15"><span>45</span></label>
             </div>
-            <br>
         </section>
-      </div>
 
-      <!-- pridat do kosika -->
-      <br>
-      <button id="add_to_cart">Add to Cart</button>
-      <img src="add_to_cart_img.jpg">
-      <label id="rating"> Hodnotenie: @rating</label>
-      <br>
+        <!-- pridat do kosika -->
+        <br>
+        <label id="sklad" class="count"><span>Na sklade: @count</span></label>
+        <br>
+        <button id="add_to_cart"><img src="src/add_to_cart.png" alt=" "> Add to Cart</button>
+        <br><br><br><br>
+        <label id="rating" class="rating"> <span>Hodnotenie: @rating</span></label>
+      </div>
 
 
     </section>
 
     <!-- footer -->
     <footer>
-      <p>&copy; 2023 Footwear shop</p>
-      <img src="footer-logo.jpg" alt="footer logo">
+      <p>&copy; 2023 Footwear shop <img src="src/footer_logo.png" alt="footer logo"></p>
     </footer>
   </body>
 </html>

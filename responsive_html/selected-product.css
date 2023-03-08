@@ -1,0 +1,161 @@
+  html {
+	font-family: 'Open Sans', sans-serif;
+	background-color: rgb(255, 255, 255);
+  }
+
+  /* Body styling */
+  body {
+	width: 100%;
+	max-width: 1440px;
+	min-width: 1024px;
+    height: 100%;
+    max-height: 1280px;
+    min-height: 1024px;
+	margin: 0 auto;
+	background-color: rgb(218, 218, 218);
+	position: relative;
+    align-self: center;
+    vertical-align: top;
+  }
+  p {
+	line-height: 0;
+  }
+  h1,h2 {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  header {
+    padding-bottom: 50px;
+  }
+
+  /*product section*/
+  .product_section {
+    color: black;
+    background-color: rgb(190, 190, 190);
+    flex-wrap: none;
+    justify-content: unset;
+    width: 100%;
+    max-height: 650px;
+    min-height: 650px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+  }
+
+  /*product photos*/
+  .photos {
+    max-width: 650px;
+    max-height: 650px;
+    margin-left: 50px;
+  }
+  .photos img {
+    width: 300px;
+    height: 300px;
+  }
+
+  /*shoe size*/
+  .h_shoe_size {
+    margin-bottom: 2px;
+    margin-top: 50px;
+  }
+  .shoe_size {
+    color: black;
+    background-color: white;
+    flex-wrap: none;
+    margin-bottom: 20px;
+    width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    min-width: 450px;
+    max-width: 450px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  .line label {
+    font-size: 20px;
+    text-align: center;
+    align-self: center;
+    display: unset;
+    flex-direction: column;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .line label span {
+    position: relative;
+    line-height: 22px;
+  }
+  .line label span:before,
+  .line label span:after {
+    content: '';
+  }
+  .line label span:before {
+    border: 1px solid rgb(180, 180, 180);
+    background-color: rgb(180, 180, 180);
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .line label span:after {
+    background: rgb(0, 0, 0);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: 300ms;
+    opacity: 0;
+  }
+  .line label input:checked+span:after {
+    opacity: 1;
+  }
+  .line label input {
+    display: none;
+  }
+
+  /*shoe info*/
+  .shoe_info {
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: none;
+  }
+  .shoe_info button {
+    font-size: 25px;
+    text-align: center;
+    margin-right: 20px;
+    margin-top: 50px;
+  }
+  .shoe_info button img{
+    width: 25px;
+    height: 25px;
+  }
+  .shoe_info button:hover {
+    cursor: pointer;
+  }
+  .rating {
+    font-size: 25px;
+    text-align: center;
+  }
+  .count {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  /* footer */
+  footer {
+    display: block;
+    background-color: rgb(190, 190, 190);
+    max-width: 100%;
+    text-align: center;
+    height: 30px;
+    margin-top: 200px;
+  }
+  footer img {
+    width: 25px;
+    height: 25px;
+  }
