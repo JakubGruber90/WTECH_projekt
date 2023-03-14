@@ -72,6 +72,7 @@
     background: #23395d;
   }
   .photos img {
+    border: 3px solid #46a2da;
     max-width: 300px;
     max-height: 300px;
     min-width: 150px;
@@ -187,9 +188,15 @@
     text-align: center;
   }
   button {
-    border: none;
+    margin-top: 100px;
+    font-size: 32px;
+    border-color: #46a2da;
+    border-radius: 5px 5px 5px 5px;
     background-color: #46a2da;
     color: white;
+  }
+  button:hover {
+    cursor: pointer;
   }
 
   @media screen and (max-width: 1250px) {
