@@ -3,56 +3,59 @@
   <!-- head -->
   <head>
     <title>Footwear Shop</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="registration.css" rel="stylesheet">
   </head>
   <body>
-
+    <header></header>
     <!-- REGISTRÁCIA -->
-    <section>
+    <div class="canvas">
       <h1>Registrácia</h1>
-      <!-- prihlasovacie údaje -->
-      <section>
-        <h2>Prihlasovacie údaje</h2>
-        <form>
-          <input type="email" placeholder="Email" id="email_field"><br>
-          <br>
-          <input type="text" placeholder="Login" id="login"><br>
-          <br>
-          <input type="password" placeholder="Password" id="password"><br>
-          <br>
-          <input type="password" placeholder="Password" id="password_confirmation"><br>
-          <br>
-        </form>
-      <section>
-
-      <!-- fakturacne udaje -->
-      <section>
-        <h2>Fakturačné údaje</h2>
+      <section class="register">
+        <!-- prihlasovacie údaje -->
+        <section class="login_data">
+          <h2>Prihlasovacie údaje</h2>
           <form>
-            <input type="text" placeholder="Ulica" id="street"><br>
             <br>
-            <input type="text" placeholder="PSČ" id="city_code"><br>
+            <input type="email" placeholder="Email" id="email_field"><br>
             <br>
-            <input type="text" placeholder="Mesto" id="city"><br>
+            <input type="text" placeholder="Login" id="login"><br>
             <br>
-            <input type="checkbox" id="confirm_terms_of_use">
-            <label for="confirm_term_of_use">Potvrdzujem, že súhlasím s obchodnými podmienkami tejto spoločnosti<br>
+            <input type="password" placeholder="Password" id="password"><br>
             <br>
-        </form>
+            <input type="password" placeholder="Password" id="password_confirmation"><br>
+            <br>
+          </form>
+        </section>
+
+        <!-- fakturacne udaje -->
+        <section class="billing_data">
+          <h2>Fakturačné údaje</h2>
+            <form>
+              <br>
+              <input type="text" placeholder="Ulica" id="street"><br>
+              <br>
+              <input type="text" placeholder="PSČ" id="city_code"><br>
+              <br>
+              <input type="text" placeholder="Mesto" id="city"><br>
+              <br>
+              <label>
+                <input type="checkbox" id="confirm_terms_of_use">
+                <span>Potvrdzujem, že súhlasím s obchodnými podmienkami tejto spoločnosti</span>
+              </label>
+              <br>
+          </form>
+        </section>
+
+        <!-- potvrdenie registracie -->
+        <section class="confirm">
+          <!--<br><br>-->
+          <img src="src/reg_img_1.png">
+          <!--<br><br>-->
+          <button id="confirm_registration">Registrovať</button>
+        </section>
       </section>
-
-      <!-- potvrdenie registracie -->
-      <br>
-      <img src="registration_img.jpg">
-      <button id="confirm_registration">Registrovať</button>
-      <br>
-
-
-    </section>
-
-    <!-- footer -->
-    <footer>
-      <p>&copy; Copyright 2023, Footwear shop</p>
-      <img src="footer-logo.jpg" alt="footer logo">
-    </footer>
+    </div>
   </body>
 </html>

@@ -1,0 +1,18 @@
+  html {
+	font-family: 'Open Sans', sans-serif;
+	background-color: rgb(255, 255, 255);
+  }
+
+  /* footer */
+  footer {
+    display: block;
+    background-color: rgb(190, 190, 190);
+    max-width: 100%;
+    text-align: center;
+    height: 30px;
+    margin-top: 100px;
+  }
+  footer img {
+    width: 25px;
+    height: 25px;
+  }
