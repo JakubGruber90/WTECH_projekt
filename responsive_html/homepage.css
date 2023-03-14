@@ -132,16 +132,3 @@
   .product_card button:hover {
     cursor: pointer;
   }
-
-  /* footer */
-  footer {
-	  display: block;
-    background-color: rgb(190, 190, 190);
-	  max-width: 100%;
-    text-align: center;
-    height: 30px;
-  }
-  footer img {
-    width: 25px;
-    height: 25px;
-  }

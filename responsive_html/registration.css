@@ -5,20 +5,20 @@
 
   /* Body styling */
   body {
-	width: 100%;
-	max-width: 1440px;
-	min-width: 1024px;
+    width: 100%;
+    max-width: 1440px;
+    min-width: 1024px;
     height: 100%;
     max-height: 1280px;
     min-height: 1000px;
-	margin: 0 auto;
-	background-color: rgb(255, 255, 255);
-	position: relative;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    position: relative;
     align-self: center;
     vertical-align: top;
   }
   p {
-	line-height: 0;
+    line-height: 0;
   }
   h1,h2 {
     margin-left: 5px;
@@ -42,21 +42,20 @@
     flex-wrap: none;
     justify-content: unset;
     width: 100%;
-    max-height: 550px;
     min-height: 550px;
     height: 100%;
     display: flex;
     flex-direction: row;
     padding-top: 50px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     margin-bottom: 0px;
-
   }
   .register section {
-    margin-left: 100px;
-    margin-right: 50px;
-    margin-top: 50px;
+    margin-left: calc(2% + 20px);
+    margin-right: calc(2% + 20px);
+    margin-top: 5%;
     font-size: 24px;
+    min-width: 350px;
     max-width: 350px;
   }
   .register section label {
@@ -68,22 +67,57 @@
     margin-left: 25px;
     font-size: 24px;
   }
-  .register section button {
+  .confirm {
+    margin-left: 1%;
+    min-width: 100px;
+    max-width: 350px
+  }
+  .confirm img {
+    margin-top: 40px
+  }
+  .confirm button {
     text-align: center;
     font-size: 28px;
     margin-left: 23px;
+    margin-top: 50px
   }
-
-  /* footer */
-  footer {
-    display: block;
-    background-color: rgb(190, 190, 190);
-    max-width: 100%;
-    text-align: center;
-    height: 30px;
-    margin-top: 265px;
+  @media screen and (max-width: 1110px) {
+    .register section {
+      margin-right: 0;
+      margin-left: 10px
+    }
   }
-  footer img {
-    width: 25px;
-    height: 25px;
+  @media screen and (max-width: 920px) {
+    .register {
+      flex-direction: column;
+    }
+    .register section {
+      margin-top: 10px
+    }
+    .confirm {
+      margin-top: 10px
+    }
+    .confirm img {
+      margin-top: 0px
+    }
+    .confirm button {
+      margin-top: 0px
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .register {
+      flex-direction: column;
+    }
+    .register section {
+      margin-top: 10px
+    }
+    .confirm {
+      margin-top: 10px
+    }
+    .confirm img {
+      margin-top: 0px
+    }
+    .confirm button {
+      margin-top: 0px
+    }
   }

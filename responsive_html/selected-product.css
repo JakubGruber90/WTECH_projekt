@@ -183,17 +183,3 @@
     font-size: 25px;
     text-align: center;
   }
-
-  /* footer */
-  footer {
-    display: block;
-    background-color: rgb(190, 190, 190);
-    max-width: 100%;
-    text-align: center;
-    height: 30px;
-    margin-top: 229px;
-  }
-  footer img {
-    width: 25px;
-    height: 25px;
-  }
