@@ -1,12 +1,8 @@
-  html {
-	font-family: 'Open Sans', sans-serif;
-	background-color: rgb(255, 255, 255);
-  }
-
-  /* footer */
+/* footer */
   footer {
     display: block;
-    background-color: rgb(190, 190, 190);
+    background-color: #23395d;
+    color: white;
     max-width: 100%;
     text-align: center;
     height: 30px;
