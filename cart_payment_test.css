@@ -1,0 +1,71 @@
+.navbar {
+    background-color: #EBEBEB;
+}
+
+.navbar p {
+    text-align: left;
+}
+
+.navbar p:first-child {
+    margin-bottom: 0;
+}
+
+.navbar p:last-child {
+    text-align: right;
+    margin-top: 0;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 130px;
+}
+
+.search-bar {
+    position: absolute;
+    right: 200px;
+    top: 150px;
+}
+
+.login-btn {
+    position: absolute;
+    left: 20px;
+    top: 150px;
+}
+
+.register-btn {
+    position: absolute;
+    left: 120px;
+    top: 150px;
+}
+
+.home-btn {
+    position: absolute;
+    right: 20px;
+    top: 150px;
+}
+
+.cart {
+    height: 400px;
+    width: 1000px;
+    background-color: pink;
+    margin: auto;
+}
+
+.cart-title {
+    text-align: center;
+    font-size: 140%;
+}
+
+.payment-section, .delivery-section {
+    background-color: #EBEBEB;
+    height: 100px;
+    border-style: solid;
+    border-color: black;
+}
+
+.cancel-btn {
+    position: absolute;
+    right: 350
+}

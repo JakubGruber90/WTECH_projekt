@@ -1,0 +1,56 @@
+header.navbar {
+    background-color: #EBEBEB;
+}
+
+header.navbar p {
+    text-align: left;
+}
+
+header.navbar p:nth-of-type(2) {
+    text-align: right;
+}
+
+header.navbar button {
+    position: absolute;
+}
+
+header.navbar button:first-of-type {
+    left: 20px;
+    top: 150px;
+}
+
+header.navbar button:nth-of-type(2) {
+    left: 120px;
+    top: 150px;
+}
+
+header.navbar img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+header.navbar input {
+    position: absolute;
+}
+
+header.navbar input[type="text"] {
+    right: 200px;
+    top: 150px;
+}
+
+header.navbar button:last-of-type {
+    position: absolute;
+    right: 20px;
+    top: 150px;
+}
+
+div {
+    height: 400px;
+    width: 1000px;
+    background-color: pink;
+    margin: auto;
+}
+
+div p:first-of-type {
+    text-align

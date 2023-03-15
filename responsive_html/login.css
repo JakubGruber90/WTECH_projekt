@@ -5,13 +5,13 @@ html {
 
   /* Body styling */
   body {
-	  width: 100%;
-	  min-width: 480px;
+    width: 100%;
+    min-width: 480px;
     height: 100%;
     min-height: 960px;
-	  margin: 0 auto;
-	  background-color: #D18F2E;
-	  position: relative;
+    margin: 0 auto;
+    background-color: #D18F2E;
+    position: relative;
     align-self: center;
     vertical-align: top;
   }
@@ -31,7 +31,7 @@ html {
     font-size: 46px;
   }
 
-  /*forgotten password section*/
+  /*login section*/
   .canvas {
     border-bottom: 4px solid #46a2da;
     border-top: 4px solid #46a2da;
@@ -75,7 +75,7 @@ html {
     margin-right: 10px;
   }
   .canvas section img {
-    margin-left: 30px;
+    margin-left: 75px;
   }
   .canvas button {
     margin-top: 100px;

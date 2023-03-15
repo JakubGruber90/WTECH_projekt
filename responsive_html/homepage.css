@@ -1,19 +1,17 @@
 
   html {
 	font-family: 'Open Sans', sans-serif;
-	background-color: rgb(255, 255, 255);
+  background-color: #23395d;
   }
 
   /* Body styling */
   body {
-    max-width: 1440px;
     min-width: 480px;
     width: 100%;
-    max-height: 1480px;
     min-height: 960px;
     height: 100%;
     margin: 0 auto;
-    background-color: rgb(220, 220, 220);
+    background-color: #D18F2E;
     position: relative;
     align-self: center;
     vertical-align: top;
@@ -23,15 +21,22 @@
   }
   h1 {
     margin-left: 5px;
+    padding-top: 10px;
   }
   header {
-    padding-bottom: 50px;
+    background-color: #D18F2E;
+    padding-bottom: 200px;
+  }
+  button {
+    border: none;
+    background-color: #23395d;
+    color: white;
   }
 
   /* Navigation styling */
   nav {
-    background-color: rgb(190, 190, 190);
-    color: rgb(0, 0, 0);
+    background-color: #23395d;
+    color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
@@ -53,7 +58,7 @@
     margin-right: 0;
   }
   nav ul li a {
-    color: rgb(0, 0, 0);
+    color: #FFFFFF;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
@@ -62,13 +67,13 @@
     transition: background-color 0.3s ease;
   }
   nav ul li a:hover {
-    background-color: #ffffff;
+    background-color: #46a2da;
   }
 
   /* homepage section styling */
   .container {
-    background-color: rgb(220,220,220);
-    color: black;
+    background-color: white;
+    color: #46a2da;
     flex-wrap: none;
     justify-content: unset;
     width: 100%;
@@ -80,12 +85,15 @@
     flex-direction: column;
   }
   .product_section {
-    color: black;
-    background-color: rgb(210, 210, 210);
+    border-bottom: 4px solid #46a2da;
+    border-top: 4px solid #46a2da;
+    color: #46a2da;
+    background-color: #23395d;
     display: flex;
     min-width: 360px;
     max-width: 100%;
     width: 100%;
+    margin-top: 0;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
@@ -94,10 +102,10 @@
     height: 15px;
   }
   .product_section::-webkit-scrollbar-thumb {
-    background: rgb(190, 190, 190);
+    background: #D18F2E;
   }
   .product_section::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #23395d;
   }
   .product_card {
     width: 200px;
@@ -131,4 +139,18 @@
   }
   .product_card button:hover {
     cursor: pointer;
+  }
+
+  .recommended {
+    margin-top: 0;
+    color: #46a2da;
+    background-color: white;
+    padding-top: 1px;
+  }
+
+  .recommended section {
+    background-color: #23395d;
+    color: #46a2da;
+    border-bottom: 4px solid #46a2da;
+    border-top: 4px solid #46a2da;
   }
