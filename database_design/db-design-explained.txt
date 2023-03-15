@@ -4,7 +4,7 @@ Databáza bude obsahovať celkovo 12 tabuliek, z toho 4 hlavné:
 
 1. customers - obsahuje informácie o zákazníkoch - id zákazníka, krstné meno, priezvisko, heslo, email, telefónne číslo, adresa, mesto, štát 
 
-2. products - obsahuje informácie o produktoch - id produktu, kategória, popis, cena, pole dostupných veľkostí, materiál, značka produktu, pole dostupných farieb a počet produktov na sklade
+2. products - obsahuje informácie o produktoch - id produktu, kategória, popis, cena, fotky produktu, pole dostupných veľkostí, materiál, značka produktu, pole dostupných farieb a počet produktov na sklade
 
 3. orders - obsahuje všetky objednávky - id objednávky, id zákazníka, id produktov v objednávke, celková cena, id typu doručenia, id typu platby a id statusu objednávky
 
