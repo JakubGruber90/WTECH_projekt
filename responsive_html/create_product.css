@@ -1,0 +1,134 @@
+html {
+	font-family: 'Open Sans', sans-serif;
+	background-color: rgb(255, 255, 255);
+  }
+
+  /* Body styling */
+  body {
+    width: 100%;
+    min-width: 1024px;
+    height: 100%;
+    min-height: 1000px;
+    margin: 0 auto;
+    background-color: #D18F2E;
+    position: relative;
+    align-self: center;
+    vertical-align: top;
+  }
+  p {
+    line-height: 0;
+  }
+  h1,h2 {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  header {
+    background-color: #D18F2E;
+    padding-bottom: 200px;
+  }
+  .canvas {
+    border-bottom: 4px solid #46a2da;
+    border-top: 4px solid #46a2da;
+    background-color: #23395d;
+    color: white;
+    padding-top: 10px;
+    min-height: 662px;
+  }
+  .canvas h1 {
+    font-size: 46px;
+  }
+  button {
+    border-color: #46a2da;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #46a2da;
+    font-size: 28px;
+    color: white;
+  }
+  .input_files {
+    margin-bottom: 50px;
+    width: 325px;
+    border-color: #46a2da;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #46a2da;
+    font-size: 28px;
+    color: white;
+  }
+  .files_label {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+  }
+
+  button:hover, .input_img:hover {
+    cursor: pointer;
+  }
+
+  /*input section*/
+  .all_input {
+    flex-wrap: none;
+    justify-content: unset;
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+  }
+  .all_input section {
+    margin-left: calc(2% + 20px);
+    margin-right: calc(2% + 20px);
+    margin-top: 5%;
+    font-size: 24px;
+    min-width: 350px;
+    max-width: 350px;
+  }
+  .all_input section label {
+    font-size: 16px;
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .all_input section input {
+    margin-left: 25px;
+    font-size: 24px;
+  }
+
+  .confirm_button {
+    text-align: center;
+    font-size: 28px;
+    margin-left: 23px;
+    margin-top: 50px;
+    margin-top: 25px;
+  }
+  @media screen and (max-width: 1110px) {
+    .all_input section {
+      margin-right: 0;
+      margin-left: 10px;
+    }
+  }
+  @media screen and (max-width: 920px) {
+    .all_input {
+      flex-direction: column;
+    }
+    .all_input section {
+      margin-top: 10px;
+    }
+    .confirm_button {
+      margin-top: 0px;
+      margin-bottom: 25px;
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .all_input {
+      flex-direction: column;
+    }
+    .all_input section {
+      margin-top: 10px;
+    }
+    .confirm_button {
+      margin-top: 0px;
+      margin-bottom: 25px;
+    }
+  }
