@@ -13,22 +13,24 @@
 
     <!-- VYTVORENIE PRODUKTU -->
     <div class="canvas">
-      <h1>Vytvorenie produktu</h1>
+      <h1>Upravenie produktu</h1>
       <section class="all_input">
         <!-- meno,popis,cena -->
         <section class="input_section">
           <form>
             <br>
-            <input type="text" placeholder="Meno produktu" id="name"><br>
+            <input type="text" placeholder="ID produktu" id="id"><br>
+            <br>
+            <input type="text" placeholder="Nazov produktu" id="name"><br>
             <br>
             <textarea type="text" rows="3" placeholder="Popis produktu" id="description" class="description"></textarea><br>
-            <br>
-            <input type="number" placeholder="Cena produktu" id="price"><br>
           </form>
         </section>
         <!-- kategoria,material,znacka,farba -->
         <section class="input_section">
             <form>
+              <br>
+              <input type="number" placeholder="Cena produktu" id="price"><br>
               <br>
               <input type="text" placeholder="Kategória produktu" id="category"><br>
               <br>
@@ -36,13 +38,13 @@
               <br>
               <input type="text" placeholder="Značka produktu" id="brand"><br>
               <br>
-              <input type="text" placeholder="Farba produktu" id="color"><br>
-              <br>
           </form>
         </section>
         <!-- velkosti,obrazky -->
         <section class="input_section">
             <form>
+              <br>
+              <input type="text" placeholder="Farba produktu" id="color" class="color"><br>
               <br>
               <span class="files_label">Nahrať veľkosti</span>
               <br>
@@ -55,7 +57,7 @@
         </section>
       </section>
       <!-- potvrdenie vytvorenia -->
-      <button id="confirm_button" class="confirm_button">Vytvoriť produkt</button>
+      <button id="confirm_button" class="confirm_button">Upraviť produkt</button>
     </div>
     
     <!--footer-->
