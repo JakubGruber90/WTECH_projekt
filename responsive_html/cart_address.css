@@ -45,7 +45,7 @@ header.navbar button:last-of-type {
     top: 150px;
 }
 
-div {
+.info {
     height: 400px;
     width: 1000px;
     background-color: pink;
@@ -53,4 +53,5 @@ div {
 }
 
 div p:first-of-type {
-    text-align
+    text-align: center;
+}
