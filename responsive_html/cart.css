@@ -1,7 +1,6 @@
 html {
     font-family: 'Open Sans', sans-serif;
     background-color: #23395d;
-    overflow: auto;
 }
 
 .cart {
@@ -19,55 +18,71 @@ html {
     font-size: 140%;
 }
 
-.cart .items {
+.cart .products {
     height: 250px;
     margin-right: 20px;
     overflow: auto;
 }
 
-.cart .items div {
+.cart .products div{
     background-color: #EBEBEB;
     height: 110px;
     width: 80%;
     margin-left: 100px;
 }
 
-.cart .items::-webkit-scrollbar {
+.cart .products::-webkit-scrollbar {
     width: 20px;
   }
 
-.cart .items::-webkit-scrollbar-track {
+.cart .products::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey; 
 }
 
-.cart .items::-webkit-scrollbar-thumb {
+.cart .products::-webkit-scrollbar-thumb {
     background: #23395d; 
 }
 
 .cart-button:nth-of-type(1) {
     margin-left: 50px;
-}
-
-.cart-button:nth-of-type(2) {
-    margin-right: 50px;
-    float: right;
-}
-
-.cart button {
+    margin-top: 15px;
     border: none;
     background-color: #23395d;
     color: white;
     width: 10%;
     height: 30px;
-    margin-top: 20px;
+}
+
+.cart-button:nth-of-type(2) {
+    margin-right: 50px;
+    margin-top: 15px;
+    float: right;
+    border: none;
+    background-color: #23395d;
+    color: white;
+    width: 10%;
+    height: 30px;
 }
 
 .item {
     display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin: 2%;
 }
 
-.item p {
-    padding: 20px;
+.item button {
+    border: none;
+    background-color: #23395d;
+    color: white;
+    width: 5%;
+    height: 20%;
+    margin: 5px;
+}
+
+.item input {
+    width: 30px;
+    height: 30px;
 }
 
 .item img:nth-of-type(1) {
@@ -77,17 +92,24 @@ html {
 .item img:nth-of-type(2) {
     width: auto;
     height: 50%;
-    margin-top: 28px;
     display: -webkit-box;
     margin-left: auto;
 }
 
+.specs {
+    line-height: 7px;
+    width: 20%;
+    margin-right: 15%;
+}
+
+
 .footer {
     background-color: #23395d;
     color: white;
-    width: 100%;
     text-align: center;
-    height: 10px;
     position: absolute;
     bottom: 0;
+    width: 98%;
+    height: 30px;
+    margin-top: 100px;
 }

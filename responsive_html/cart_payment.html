@@ -17,18 +17,27 @@
 
     <!--Doprava a platba-->
     <div class="cart">
-        <p class="cart-title">Košík -> <b>Doprava a platba</b> -> Dodacie údaje</p>
-        <div class="payment-section">
-            <p>Výber platby</p>
+        <p class="cart-title">Košík > <b>Doprava a platba</b> > Dodacie údaje</p>
+        <div class="payment">
+            <label for="payment">Vyberte spôsob platby:</label>
+            <select name="payment" class="select">
+                <option value="karta">Karta</option>
+                <option value="hotovost">Hotovosťou pri dobierke</option>
+              </select>
         </div>
-        <div class="delivery-section">
-            <p>Výber dopravy</p>
+        <div class="delivery">
+            <label for="delivery">Vyberte spôsob dopravy:</label>
+            <select name="delivery" class="select">
+                <option value="kurier">Kuriérom (osobný odber)</option>
+                <option value="zasielkovna">Zásielkovňa</option>
+                <option value="posta">Poštou</option>
+              </select>
         </div>
         <button type="button" class="cancel-btn">Zrušiť</button>
         <button type="button" class="continue-btn">Pokračovať</button>
     </div>
 
     <!--Nožička stránky-->
-	<div id="footer"></div>
+	<div id="footer" class="footer"></div>
 </body>
 </html>
