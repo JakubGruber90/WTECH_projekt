@@ -1,6 +1,6 @@
 Návrh databázy
 
-Databáza bude obsahovať celkovo 12 tabuliek, z toho 4 hlavné:
+Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 12 tabuliek, z toho 4 hlavné:
 
 1. customers - obsahuje informácie o zákazníkoch - id zákazníka, krstné meno, priezvisko, heslo, email, telefónne číslo, adresa, mesto, štát 
 
