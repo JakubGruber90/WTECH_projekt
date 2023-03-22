@@ -17,15 +17,17 @@
 
     <!--Dodacie údaje-->
     <div class="info">
-        <p>Košík -> Doprava a platba -> <b>Dodacie údaje</b></p>
-        <p>Fakturačné údaje</p>
-        <input type="text" id="ulica" placeholder="Ulica"><br><br>
-        <input type="text" id="psc" placeholder="PSČ"><br><br>
-        <input type="text" id="mesto" placeholder="Mesto"><br><br><br><br><br><br><br><br><br>
-        <button type="button">Dokončiť objednávku</button>
+        <p class="info-title">Košík > Doprava a platba > <b>Dodacie údaje</b></p>
+        <div class="billing">
+        <input type="text" id="ulica" placeholder="Ulica" class="billing-input">
+        <input type="text" id="psc" placeholder="PSČ" class="billing-input">
+        <input type="text" id="mesto" placeholder="Mesto" class="billing-input">
+        </div>
+        <button type="button">Zrušiť</button>
+        <button type="button">Dokončiť</button>
     </div>
 
     <!--Nožička stránky-->
-	<div id="footer"></div>
+	<div id="footer" class="footer"></div>
 </body>
 </html>
