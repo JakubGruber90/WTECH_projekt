@@ -1,6 +1,6 @@
 Návrh databázy
 
-Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 12 tabuliek, z toho 4 hlavné:
+Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 11 tabuliek, z toho 4 hlavné:
 
 1. customers - obsahuje informácie o zákazníkoch - id zákazníka, krstné meno, priezvisko, heslo, email, telefónne číslo, adresa, mesto, štát 
 
@@ -10,7 +10,7 @@ Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 12 tabuli
 
 4. cart - obsahuje informácie o produktoch v košíku - id košíku, id produktov v košíku, cena a id zákaznika, ktorému košík patrí
 
-Ďalej je to 5 tabuliek, ktoré dopĺňajú informácie o produktoch:
+Ďalej sú to 4 tabulky, ktoré dopĺňajú informácie o produktoch:
 
 5. materials - obsahuje dostupné materiály - id materiálu a samotný materiál
 
@@ -19,8 +19,6 @@ Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 12 tabuli
 7. colors - obsahuje dostupné farby - id farby a hexadecimálny tvar farby
 
 8. sizes - obsahuje dostupné veľkosti - id veľkosti a veľkosť topánok v EU formáte
-
-9. reviews - obsahuje všetky recenzie, ktoré sa týkajú konkrétneho produktu - id recenzie, počet hviezdičiek, popis recenzie a id produktu, ktorého sa recenzia týka
 
 Nakoniec sú to 3 tabulky, ktoré upresňujú informácie o objednávkach:
 
