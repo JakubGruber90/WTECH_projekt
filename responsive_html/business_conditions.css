@@ -1,0 +1,29 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #23395d;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    height: 100vh;
+}
+
+.conditions {
+    height: 500px;
+    width: 1000px;
+    background-color: #D18F2E;
+    border: 4px solid;
+    overflow: auto;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spacer {
+    width: 100%;
+    height: 200px;
+}

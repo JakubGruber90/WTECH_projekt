@@ -1,0 +1,36 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #23395d;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    height: 100vh;
+}
+
+.contact {
+    height: 250px;
+    width: 800px;
+    background-color: #D18F2E;
+    border: 4px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact p {
+    font-size: 140%;
+}
+
+.img {
+    float: right;
+    margin-left: 10px;
+}
+
+.spacer {
+    width: 100%;
+    height: 200px;
+}
