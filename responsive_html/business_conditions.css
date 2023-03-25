@@ -12,18 +12,46 @@ body {
 }
 
 .conditions {
-    height: 500px;
+    height: 360px;
     width: 1000px;
     background-color: #D18F2E;
     border: 4px solid;
-    overflow: auto;
     padding: 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
+}
+
+.conditions::-webkit-scrollbar {
+    width: 20px;
+  }
+
+.conditions::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+}
+
+.conditions::-webkit-scrollbar-thumb {
+    background: #23395d; 
 }
 
 .spacer {
     width: 100%;
     height: 200px;
+}
+
+@media (max-width: 920px) {
+    .conditions {
+        width: 90%;
+        height: auto;
+        padding: 1%;
+    }
+}
+
+@media (max-width: 800px) {
+    .conditions {
+        width: 95%;
+        height: auto;
+        padding: 1%;
+    }
 }
