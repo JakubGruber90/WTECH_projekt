@@ -1,0 +1,143 @@
+  html {
+	font-family: 'Open Sans', sans-serif;
+	background-color: rgb(255, 255, 255);
+  }
+
+  /* Body styling */
+  body {
+    padding-top: 200px;
+    width: 100%;
+    min-width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #D18F2E;
+    position: relative;
+    align-self: center;
+    vertical-align: top;
+  }
+  p {
+    line-height: 0;
+  }
+  h1,h2 {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .canvas {
+    border-bottom: 4px solid #46a2da;
+    border-top: 4px solid #46a2da;
+    background-color: #23395d;
+    color: white;
+    padding-top: 10px;
+  }
+  .canvas h1 {
+    font-size: 46px;
+  }
+  button {
+    border-color: #46a2da;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #46a2da;
+    color: white;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  
+  footer {
+    display: block;
+    background-color: #23395d;
+    color: white;
+    max-width: 100%;
+    text-align: center;
+    height: 30px;
+    margin-top: 90px;
+  }
+  footer img {
+    width: 25px;
+    height: 25px;
+  }
+
+  /*register section*/
+  .register {
+    flex-wrap: none;
+    justify-content: unset;
+    width: 100%;
+    min-height: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+  }
+  .register section {
+    margin-left: calc(2% + 20px);
+    margin-right: calc(2% + 20px);
+    margin-top: 5%;
+    font-size: 24px;
+    min-width: 350px;
+    max-width: 350px;
+  }
+  .register section label {
+    font-size: 16px;
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .register section input {
+    margin-left: 25px;
+    font-size: 24px;
+  }
+  .confirm {
+    margin-left: 1%;
+    min-width: 100px;
+    max-width: 350px
+  }
+  .confirm img {
+    margin-top: 40px
+  }
+  .confirm button {
+    text-align: center;
+    font-size: 28px;
+    margin-left: 23px;
+    margin-top: 50px
+  }
+  @media screen and (max-width: 1110px) {
+    .register section {
+      margin-right: 0;
+      margin-left: 10px
+    }
+  }
+  @media screen and (max-width: 920px) {
+    .register {
+      flex-direction: column;
+    }
+    .register section {
+      margin-top: 10px
+    }
+    .confirm {
+      margin-top: 10px
+    }
+    .confirm img {
+      margin-top: 0px
+    }
+    .confirm button {
+      margin-top: 0px
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .register {
+      flex-direction: column;
+    }
+    .register section {
+      margin-top: 10px
+    }
+    .confirm {
+      margin-top: 10px
+    }
+    .confirm img {
+      margin-top: 0px
+    }
+    .confirm button {
+      margin-top: 0px
+    }
+  }

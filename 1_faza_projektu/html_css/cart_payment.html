@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Footwear shop</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="cart_payment.css"> 
+</head>
+<body>
+    <!--Hlavička stránky-->
+    <header>
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <a class="link" href="#Homepage">Hlavná stránka</a>
+                <a class="link" href="#Contact">Kontakt</a>
+                <a class="link" href="#BusinessConditions">Obchodné podmienky</a>
+            </div>
+            <div class="nav-bar-right">
+                <a class="link" href="#Shipping">Doprava</a>
+                <a class="link" href="#Payment">Platba</a>
+                <a class="link" href="#Complaint">Reklamácia</a>
+            </div>
+        </div>
+        <button type="button" class="header-button" onclick="loginPage()">Prihlásenie</button>
+        <button type="button" class="header-button" onclick="registerPage()">Registrácia</button>
+        <button type="button" class="header-button" onclick="search()">Hľadať</button>
+        <input type="text" class="header-search" placeholder="Vyhľadávanie">
+        
+        <img src="./src/logo.jpg" alt="Logo" class="header-logo">
+    </header>
+
+    <!--Oddelovač-->
+    <div class="spacer">
+        &nbsp;
+    </div>
+
+    <!--Doprava a platba-->
+    <div class="cart">
+        <p class="cart-title">Košík > <b>Doprava a platba</b> > Dodacie údaje</p>
+        <div class="payment">
+            <label for="payment">Vyberte spôsob platby:</label>
+            <select name="payment" class="select">
+                <option value="karta">Karta</option>
+                <option value="hotovost">Hotovosťou pri dobierke</option>
+              </select>
+        </div>
+        <div class="delivery">
+            <label for="delivery">Vyberte spôsob dopravy:</label>
+            <select name="delivery" class="select">
+                <option value="kurier">Kuriérom (osobný odber)</option>
+                <option value="zasielkovna">Zásielkovňa</option>
+                <option value="posta">Poštou</option>
+              </select>
+        </div>
+        <button type="button" class="cancel-btn">Zrušiť</button>
+        <button type="button" class="continue-btn">Pokračovať</button>
+    </div>
+
+    <!--Nožička stránky-->
+	<footer>
+        <p>&copy; Copyright 2023, Footwear shop <img src="src/footer_logo.png" alt="footer logo"></p>
+    </footer>
+</body>
+</html>

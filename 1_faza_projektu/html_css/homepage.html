@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <!-- head -->
+  <head>
+    <title>Footwear Shop</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="header.css" rel="stylesheet">
+    <link href="homepage.css" rel="stylesheet">
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <nav class="nav-bar">
+          <div class="nav-bar-left">
+              <a class="link" href="#Homepage">Hlavná stránka</a>
+              <a class="link" href="#Contact">Kontakt</a>
+              <a class="link" href="#BusinessConditions">Obchodné podmienky</a>
+          </div>
+          <div class="nav-bar-right">
+              <a class="link" href="#Shipping">Doprava</a>
+              <a class="link" href="#Payment">Platba</a>
+              <a class="link" href="#Complaint">Reklamácia</a>
+          </div>
+        </nav>
+      <button type="button" class="header-button" onclick="loginPage()">Prihlásenie</button>
+      <button type="button" class="header-button" onclick="registerPage()">Registrácia</button>
+      <button type="button" class="header-button" onclick="search()">Hľadať</button>
+      <input type="text" class="header-search" placeholder="Vyhľadávanie">
+      
+      <img src="./src/logo.jpg" alt="Logo" class="header-logo">
+  </header>
+
+    <!-- nav-kategorie -->
+    <nav>
+      <ul>
+        <li><a href="#">Basketball</a></li>
+        <li><a href="#">Football</a></li>
+        <li><a href="#">Tenis</a></li>
+        <li><a href="#">Running</a></li>
+        <li><a href="#">Hiking</a></li>
+      </ul>
+    </nav>
+
+    <!-- NOVINKY -->
+    <div class="container">
+      <h1>New</h1>
+      <section class="product_section">
+        <!-- novy produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_1.jpg" alt=" "> 
+            <h3>Product Name</h3>
+          </a>
+            <p>Price of product</p>
+          <button id="new_to_cart_1">Add to Cart</button>
+        </div>
+        <!-- novy produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_2.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="new_to_cart_2">Add to Cart</button>
+        </div>
+        <!-- novy produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_3.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="new_to_cart_3">Add to Cart</button>
+        </div>
+        <!-- novy produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_3.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="new_to_cart_3">Add to Cart</button>
+        </div>
+        <!-- novy produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_3.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="new_to_cart_3">Add to Cart</button>
+        </div>
+        <!-- novy produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_3.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="new_to_cart_3">Add to Cart</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- AKCIE -->
+    <div class="container">
+      <h1>Sales</h1>
+      <section class="product_section">
+          <!-- akciovy produkt -->
+          <div class="product_card">
+            <a href="#">
+              <img src="src/new_1.jpg" alt=" ">
+              <h3>Product Name</h3>
+            </a>
+            <p>Price of product</p>
+            <button id="sales_to_cart_1">Add to Cart</button>
+          </div>
+          <!-- akciovy produkt -->
+          <div class="product_card">
+            <a href="#">
+              <img src="src/new_1.jpg" alt=" ">
+              <h3>Product Name</h3>
+            </a>
+            <p>Price of product</p>
+            <button id="sales_to_cart_2">Add to Cart</button>
+          </div>
+          <!-- akciovy produkt -->
+          <div class="product_card">
+            <a href="#">
+              <img src="src/new_1.jpg" alt=" ">
+              <h3>Product Name</h3>
+            </a>
+            <p>Price of product</p>
+            <button id="sales_to_cart_3">Add to Cart</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ODPORÚČANÉ -->
+    <div class="recommended">
+      <h1>Recommended</h1>
+      <section class="product_section">
+        <!-- odporucany produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_1.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="recommended_to_cart_1">Add to Cart</button>
+        </div>
+        <!-- odporucany produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_3.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+          <p>Price of product</p>
+          <button id="recommended_to_cart_2">Add to Cart</button>
+        </div>
+        <!-- odporucany produkt -->
+        <div class="product_card">
+          <a href="#">
+            <img src="src/new_2.jpg" alt=" ">
+            <h3>Product Name</h3>
+          </a>
+            <p>Price of product</p>
+          <button id="recommended_to_cart_3">Add to Cart</button>
+        </div>
+      </section>
+    </div>
+
+    <!--footer-->
+    <footer>
+      <p>&copy; Copyright 2023, Footwear shop <img src="src/footer_logo.png" alt="footer logo"></p>
+    </footer>
+  </body>
+</html>

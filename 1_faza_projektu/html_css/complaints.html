@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear shop</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="complaints.css">
+</head>
+<body>
+    <!--Hlavička stránky-->
+    <header>
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <a class="link" href="#Homepage">Hlavná stránka</a>
+                <a class="link" href="#Contact">Kontakt</a>
+                <a class="link" href="#BusinessConditions">Obchodné podmienky</a>
+            </div>
+            <div class="nav-bar-right">
+                <a class="link" href="#Shipping">Doprava</a>
+                <a class="link" href="#Payment">Platba</a>
+                <a class="link" href="#Complaint">Reklamácia</a>
+            </div>
+        </div>
+        <button type="button" class="header-button" onclick="loginPage()">Prihlásenie</button>
+        <button type="button" class="header-button" onclick="registerPage()">Registrácia</button>
+        <button type="button" class="header-button" onclick="search()">Hľadať</button>
+        <input type="text" class="header-search" placeholder="Vyhľadávanie">
+        
+        <img src="./src/logo.jpg" alt="Logo" class="header-logo">
+    </header>
+	
+	<!--Oddelovač-->
+	<div class="spacer">
+        &nbsp;
+    </div>
+
+    <div class="complaint">
+        <h1>Reklamácie tovaru</h1>
+        <p>V prípade, že nie ste s tovarom spokojní alebo má tovar nejaké vady, môžete požiadať o reklamáciu tovaru. Potrebujete k tomu doklad o zaplatení tovaru a povôdné balenie od tovaru.<br><br>Kroky reklamácie:</p>
+        <ol> 
+            <li> <a href="#">Kontaktuje nás</a> buď telefonicky alebo prostredníctvom emailu a vysvetlite, prečo chcete tovar vrátiť a nasledujte pokyny nášho pracovníka</li><br>
+            <li> Počkajte na spracovanie vašej požiadavky</li><br>
+            <li> V prípade akceptácie vašej reklamácie zašlite tovar na adresu <u><b>Kvetová 12 Bratislava, 847 69</b></u></li>
+        </ol>
+        <p>Za vzniknuté nepríjemnosti sa Vám ospravedlňujeme a dúfame, že u nás budete nakupovať aj naďalej.</p>
+    </div>
+
+    <!--Nožička stránky-->
+	<footer>
+        <p>&copy; Copyright 2023, Footwear shop <img src="src/footer_logo.png" alt="footer logo"></p>
+    </footer>
+</body>
+</html>

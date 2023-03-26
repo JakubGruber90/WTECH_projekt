@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Footwear shop</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="cart_address.css">
+</head>
+<body>
+    <!--Hlavička stránky-->
+    <header>
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <a class="link" href="#Homepage">Hlavná stránka</a>
+                <a class="link" href="#Contact">Kontakt</a>
+                <a class="link" href="#BusinessConditions">Obchodné podmienky</a>
+            </div>
+            <div class="nav-bar-right">
+                <a class="link" href="#Shipping">Doprava</a>
+                <a class="link" href="#Payment">Platba</a>
+                <a class="link" href="#Complaint">Reklamácia</a>
+            </div>
+        </div>
+        <button type="button" class="header-button" onclick="loginPage()">Prihlásenie</button>
+        <button type="button" class="header-button" onclick="registerPage()">Registrácia</button>
+        <button type="button" class="header-button" onclick="search()">Hľadať</button>
+        <input type="text" class="header-search" placeholder="Vyhľadávanie">
+        
+        <img src="./src/logo.jpg" alt="Logo" class="header-logo">
+    </header>
+
+    <!--Oddelovač-->
+    <div class="spacer">
+        &nbsp;
+    </div>
+
+    <!--Dodacie údaje-->
+    <div class="info">
+        <p class="info-title">Košík > Doprava a platba > <b>Dodacie údaje</b></p>
+        <div class="billing">
+        <input type="text" id="ulica" placeholder="Ulica" class="billing-input">
+        <input type="text" id="psc" placeholder="PSČ" class="billing-input">
+        <input type="text" id="mesto" placeholder="Mesto" class="billing-input">
+        </div>
+        <button type="button">Zrušiť</button>
+        <button type="button">Dokončiť</button>
+    </div>
+
+    <!--Nožička stránky-->
+	<footer>
+        <p>&copy; Copyright 2023, Footwear shop <img src="src/footer_logo.png" alt="footer logo"></p>
+    </footer> 
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Footwear shop</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+	<link rel="stylesheet" href="cart.css">
+</head>
+<body>
+	<!--Hlavička stránky-->
+    <header>
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <a class="link" href="#Homepage">Hlavná stránka</a>
+                <a class="link" href="#Contact">Kontakt</a>
+                <a class="link" href="#BusinessConditions">Obchodné podmienky</a>
+            </div>
+            <div class="nav-bar-right">
+                <a class="link" href="#Shipping">Doprava</a>
+                <a class="link" href="#Payment">Platba</a>
+                <a class="link" href="#Complaint">Reklamácia</a>
+            </div>
+        </div>
+        <button type="button" class="header-button" onclick="loginPage()">Prihlásenie</button>
+        <button type="button" class="header-button" onclick="registerPage()">Registrácia</button>
+        <button type="button" class="header-button" onclick="search()">Hľadať</button>
+        <input type="text" class="header-search" placeholder="Vyhľadávanie">
+        
+        <img src="./src/logo.jpg" alt="Logo" class="header-logo">
+    </header>
+	
+	<!--Oddelovač-->
+	<div class="spacer">
+        &nbsp;
+    </div>
+
+	<!--Nákupný košík-->
+	<div class="cart">
+		<p><b>Košík</b> > Doprava a platba > Dodacie údaje</p>
+		<div class="products">
+			<div class="item">
+				<img src="src\kb_3.jpg" alt="product">
+				<section class="specs">
+				<p>Meno</p>
+				<p>Farba</p>
+				<p>Veľkosť</p>
+				<p>Cena</p>
+				</section>
+				<p>Počet:</p>
+				<button type="button"><</button>
+				<input type="text" id="country" name="country" value="0" readonly>
+				<button type="button">></button>
+				<img src="src\x.png" alt="X">
+			</div>
+			<div class="item">
+				<img src="src\kb_3.jpg" alt="product">
+				<section class="specs">
+				<p>Meno</p>
+				<p>Farba</p>
+				<p>Veľkosť</p>
+				<p>Cena</p>
+				</section>
+				<p>Počet:</p>
+				<button type="button"><</button>
+				<input type="text" id="country" name="country" value="0" readonly>
+				<button type="button">></button>
+				<img src="src\x.png" alt="X">
+			</div>
+			<div class="item">
+				<img src="src\kb_3.jpg" alt="product">
+				<section class="specs">
+				<p>Meno</p>
+				<p>Farba</p>
+				<p>Veľkosť</p>
+				<p>Cena</p>
+				</section>
+				<p>Počet:</p>
+				<button type="button"><</button>
+				<input type="text" id="country" name="country" value="0" readonly>
+				<button type="button">></button>
+				<img src="src\x.png" alt="X">
+			</div>
+			<div class="item">
+				<img src="src\kb_3.jpg" alt="product">
+				<section class="specs">
+				<p>Meno</p>
+				<p>Farba</p>
+				<p>Veľkosť</p>
+				<p>Cena</p>
+				</section>
+				<p>Počet:</p>
+				<button type="button"><</button>
+				<input type="text" id="country" name="country" value="0" readonly>
+				<button type="button">></button>
+				<img src="src\x.png" alt="X">
+			</div>
+			<div class="item">
+				<img src="src\kb_3.jpg" alt="product">
+				<section class="specs">
+				<p>Meno</p>
+				<p>Farba</p>
+				<p>Veľkosť</p>
+				<p>Cena</p>
+				</section>
+				<p>Počet:</p>
+				<button type="button"><</button>
+				<input type="text" id="country" name="country" value="0" readonly>
+				<button type="button">></button>
+				<img src="src\x.png" alt="X">
+			</div>
+			<div class="item">
+				<img src="src\kb_3.jpg" alt="product">
+				<section class="specs">
+				<p>Meno</p>
+				<p>Farba</p>
+				<p>Veľkosť</p>
+				<p>Cena</p>
+				</section>
+				<p>Počet:</p>
+				<button type="button"><</button>
+				<input type="text" id="country" name="country" value="0" readonly>
+				<button type="button">></button>
+				<img src="src\x.png" alt="X">
+			</div>
+			
+		</div>
+		<button type="button" class="cart-button">Zrušiť</button>
+		<button type="button" class="cart-button">Pokračovať</button>
+	</div>
+
+	<!--Nožička stránky-->
+	<footer>
+        <p>&copy; Copyright 2023, Footwear shop <img src="src/footer_logo.png" alt="footer logo"></p>
+    </footer>
+</body>
+</html>
