@@ -7,7 +7,7 @@ html {
   body {
     padding-top: 200px;
     width: 100%;
-    min-width: 480px;
+    min-width: 320px;
     height: 100%;
     margin: 0 auto;
     background-color: #D18F2E;
@@ -97,4 +97,14 @@ html {
   }
   button:hover {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 490px) {
+    .canvas section {
+      flex-direction: column;
+      margin-left: 0;
+    }
+    .canvas section form input {
+      max-width: 260px;
+    }
   }

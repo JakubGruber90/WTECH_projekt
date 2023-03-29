@@ -7,7 +7,7 @@ html {
   body {
     padding-top: 200px;
     width: 100%;
-    min-width: 1024px;
+    min-width: 360px;
     height: 100%;
     margin: 0 auto;
     background-color: #D18F2E;
@@ -160,5 +160,23 @@ html {
     }
     footer {
       margin-top: 50px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+
+    .input_section form textarea {
+      margin-left: 0;
+      max-width: 280px;
+    }
+
+    footer {
+      text-align: left;
+    }
+
+    .all_input section input {
+      margin-left: 0;
+      font-size: 24px;
+      max-width: 280px;
     }
   }
