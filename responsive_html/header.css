@@ -1,12 +1,12 @@
 .header {
     border-bottom: 4px solid #23395d;
-    background-color: #46a2da;
+    background-image: url(src/blue-marble.jpg);
     position: fixed;
     top: 10px;
     left: 0;
     z-index: 999;
     width: 100%;
-    height: 120px;
+    height: 100px;
 }
 
 .nav-bar {
@@ -53,7 +53,7 @@
     font-size: 15px;
     position: absolute;
     display: block;
-    margin-top: 65px;
+    top: 44px;
     width: 120px;
 }
 
@@ -66,8 +66,7 @@
 }
 
 .header-button:nth-of-type(3) {
-    width: 90px;
-    right: 170px;
+    right: 190px;
 }
 
 .header-search {
@@ -78,21 +77,20 @@
     font-size: 15px;
     position: absolute;
     display: block;
-    margin-top: 65px;
-    right: 270px;
+    top: 44px;
+    right: 320px;
     text-align: center;
-    max-width: 126px;
+    max-width: 104px;
 }
 
 .header-logo {
     border-radius: 50%;
-    border: 4px solid #23395d;
+    border: 10px solid #23395d;
     position: fixed;
-    width: 150px;
-    padding: 10px;
+    width: 125px;
     top: 0px;
     left: 50%;
-    margin-left: -75px;
+    transform: translateX(-50%);
     background-color: #23395d;
     z-index: 1000;
 }
@@ -105,10 +103,10 @@
         left: 230px;
     }
     .header-button:nth-of-type(3) {
-        right: 80px;
+        right: 100px;
     }
     .header-search {
-        right: 180px;
+        right: 230px;
     }
 }
 
@@ -123,7 +121,7 @@
         right: 10px;
     }
     .header-search {
-        right: 110px;
+        right: 140px;
     }
 }
 
@@ -143,63 +141,35 @@
     .header-logo {
         top: 42px;
         max-width: 100px;
-    }
-    .header-button:nth-of-type(1) {
-        margin-top: 0px;
-        top: 45px;
-    }
-    .header-button:nth-of-type(2) {
-        margin-top: 0px;
-        top: 84px;
-        left: 10px;
-    }
-    .header-search {
-        margin-top: 0px;
-        top: 45px;
-        right: 10px;
-    }
-    .header-button:nth-of-type(3) {
-        margin-top: 0px;
-        top: 84px;
+        border: 7px solid #23395d;
     }
 }
 
-@media screen and (orientation: portrait) {
-    .header-logo {
-        max-width: 80px;
-    }
-    .nav-bar {
-        height: 40px;
-    }
-    .nav-bar-left {
-        width: 100%;
-        text-align: center;
-    }
-    .nav-bar-right {
-        width: 100%;
-        top: 27px;
-        text-align: center;
-    }
-    .header-logo {
-        top: 42px;
-        max-width: 100px;
-    }
+@media screen and (max-width: 650px) {
     .header-button:nth-of-type(1) {
-        margin-top: 0px;
-        top: 45px;
+        left: 2px;
     }
     .header-button:nth-of-type(2) {
-        margin-top: 0px;
         top: 84px;
-        left: 10px;
+        left: 2px;
     }
     .header-search {
-        margin-top: 0px;
-        top: 45px;
-        right: 10px;
+        right: 2px;
     }
     .header-button:nth-of-type(3) {
-        margin-top: 0px;
         top: 84px;
+        right: 2px;
+    }
+    .header {
+        height: 119px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .link {
+        padding: 8px 5px;
+    }
+    .header-logo {
+        max-width: 80px;
     }
 }
