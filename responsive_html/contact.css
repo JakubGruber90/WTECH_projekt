@@ -4,21 +4,25 @@ html {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    vertical-align: middle;
+    display: block;
     height: 100vh;
+}
+
+.spacer {
+    width: 100%;
+    height: 150px;
 }
 
 .contact {
     height: 250px;
-    width: 800px;
-    background-color: #D18F2E;
+    width: 1000px;
+    background-image: url(src/blue-marble.jpg);
     border: 4px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 2%;
+    display: block;
+    overflow: auto;
+    margin: auto;
+    text-align: center;
 }
 
 .contact p {
@@ -26,13 +30,9 @@ body {
 }
 
 .img {
-    float: right;
-    margin-left: 10px;
-}
-
-.spacer {
-    width: 100%;
-    height: 200px;
+    display: inline-block;
+    height: 17px;
+    width: 17px;
 }
 
 @media (max-width: 920px) {
