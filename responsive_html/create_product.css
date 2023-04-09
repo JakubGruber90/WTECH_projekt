@@ -1,19 +1,12 @@
 html {
 	font-family: 'Open Sans', sans-serif;
-	background-color: rgb(255, 255, 255);
+	background-color: #23395d;
   }
 
   /* Body styling */
   body {
-    width: 100%;
-    min-width: 1024px;
-    height: 100%;
-    min-height: 1000px;
-    margin: 0 auto;
-    background-color: #23395d;
-    position: relative;
-    align-self: center;
-    vertical-align: top;
+    display: block;
+    height: 100vh;
   }
 
   .spacer {
@@ -25,26 +18,19 @@ html {
     line-height: 0;
   }
   h1,h2 {
-    margin-left: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin: auto;
   }
   .canvas {
     border-bottom: 4px solid #46a2da;
     border-top: 4px solid #46a2da;
     color: white;
     padding-top: 10px;
-    min-height: 662px;
+    width: 90%;
+    margin: auto;
   }
   .canvas h1 {
-    font-size: 46px;
-  }
-  button {
-    border-color: #46a2da;
-    border-radius: 5px 5px 5px 5px;
-    background-color: #46a2da;
-    font-size: 28px;
-    color: white;
+    font-size: 40px;
+    text-align: center;
   }
   .input_files {
     margin-bottom: 50px;
@@ -67,24 +53,14 @@ html {
 
   /*input section*/
   .all_input {
-    flex-wrap: none;
-    justify-content: unset;
-    width: 100%;
-    min-height: 400px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    padding-top: 50px;
+    height: 400px;
     padding-bottom: 10px;
-    margin-bottom: 0px;
   }
   .all_input section {
-    margin-left: calc(2% + 20px);
-    margin-right: calc(2% + 20px);
     margin-top: 5%;
     font-size: 24px;
-    min-width: 350px;
-    max-width: 350px;
+    width: 30%;
+    float: left;
   }
   .all_input section label {
     font-size: 16px;
@@ -116,14 +92,28 @@ html {
   .confirm_button {
     text-align: center;
     font-size: 28px;
-    margin-left: 23px;
-    margin-top: 50px;
-    margin-top: 25px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-color: #46a2da;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #46a2da;
+    font-size: 28px;
+    color: white;
   }
-  @media screen and (max-width: 1110px) {
+
+  @media screen and (max-width: 1250px) {
+    .all_input {
+      height: 800px;
+    }
     .all_input section {
-      margin-right: 0;
-      margin-left: 10px;
+      float: none;
+      display: block;
+      margin-right:auto;
+      margin-left:auto;
+    }
+    .confirm_button {
+      clear: both;
     }
   }
   @media screen and (max-width: 920px) {

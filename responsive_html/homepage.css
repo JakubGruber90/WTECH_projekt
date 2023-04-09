@@ -6,26 +6,19 @@
 
   /* Body styling */
   body {
-    min-width: 480px;
-    width: 100%;
-    min-height: 960px;
-    height: 100%;
-    margin: 0 auto;
-    background-color: #D18F2E;
-    position: relative;
-    align-self: center;
-    vertical-align: top;
+    display: block;
+    height: 100vh;
   }
+  .spacer {
+    width: 100%;
+    height: 150px;
+}
   p {
 	line-height: 0;
   }
   h1 {
-    margin-left: 5px;
-    padding-top: 10px;
-  }
-  header {
-    background-color: #D18F2E;
-    padding-bottom: 200px;
+    margin: auto;
+    color: #23395d;
   }
   button {
     border: none;
@@ -72,7 +65,7 @@
 
   /* homepage section styling */
   .container {
-    background-color: white;
+    background-image: url(src/blue-marble.jpg);
     color: #46a2da;
     flex-wrap: none;
     justify-content: unset;
@@ -142,10 +135,13 @@
   }
 
   .recommended {
-    margin-top: 0;
     color: #46a2da;
-    background-color: white;
-    padding-top: 1px;
+    background-image: url(src/blue-marble.jpg);
+  }
+
+  .recommended h1 {
+    padding: 35px;
+    text-align: center;
   }
 
   .recommended section {

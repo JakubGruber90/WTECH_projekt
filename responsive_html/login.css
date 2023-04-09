@@ -5,16 +5,13 @@ html {
 
   /* Body styling */
   body {
-    width: 100%;
-    min-width: 480px;
-    height: 100%;
-    min-height: 960px;
-    margin: 0 auto;
-    background-color: #D18F2E;
-    position: relative;
-    align-self: center;
-    vertical-align: top;
+    display: block;
+    height: 100vh;
   }
+  .spacer {
+    width: 100%;
+    height: 150px;
+}
   p {
 	line-height: 0;
   }
@@ -22,10 +19,6 @@ html {
     margin-left: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
-  }
-  header {
-    background-color: #D18F2E;
-    padding-bottom: 200px;
   }
   .canvas h1 {
     font-size: 46px;
@@ -41,8 +34,6 @@ html {
     justify-content: unset;
     width: 100%;
     max-height: 550px;
-    min-height: 550px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     padding-top: 50px;

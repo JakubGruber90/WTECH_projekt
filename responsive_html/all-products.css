@@ -5,25 +5,20 @@ html {
 
   /* Body styling */
   body {
-    width: 100%;
-    min-width: 480px;
-    height: 100%;
-    min-height: 800px;
-    margin: 0 auto;
-    background-color: #D18F2E;
-    position: relative;
-    align-self: center;
-    vertical-align: top;
+    display: block;
+    height: 100vh;
   }
+
+  .spacer {
+    width: 100%;
+    height: 150px;
+  }
+
   p {
 	line-height: 0;
   }
   h1,h2 {
     margin-left: 5px;
-  }
-  header {
-    background-color: #D18F2E;
-    padding-bottom: 200px; 
   }
 
   /* products section styling */
@@ -34,13 +29,14 @@ html {
     color: white;
     flex-wrap: none;
     justify-content: unset;
-    width: 100%;
+    width: 90%;
     max-height: 963px;
     min-height: 963px;
     height: 100%;
     padding-bottom: 30px;
     display: flex;
     flex-direction: row;
+    margin: auto;
   }
   .container div {
     margin: 10px;
@@ -88,7 +84,7 @@ html {
     transition: background-color 0.3s ease;
   }
   nav ul li a:hover {
-    background-color: #D18F2E;
+    background-color: #23395d;
   }
   .price {
     font-size: 20px;
@@ -96,7 +92,7 @@ html {
     margin: 5% 5% 5% 5%;
   }
   .price:hover {
-    background-color: #D18F2E;
+    background-color: #23395d;
   }
   .sales {
     font-size: 14px;
