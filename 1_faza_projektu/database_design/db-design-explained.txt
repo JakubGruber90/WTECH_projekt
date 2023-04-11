@@ -3,42 +3,23 @@ Návrh databázy
 Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 11 tabuliek, z toho 4 hlavné:
 
 1. customers - obsahuje informácie o zákazníkoch - id zákazníka, krstné meno, priezvisko, heslo, email, telefónne číslo, adresa, mesto, štát 
-
 2. products - obsahuje informácie o produktoch - id produktu, kategória, popis, cena, fotky produktu, pole dostupných veľkostí, materiál, značka produktu, pole dostupných farieb a počet produktov na sklade
-
 3. orders - obsahuje všetky objednávky - id objednávky, id zákazníka, id produktov v objednávke, celková cena, id typu doručenia, id typu platby a id statusu objednávky
-
 4. cart - obsahuje informácie o produktoch v košíku - id košíku, id produktov v košíku, cena a id zákaznika, ktorému košík patrí
 
-Ďalej sú to 4 tabulky, ktoré dopĺňajú informácie o produktoch:
+Ďalej sú to 3 tabulky, ktoré upresňujú informácie o objednávkach:
 
-5. materials - obsahuje dostupné materiály - id materiálu a samotný materiál
+5. payment_methods - obsahuje dostupné typy platby - id typu platby, metóda platby
+6. shipping_types - obsahuje dostupné typy doručenia - id typu doručenia, názov typu doručenia a cena konkrétneho typu
+7. order_statuses - obsahuje informácie o stavoch objednávky - id stavu a názov stavu
 
-6. brands - obsahuje dostupné značky - id značky a názov značky
+Ďalej sú to 3 tabuľky, ktoré dopĺňajú informácie o produktoch:
+8. materials - obsahuje dostupné materiály - id materiálu a samotný materiál
+9. colors - obsahuje dostupné farby - id farby a hexadecimálny tvar farby
+10. sizes - obsahuje dostupné veľkosti - id veľkosti a veľkosť topánok v EU formáte
 
-7. colors - obsahuje dostupné farby - id farby a hexadecimálny tvar farby
-
-8. sizes - obsahuje dostupné veľkosti - id veľkosti a veľkosť topánok v EU formáte
-
-Nakoniec sú to 3 tabulky, ktoré upresňujú informácie o objednávkach:
-
-10. payment_methods - obsahuje dostupné typy platby - id typu platby, metóda platby
-
-11. shipping_types - obsahuje dostupné typy doručenia - id typu doručenia, názov typu doručenia a cena konkrétneho typu
-
-12. order_statuses - obsahuje informácie o stavoch objednávky - id stavu a názov stavu
-
-Vzťahy medzi jednotlivými tabuľkami sú prehľadne ukázané v priloženom PDF súbore s návrhom. 
-Typy vzťahov:
-
-1 - 1 (one-to-one): jeden objekt môže byť priradený len jednému objektu:
-	cart -> orders
-
-1 - M (one-to-many): jeden objekt môže byť priradený k viacerým objektom:
-	(order_statuses, payment_methods, shipping_types) -> orders	
-
-M - 1 (many-to-one): viac objektov môže byť priradených k jednému objektu
-	cart -> customers, (reviews, brands) -> products
-
-M - M (many-to-many): viac objektov môže byť priradených k viacerým objektom:
-	(customers, products) -> orders, products -> cart, (materials, colors, sizes) -> products
+A nakoniec sú to 4 tabuľky, ktoré definujú vzťahy medzi ostatnými tabuľkami:
+11. products_materials - spája tabuľky products a materials, určuje, aké materiály má konkrétny produkt
+12. products_sizes - spája tabuľky products a sizes, určuje, aké veľkosti sú dostupné pre daný produkt
+13. products_colors - spája tabuľky products a colors, určuje, aké farbý sú dostupné pre daný produkt
+14. products_cart - spája tabuľky products a cart, určuje, aké konkrétne produkty sú v nákupnom košíku
