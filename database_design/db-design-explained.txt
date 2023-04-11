@@ -1,6 +1,6 @@
 Návrh databázy
 
-Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 14 tabuliek, z toho 4 hlavné:
+Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 15 tabuliek, z toho 4 hlavné:
 
 1. customers - obsahuje informácie o zákazníkoch - id zákazníka, krstné meno, priezvisko, heslo, email, telefónne číslo, adresa, mesto, štát 
 2. products - obsahuje informácie o produktoch - id produktu, kategória, popis, cena, fotky produktu, pole dostupných veľkostí, materiál, značka produktu, pole dostupných farieb a počet produktov na sklade
@@ -17,6 +17,7 @@ Databáza bude pracovať v jazyku PostgreSQL a bude obsahovať celkovo 14 tabuli
 8. materials - obsahuje dostupné materiály - id materiálu a samotný materiál
 9. colors - obsahuje dostupné farby - id farby a hexadecimálny tvar farby
 10. sizes - obsahuje dostupné veľkosti - id veľkosti a veľkosť topánok v EU formáte
+11. products_pictures - obsahuje fotky konkrétneho produktu - id produktu a url fotky
 
 A nakoniec sú to 4 tabuľky, ktoré definujú vzťahy medzi ostatnými tabuľkami:
 11. products_materials - spája tabuľky products a materials, určuje, aké materiály má konkrétny produkt
