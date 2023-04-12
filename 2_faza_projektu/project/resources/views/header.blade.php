@@ -3,7 +3,7 @@
     <nav class="nav-bar">
         <div class="nav-bar-left">
             <a class="link" href="homepage">Hlavná stránka</a>
-            <a class="link" href="all-products">Produkty</a>
+            <a class="link" href="all-products">Všetky produkty</a>
             <a class="link" href="cart">Košík</a>
         </div>
         <div class="nav-bar-right">

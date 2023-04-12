@@ -29,10 +29,8 @@
 				<p>Cena</p>
 				</section>
 				<p>Počet:</p>
-				<button type="button" onclick=dec()><</button>
-				<input type="number" id="count" name="count" value=0 readonly>
-				<button type="button" onclick=add()>></button>
-				<img src="{{ asset('storage/src/x.png') }}" alt="X">
+				<input type="number" class="count" name="count" value=1>
+				<img src="{{ asset('storage/src/x.png') }}" alt="X" class="remove">
 			</div>
 
 		</div>
@@ -52,16 +50,20 @@
             window.location = "cart-payment";
         }
 
-        function add() {
-            var val = parseInt(document.getElementById("count").value);
-            document.getElementById("count").value = val + 1;
-        }
+        document.querySelectorAll('.count').forEach((element) => {
+            element.addEventListener(('change'), (event) => {
+                if (parseInt(event.target.value) <= 1) {
+                    event.target.value = 1;
+                }
+            });
+        });
 
-        function dec() {
-            var val = parseInt(document.getElementById("count").value);
-            if (parseInt(document.getElementById("count").value) > 0)
-                document.getElementById("count").value = val - 1;
-        }
+        document.querySelectorAll('.remove').forEach((element) => {
+            element.addEventListener('click', (event) => {
+                const parent = event.target.parentNode;
+                parent.parentNode.removeChild(parent);
+            });
+        });
     </script>
 </body>
 </html>

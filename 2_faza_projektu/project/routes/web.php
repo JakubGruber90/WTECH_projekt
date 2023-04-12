@@ -25,6 +25,10 @@ Route::get('/all-products', function() {
     return view('all_products');
 });
 
+Route::get('/selected-product', function() {
+    return view('selected_product');
+});
+
 Route::get('/contact', function() {
     return view('contact');
 });
@@ -55,4 +59,20 @@ Route::get('/login', function() {
 
 Route::get('/register', function() {
     return view('registration');
+});
+
+Route::get('/forgotten-password', function() {
+    return view('forgotten_password');
+});
+
+Route::get('/create-product', function() {
+    return view('create_product');
+});
+
+Route::get('/edit-product', function() {
+    return view('edit_product');
+});
+
+Route::get('/delete-product', function() {
+    return view('delete_product');
 });
