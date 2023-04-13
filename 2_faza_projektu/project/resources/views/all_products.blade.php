@@ -40,147 +40,19 @@
       
       <!-- PRODUKTY -->
       <div class="products">
-        <h2>@number_of_all_products</h2>
+        <h2>{{count($products)}}</h2>
         <section class="product_section">
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_1.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_1">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_2.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_2">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_3.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_3">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_1.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_1">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_2.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_2">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_3.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_3">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_1.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_1">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_2.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_2">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_3.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_3">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_1.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_1">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_2.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_2">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_3.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_3">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_1.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_1">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_2.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_2">Add to Cart</button>
-          </div>
-          <!-- produkt -->
-          <div class="product_card">
-            <a href="#">
-              <img src="{{ asset('storage/src/new_1.jpg') }}" alt=" ">
-              <h3>Product Name</h3>
-            </a>
-            <p>Price of product</p>
-            <button id="add_to_cart_3">Add to Cart</button>
-          </div>
-        </section>
-        <a href="#" class="paging">Previous Page</a>
-        <a href="#" class="paging">Next Page</a>
-      </div>
+          @foreach($products as $product)
+            <!-- produkt -->
+            <div class="product_card">
+              <a href="selected-product/{{$product->id}}">
+                <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product->id)) }}" alt=" ">
+                <h3>{{$product->title}}</h3>
+              </a>
+              <p>{{$product->price}} €</p>
+              <button id="add_to_cart_{{$product->id}}">Add to Cart</button>
+            </div>
+        @endforeach
     </section>
 
     <!--footer-->

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,20 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
 Route::get('/homepage', function() {
     return view('homepage');
 });
 
-Route::get('/all-products', function() {
-    return view('all_products');
-});
+Route::get('/all-products', [ProductController::class, 'index']);
 
-Route::get('/selected-product', function() {
-    return view('selected_product');
-});
+Route::get('/selected-product/{product_id}', [ProductController::class, 'select']);
 
 Route::get('/contact', function() {
     return view('contact');
