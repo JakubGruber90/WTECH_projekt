@@ -15,13 +15,12 @@ use App\Product;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
+Route::fallback(function () {
+    return redirect('/');
 });
 
-Route::get('/homepage', function() {
-    return view('homepage');
-});
+Route::get('/', [ProductController::class, 'homepage']);
+Route::get('/homepage', [ProductController::class, 'homepage']);
 
 Route::get('/all-products', [ProductController::class, 'index']);
 

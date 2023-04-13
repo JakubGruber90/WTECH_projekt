@@ -13,6 +13,19 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function homepage() {
+        $news = Product::limit(10)->get();
+        $sales = Product::limit(10)->get();
+        $recommends = Product::limit(10)->get();
+        $picture_finder = new Finder();
+        return view('homepage', [
+            'news' => $news,
+            'sales' => $sales,
+            'recommends' => $recommends,
+            'picture_finder' => $picture_finder,
+        ]);
+    }
+
     public function index()
     {
         $products = Product::all();
