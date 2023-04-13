@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
-  <!-- head -->
-  <head>
-    <title>Footwear Shop</title>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="login.css" rel="stylesheet">
-  </head>
-  <body>
-    <!--header-->
-    <script src="add_header.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear shop</title>
+    <link rel="stylesheet" href="{{ asset('storage/css/login.css') }}">
+</head>
+<body>
+    <!--Hlavička stránky-->
+    @include('header')
 
     <div class="spacer">
-      &nbsp;
+        &nbsp;
     </div>
 
     <!-- LOGIN -->
@@ -26,13 +26,13 @@
             <input type="password" placeholder="Password" id="password_field"><br>
             <br>
           </form>
-        <img src="src/login_1.png" alt=" ">
+        <img src="{{ asset('storage/src/login_1.png') }}" alt=" ">
       </section>
       <!-- login confirmation button -->
       <button id="confirm_login">Prihlásiť sa</button>
     </section>
 
-    <!--footer-->
-    <script src="add_footer.js"></script>
-  </body>
+    <!--Nožička stránky-->
+    @include('footer')
+</body>
 </html>
