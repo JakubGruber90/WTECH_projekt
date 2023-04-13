@@ -18,29 +18,29 @@
     <!-- ALL PRODUCTS -->
     <section class="container">
       <!-- CATEGORIES -->
-      <div class="nav">
+      <aside class="nav">
         <h1>List of all products</h1>
         <!-- kategorie -->
         <nav>
         <ul>
-            <li><a href="#">Basketball</a></li>
-            <li><a href="#">Football</a></li>
-            <li><a href="#">Tenis</a></li>
-            <li><a href="#">Running</a></li>
-            <li><a href="#">Hiking</a></li>
+            <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketball</a></li>
+            <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Football</a></li>
+            <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tenis</a></li>
+            <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Running</a></li>
+            <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Hiking</a></li>
             <br>
-            <li class="sales"><a href="#">Sales</a><br></li>
+            <li class="sales"><a href="{{redirect('all-products/sales')->headers->get('Location')}}">Sales</a><br></li>
             <br>
-            <li class="price"><input type="checkbox" id="0,50" name="0,50"><label for="0,50">0€ - 50€</label></li>
-            <li class="price"><input type="checkbox" id="50,100" name="50,100"><label for="50,100">50€ - 100€</label></li>
-            <li class="price"><input type="checkbox" id="150" name="150"><label for="150">150€+</label></li>
+            <li class="price"><a href="{{redirect('all-products/price/50')->headers->get('Location')}}">0€ - 50€</a></li>
+            <li class="price"><a href="{{redirect('all-products/price/100')->headers->get('Location')}}">50€ - 150€</a></li>
+            <li class="price"><a href="{{redirect('all-products/price/150')->headers->get('Location')}}">150€+</a></li>
         </ul>
         </nav>
-      </div>
+      </aside>
       
       <!-- PRODUKTY -->
       <div class="products">
-        <h2>{{count($products)}}</h2>
+        <h2>Počet produktov: {{count($products)}}</h2>
         <section class="product_section">
           @foreach($products as $product)
             <!-- produkt -->

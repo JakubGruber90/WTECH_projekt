@@ -1,15 +1,16 @@
 INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (1, 'SHOE 1', 'basketbal', 'shoes', 120, 'NIKE', 5);
+VALUES (1, 'SHOE 1', 'basketball', 'shoes', 120, 'NIKE', 5);
 INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (2, 'SHOE 2', 'basketbal', 'shoes', 130, 'NIKE', 10);
+VALUES (2, 'SHOE 2', 'basketball', 'shoes', 130, 'NIKE', 10);
 INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (3, 'SHOE 3', 'basketbal', 'shoes', 140, 'NIKE', 5);
+VALUES (3, 'SHOE 3', 'basketball', 'shoes', 140, 'NIKE', 5);
 INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (4, 'SHOE 4', 'basketbal', 'shoes', 150, 'NIKE', 15);
+VALUES (4, 'SHOE 4', 'basketball', 'shoes', 150, 'NIKE', 15);
 INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (5, 'SHOE 5', 'basketbal', 'shoes', 160, 'NIKE', 25);
+VALUES (5, 'SHOE 5', 'basketball', 'shoes', 160, 'NIKE', 25);
 INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (6, 'SHOE 6', 'basketbal', 'shoes', 180, 'NIKE', 4);
+VALUES (6, 'SHOE 6', 'basketball', 'shoes', 180, 'NIKE', 4);
+SELECT * FROM products;
 
 INSERT INTO product_pictures(id, picture_url) 
 VALUES (1, 'src/new_1.jpg');

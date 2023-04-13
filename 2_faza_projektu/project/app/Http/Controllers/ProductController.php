@@ -23,6 +23,41 @@ class ProductController extends Controller
         ]);
     }
 
+    public function filter_category($category)
+    {
+        $categories = ['basketball', 'football', 'hiking', 'tennis', 'running'];
+        if (in_array($category, $categories) == false) {
+            return redirect('all-products');
+        }
+        $products = Product::where('category','=',$category)->get();
+        $picture_finder = new Finder();
+        return view('all_products', [
+            'products' => $products,
+            'picture_finder' => $picture_finder,
+        ]);
+    }
+
+    public function filter_price($price) {
+        if ($price == '50') $products = Product::whereRaw('price < 50')->get();
+        else if ($price == '100') $products = Product::whereRaw('price > 50 and price < 150')->get();
+        else if ($price == '150') $products = Product::whereRaw('price > 150')->get();
+        else return redirect('all-products');
+        $picture_finder = new Finder();
+        return view('all_products', [
+            'products' => $products,
+            'picture_finder' => $picture_finder,
+        ]);
+    }
+
+    public function search($search_text) {
+        $products = Product::whereRaw("LOWER(title) ~ '" . $search_text . "'")->get();
+        $picture_finder = new Finder();
+        return view('all_products', [
+            'products' => $products,
+            'picture_finder' => $picture_finder,
+        ]);
+    }
+
     public function select($product_id) {
         if (is_numeric($product_id) == false) {
             return view('selected_product', [

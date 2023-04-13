@@ -25,6 +25,12 @@ Route::get('/homepage', function() {
 
 Route::get('/all-products', [ProductController::class, 'index']);
 
+Route::get('/all-products/{category}', [ProductController::class, 'filter_category']);
+
+Route::get('/all-products/price/{price}', [ProductController::class, 'filter_price']);
+
+Route::get('/search/{search}', [ProductController::class, 'search']);
+
 Route::get('/selected-product/{product_id}', [ProductController::class, 'select']);
 
 Route::get('/contact', function() {

@@ -18,11 +18,11 @@
     <!-- nav-kategorie -->
     <nav>
       <ul>
-        <li><a href="#">Basketball</a></li>
-        <li><a href="#">Football</a></li>
-        <li><a href="#">Tenis</a></li>
-        <li><a href="#">Running</a></li>
-        <li><a href="#">Hiking</a></li>
+        <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketball</a></li>
+        <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Football</a></li>
+        <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tennis</a></li>
+        <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Running</a></li>
+        <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Hiking</a></li>
       </ul>
     </nav>
 

@@ -2,29 +2,19 @@
 <header class="header">
     <nav class="nav-bar">
         <div class="nav-bar-left">
-            <a class="link" href="homepage">Hlavná stránka</a>
-            <a class="link" href="all-products">Všetky produkty</a>
-            <a class="link" href="cart">Košík</a>
+            <a class="link" href="{{ redirect('homepage')->headers->get('Location') }}">Hlavná stránka</a>
+            <a class="link" href="{{ redirect('all-products')->headers->get('Location') }}">Všetky produkty</a>
+            <a class="link" href="{{ redirect('cart')->headers->get('Location') }}">Košík</a>
         </div>
         <div class="nav-bar-right">
-            <a class="link" href="contact">Kontakt</a>
-            <a class="link" href="business-conditions">Obchodné podmienky</a>
-            <a class="link" href="complaint">Reklamácia</a>
+            <a class="link" href="{{ redirect('contact')->headers->get('Location') }}">Kontakt</a>
+            <a class="link" href="{{ redirect('business-conditions')->headers->get('Location') }}">Obchodné podmienky</a>
+            <a class="link" href="{{ redirect('complaints')->headers->get('Location') }}">Reklamácia</a>
         </div>
 </nav>
-    <button type="button" class="header-button" onclick="loginPage()">Prihlásenie</button>
-    <button type="button" class="header-button" onclick="registerPage()">Registrácia</button>
-    <button type="button" class="header-button" onclick="search()">Hľadať</button>
-    <input type="text" class="header-search" placeholder="Vyhľadávanie">
+    <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('login')->headers->get('Location') }}')">Prihlásenie</button>
+    <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('register')->headers->get('Location') }}')">Registrácia</button>
+    <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
+    <input type="text" class="header-search" id="search" placeholder="Vyhľadávanie">
 </header>
 <img src="{{ asset('storage/src/logo.jpg') }}" alt="Logo" class="header-logo">
-
-<script>
-    function loginPage() {
-        window.location = "login";
-    }
-
-    function registerPage() {
-        window.location = "register";
-    }
-</script>
