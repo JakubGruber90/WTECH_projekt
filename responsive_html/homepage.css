@@ -95,7 +95,7 @@
     height: 15px;
   }
   .product_section::-webkit-scrollbar-thumb {
-    background: #D18F2E;
+    background: white;
   }
   .product_section::-webkit-scrollbar-track {
     background: #23395d;

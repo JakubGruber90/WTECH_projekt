@@ -30,8 +30,6 @@ html {
     flex-wrap: none;
     justify-content: unset;
     width: 90%;
-    max-height: 963px;
-    min-height: 963px;
     height: 100%;
     padding-bottom: 30px;
     display: flex;

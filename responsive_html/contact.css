@@ -14,8 +14,8 @@ body {
 }
 
 .contact {
-    height: 250px;
-    width: 1000px;
+    height: auto;
+    width: 80%;
     background-image: url(src/blue-marble.jpg);
     border: 4px solid;
     padding: 2%;
@@ -38,13 +38,11 @@ body {
 @media (max-width: 920px) {
     .contact {
         width: 90%;
-        height: auto;
     }
 }
 
 @media (max-width: 800px) {
     .contact {
         width: 95%;
-        height: auto;
     }
 }
