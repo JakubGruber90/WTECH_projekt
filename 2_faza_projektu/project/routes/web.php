@@ -20,7 +20,6 @@ Route::fallback(function () {
 });
 
 Route::get('/', [ProductController::class, 'homepage']);
-Route::get('/homepage', [ProductController::class, 'homepage']);
 
 Route::get('/all-products', [ProductController::class, 'index']);
 

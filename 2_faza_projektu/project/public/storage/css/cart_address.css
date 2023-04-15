@@ -1,0 +1,96 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #23395d;
+}
+
+body {
+    display: block;
+    height: 100vh;
+}
+
+button:hover {
+    cursor: pointer
+}
+
+.spacer {
+    width: 100%;
+    height: 150px;
+}
+
+.info {
+    height: 400px;
+    width: 80%;
+    background-image: url(../src/blue-marble.jpg);
+    border: 4px solid;
+    display: block;
+    overflow: auto;
+    margin: auto;
+}
+
+.info-title {
+    text-align: center;
+    font-size: 140%;
+} 
+
+.billing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.billing-input {
+    width: 60%;
+    height: 20px;
+    margin: 20px;
+    font-size: 20px;
+}
+
+.info button:nth-of-type(1) {
+    margin-left: 50px;
+    margin-top: 15px;
+    border: none;
+    background-color: #23395d;
+    color: white;
+    width: 10%;
+    min-width: 100px;
+    height: 30px;
+}
+
+.info button:nth-of-type(2) {
+    margin-right: 50px;
+    margin-top: 15px;
+    float: right;
+    border: none;
+    background-color: #23395d;
+    color: white;
+    width: 10%;
+    min-width: 100px;
+    height: 30px;
+}
+
+@media (max-width: 920px) {
+    .info {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .info button {
+        min-width: auto;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .info {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .billing-input {
+        width: 80%;
+    }
+
+    .info button {
+        margin: 10px;
+    }
+}
+

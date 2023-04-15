@@ -2,7 +2,7 @@
 <header class="header">
     <nav class="nav-bar">
         <div class="nav-bar-left">
-            <a class="link" href="{{ redirect('homepage')->headers->get('Location') }}">Hlavná stránka</a>
+            <a class="link" href="{{ redirect('/')->headers->get('Location') }}">Hlavná stránka</a>
             <a class="link" href="{{ redirect('all-products')->headers->get('Location') }}">Všetky produkty</a>
             <a class="link" href="{{ redirect('cart')->headers->get('Location') }}">Košík</a>
         </div>
