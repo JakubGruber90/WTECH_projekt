@@ -43,7 +43,10 @@
         <br>
         <label id="sklad" class="count"><span>Na sklade: {{ $product->quantity }}</span></label>
         <br>
-        <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
+        <form method="GET" action="{{ route('cartAdd', $product->id) }}" accept-charset="UTF-8">
+          {{ csrf_field() }}
+          <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
+        </form>
         <br><br><br><br>
         <!-- <label id="rating" class="rating"> <span>Hodnotenie: @rating</span></label> -->
       @endif

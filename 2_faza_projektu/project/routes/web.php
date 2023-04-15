@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Product;
+use App\Http\Controllers\CartController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,13 +40,13 @@ Route::get('/business-conditions', function() {
     return view('business_conditions');
 });
 
-Route::get('/complaint', function() {
+Route::get('/complaints', function() {
     return view('complaints');
 });
 
-Route::get('/cart', function() {
-    return view('cart');
-});
+Route::get('/cart', [CartController::class, 'getCart'])->name('getCart');
+
+Route::get('/cartAdd/{product_id}', [CartController::class, 'cartAdd'])->name('cartAdd');
 
 Route::get('/cart-payment', function() {
     return view('cart_payment');

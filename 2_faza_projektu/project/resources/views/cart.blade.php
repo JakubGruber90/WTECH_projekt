@@ -19,19 +19,24 @@
 	<div class="cart">
 		<p><b>Košík</b> > Doprava a platba > Dodacie údaje</p>
 		<div class="products">
-
-            <div class="item">
-				<img src="{{ asset('storage/src/kb_3.jpg') }}" alt="product">
-				<section class="specs">
-				<p>Meno</p>
-				<p>Farba</p>
-				<p>Veľkosť</p>
-				<p>Cena</p>
-				</section>
-				<p>Počet:</p>
-				<input type="number" class="count" name="count" value=1>
-				<img src="{{ asset('storage/src/x.png') }}" alt="X" class="remove">
-			</div>
+        @if (Session::has('cart'))
+            @foreach ($products as $product)
+                <div class="item">
+                    <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']['id'])) }}" alt="product">
+                    <section class="specs">
+                    <p>{{ $product['item']['name'] }}</p>
+                    <p>{{ $product['item']['brand'] }}</p>
+                    <p>{{ $product['item']['size'] }}</p>
+                    <p>{{ $product['item']['price'] }}</p>
+                    </section>
+                    <p>Počet:</p>
+                    <input type="number" class="count" name="count" value=1>
+                    <img src="{{ asset('storage/src/x.png') }}" alt="X" class="remove">
+                </div>
+            @endforeach
+        @else
+        <p>Váš košík je prázdny</p>
+        @endif
 
 		</div>
 		<button type="button" class="cart-button" onclick="homepage()">Zrušiť</button>
