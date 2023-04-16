@@ -20,6 +20,9 @@ html {
   h1,h2 {
     margin-left: 5px;
   }
+  .products button:hover {
+    background-color: #46a2da;
+  }
 
   /* products section styling */
   .container {
@@ -68,9 +71,6 @@ html {
   }
   nav ul li {
     margin: 5% 5% 5% 5%;
-  }
-  nav ul li:last-child {
-    margin-right: 0;
   }
   nav ul li a {
     color: white;

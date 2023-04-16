@@ -33,7 +33,7 @@
           <span>{{ $product->description }}</span>
         </article>
         <h3 class="h_shoe_size">Vyberte si veľkosť (EU)</h3>
-        <select title="sizes" class="shoe_size">
+        <select title="sizes" class="shoe_size" id="shoe_size">
           @foreach ($sizes as $size)
           <option value="{{ $size->size }}">{{ $size->size }}</option>
           @endforeach
@@ -45,9 +45,9 @@
         <br>
         <form method="GET" action="{{ route('cartAdd', $product->id) }}" accept-charset="UTF-8">
           {{ csrf_field() }}
+          <input id="size_input" type="hidden" name="size" value="">
           <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
         </form>
-        <br><br><br><br>
         <!-- <label id="rating" class="rating"> <span>Hodnotenie: @rating</span></label> -->
       @endif
       </div>
@@ -55,5 +55,12 @@
 
     <!--Nožička stránky-->
     @include('footer')
+
+    <script>
+      document.getElementById('size_input').value = document.getElementById('shoe_size').value;
+      document.getElementById('shoe_size').addEventListener('change', (event) => {
+        document.getElementById('size_input').value = event.target.value;
+      });
+    </script>
 </body>
 </html>

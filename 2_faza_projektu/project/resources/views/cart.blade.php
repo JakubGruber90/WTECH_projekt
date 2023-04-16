@@ -24,10 +24,10 @@
                 <div class="item">
                     <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']['id'])) }}" alt="product">
                     <section class="specs">
-                    <p>{{ $product['item']['name'] }}</p>
-                    <p>{{ $product['item']['brand'] }}</p>
-                    <p>{{ $product['item']['size'] }}</p>
-                    <p>{{ $product['item']['price'] }}</p>
+                    <p>Title: {{ $product['item']['title'] }}</p>
+                    <p>Brand: {{ $product['item']['brand'] }}</p>
+                    <p>Size: {{ $product['item']['size'] }}</p>
+                    <p>Price: {{ $product['item']['price'] }}€</p>
                     </section>
                     <p>Počet:</p>
                     <input type="number" class="count" name="count" value=1>
@@ -39,22 +39,14 @@
         @endif
 
 		</div>
-		<button type="button" class="cart-button" onclick="homepage()">Zrušiť</button>
-		<button type="button" class="cart-button"  onclick="payment()">Pokračovať</button>
+		<button type="button" class="cart-button" onclick="window.location.replace('homepage')">Zrušiť</button>
+		<button type="button" class="cart-button"  onclick="window.location.replace('cart-payment')">Pokračovať</button>
 	</div>
 
     <!--Nožička stránky-->
     @include('footer')
 
     <script>
-        function homepage() {
-            window.location = "homepage";
-        }
-
-        function payment() {
-            window.location = "cart-payment";
-        }
-
         document.querySelectorAll('.count').forEach((element) => {
             element.addEventListener(('change'), (event) => {
                 if (parseInt(event.target.value) <= 1) {

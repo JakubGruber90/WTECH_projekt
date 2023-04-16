@@ -50,7 +50,7 @@
                 <h3>{{$product->title}}</h3>
               </a>
               <p>{{$product->price}} €</p>
-              <button id="add_to_cart_{{$product->id}}">Add to Cart</button>
+              <button onclick="window.location.replace('selected-product/' + {{$product->id}})">Show Details</button>
             </div>
         @endforeach
     </section>
