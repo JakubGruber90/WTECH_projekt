@@ -38,7 +38,7 @@
               <h3>{{$new->title}}</h3>
             </a>
             <p>{{$new->price}} €</p>
-            <button id="add_to_cart_{{$new->id}}">Add to Cart</button>
+            <button onclick="window.location.replace('selected-product/' + {{$new->id}})"">Show Details</button>
           </div>
         @endforeach
       </section>
@@ -56,7 +56,7 @@
               <h3>{{$sale->title}}</h3>
             </a>
             <p>{{$sale->price}} €</p>
-            <button id="add_to_cart_{{$sale->id}}">Add to Cart</button>
+            <button onclick="window.location.replace('selected-product/' + {{$sale->id}})"">Show Details</button>
           </div>
         @endforeach
       </section>
@@ -74,7 +74,7 @@
               <h3>{{$recommend->title}}</h3>
             </a>
             <p>{{$recommend->price}} €</p>
-            <button id="add_to_cart_{{$recommend->id}}">Add to Cart</button>
+            <button onclick="window.location.replace('selected-product/' + {{$recommend->id}})"">Show Details</button>
           </div>
         @endforeach
       </section>

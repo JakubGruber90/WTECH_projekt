@@ -15,7 +15,9 @@ class CartController extends Controller
         $product = Product::find($product_id);
         $oldcart = Session::has('cart') ? Session::get('cart'): null;
         $cart = new Cart($oldcart);
-        $cart->add($product, $product->id);
+
+        $size = $request->input('size');
+        $cart->add($product, $product->id, $size);
 
         $request->session()->put('cart', $cart);
 

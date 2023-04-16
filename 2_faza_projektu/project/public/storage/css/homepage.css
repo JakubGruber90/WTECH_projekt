@@ -25,6 +25,9 @@
     background-color: #23395d;
     color: white;
   }
+  button:hover {
+    background-color: #46a2da;
+  }
 
   /* Navigation styling */
   nav {
