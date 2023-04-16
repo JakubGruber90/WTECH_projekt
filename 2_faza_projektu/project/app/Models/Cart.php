@@ -21,15 +21,11 @@ class Cart {
             }
         }
         $this->items[$product_id] = $storedItem;
-        Log::info('Cart add', $this->items);
     }
 
     public function delete($item, $product_id) {
-        Log::info('product id for deletion', $product_id);
-        Log::info('item for deletion', $item);
-        if (($key = array_search($product_id, $this->items) !== false)) {
-            unset($this->items[$key]);
-            Log::info('Cart delete', $this->items);
+        if (array_key_exists($product_id, $this->items)) {
+            unset($this->items[$product_id]);
         }
     }
 }
