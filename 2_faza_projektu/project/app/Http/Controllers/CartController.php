@@ -19,7 +19,19 @@ class CartController extends Controller
 
         $request->session()->put('cart', $cart);
 
-        return redirect()->back();
+        return redirect()->route('homepage');
+    }
+
+    
+    public function cartDelete(Request $request, $product_id) {
+        $product = Product::find($product_id);
+        $oldcart = Session::get('cart');
+        $oldcart->delete($product, $product->id);
+        $picture_finder = new Finder();
+
+        $request->session()->put('cart', $oldcart);
+
+        return redirect()->route('getCart');
     }
 
     public function getCart() {

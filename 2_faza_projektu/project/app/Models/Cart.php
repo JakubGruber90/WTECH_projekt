@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Facades\Log;
 
 class Cart {
     public $items = null;
@@ -19,5 +20,15 @@ class Cart {
             }
         }
         $this->items[$product_id] = $storedItem;
+        Log::info('Cart add', $this->items);
+    }
+
+    public function delete($item, $product_id) {
+        Log::info('product id for deletion', $product_id);
+        Log::info('item for deletion', $item);
+        if (($key = array_search($product_id, $this->items) !== false)) {
+            unset($this->items[$key]);
+            Log::info('Cart delete', $this->items);
+        }
     }
 }

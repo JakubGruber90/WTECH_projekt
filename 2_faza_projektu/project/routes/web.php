@@ -20,7 +20,7 @@ Route::fallback(function () {
     return redirect('/');
 });
 
-Route::get('/', [ProductController::class, 'homepage']);
+Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
 
 Route::get('/all-products', [ProductController::class, 'index']);
 
@@ -47,6 +47,8 @@ Route::get('/complaints', function() {
 Route::get('/cart', [CartController::class, 'getCart'])->name('getCart');
 
 Route::get('/cartAdd/{product_id}', [CartController::class, 'cartAdd'])->name('cartAdd');
+
+Route::get('/carDelete/{product_id}', [CartController::class, 'cartDelete'])->name('cartDelete');
 
 Route::get('/cart-payment', function() {
     return view('cart_payment');

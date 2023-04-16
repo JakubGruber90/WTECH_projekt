@@ -107,10 +107,9 @@ button:hover {
     height: 100%;
 }
 
-.item img:nth-of-type(2) {
+.item a {
     width: auto;
     height: 50%;
-    display: -webkit-box;
     margin-left: auto;
 }
 

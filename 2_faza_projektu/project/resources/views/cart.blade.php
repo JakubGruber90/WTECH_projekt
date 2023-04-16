@@ -24,14 +24,14 @@
                 <div class="item">
                     <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']['id'])) }}" alt="product">
                     <section class="specs">
-                    <p>{{ $product['item']['name'] }}</p>
+                    <p>{{ $product['item']['title'] }}</p>
                     <p>{{ $product['item']['brand'] }}</p>
-                    <p>{{ $product['item']['size'] }}</p>
-                    <p>{{ $product['item']['price'] }}</p>
+                    <p>{{ $product['item']['size'] }}</p> <!-- Treba pridat vyberanie size, ked clovek dava do kosika -->
+                    <p>{{ $product['item']['price'] }}€</p>
                     </section>
                     <p>Počet:</p>
                     <input type="number" class="count" name="count" value=1>
-                    <img src="{{ asset('storage/src/x.png') }}" alt="X" class="remove">
+                    <a method="GET" href="{{ route('cartDelete', $product['item']['id']) }}"><img src="{{ asset('storage/src/x.png') }}" alt="X"></a>
                 </div>
             @endforeach
         @else
@@ -60,13 +60,6 @@
                 if (parseInt(event.target.value) <= 1) {
                     event.target.value = 1;
                 }
-            });
-        });
-
-        document.querySelectorAll('.remove').forEach((element) => {
-            element.addEventListener('click', (event) => {
-                const parent = event.target.parentNode;
-                parent.parentNode.removeChild(parent);
             });
         });
     </script>
