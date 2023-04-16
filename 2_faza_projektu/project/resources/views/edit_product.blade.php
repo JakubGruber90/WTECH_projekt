@@ -34,10 +34,17 @@
         <section class="input_section">
             <form>
               <br>
-              <input type="number" placeholder="Cena produktu" id="price"><br>
+              <input type="number" step=".01" placeholder="Cena produktu" id="price"><br>
               <br>
-              <input type="text" placeholder="Kategória produktu" id="category"><br>
-              <br>
+              <select title="category" class="categories" placeholder="Kategória produktu" id="category">
+                <option value="Empty" class="empty" id="empty">Kategória produktu</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Football">Football</option>
+                <option value="Voleyball">Voleyball</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Running">Running</option>
+                <option value="Hiking">Hiking</option>
+              </select><br><br>
               <input type="text" placeholder="Materiál produktu" id="material"><br>
               <br>
               <input type="text" placeholder="Značka produktu" id="brand"><br>
@@ -66,5 +73,23 @@
 
     <!--Nožička stránky-->
     @include('footer')
+
+    <script>
+      document.getElementById('category').style.color = "#707070";
+      document.getElementById('category').addEventListener(('change'), (event) => {
+          if (event.target.value != 'Empty') {
+              event.target.style.color = "black";
+          }
+          else {
+            event.target.style.color = "#707070";
+          }
+      });
+
+      document.getElementById('price').addEventListener(('change'), (event) => {
+          if (parseFloat(event.target.value) <= 0) {
+              event.target.value = 0;
+          }
+      });
+    </script>
 </body>
 </html>

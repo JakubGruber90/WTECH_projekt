@@ -38,7 +38,7 @@ class ProductController extends Controller
 
     public function filter_category($category)
     {
-        $categories = ['basketball', 'football', 'hiking', 'tennis', 'running'];
+        $categories = ['basketball', 'volleyball', 'football', 'hiking', 'tennis', 'running'];
         if (in_array($category, $categories) == false) {
             return redirect('all-products');
         }
