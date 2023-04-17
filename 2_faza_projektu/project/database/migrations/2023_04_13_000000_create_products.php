@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('price');
             $table->string('brand');
             $table->integer('quantity');
+            $table->timestamp('created_at');
+            $table->boolean('onsale')->default(false);
         });
     }
 

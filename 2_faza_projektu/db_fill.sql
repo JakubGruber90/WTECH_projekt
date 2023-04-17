@@ -1,15 +1,15 @@
-INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (1, 'SHOE 1', 'basketball', 'shoes', 120, 'NIKE', 5);
-INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (2, 'SHOE 2', 'basketball', 'shoes', 130, 'NIKE', 10);
-INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (3, 'SHOE 3', 'basketball', 'shoes', 140, 'NIKE', 5);
-INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (4, 'SHOE 4', 'basketball', 'shoes', 150, 'NIKE', 15);
-INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (5, 'SHOE 5', 'basketball', 'shoes', 160, 'NIKE', 25);
-INSERT INTO products(id, title, category, description, price, brand, quantity) 
-VALUES (6, 'SHOE 6', 'basketball', 'shoes', 180, 'NIKE', 4);
+INSERT INTO products(id, title, category, description, price, brand, quantity, created_at, onsale) 
+VALUES (1, 'SHOE 1', 'basketball', 'shoes', 120, 'NIKE', 5, '2023-04-17', FALSE);
+INSERT INTO products(id, title, category, description, price, brand, quantity, created_at, onsale) 
+VALUES (2, 'SHOE 2', 'basketball', 'shoes', 130, 'NIKE', 10, '2023-04-17', FALSE);
+INSERT INTO products(id, title, category, description, price, brand, quantity, created_at, onsale) 
+VALUES (3, 'SHOE 3', 'basketball', 'shoes', 140, 'NIKE', 5, '2023-04-17', FALSE);
+INSERT INTO products(id, title, category, description, price, brand, quantity, created_at, onsale) 
+VALUES (4, 'SHOE 4', 'basketball', 'shoes', 150, 'NIKE', 15, '2023-04-17', TRUE);
+INSERT INTO products(id, title, category, description, price, brand, quantity, created_at, onsale) 
+VALUES (5, 'SHOE 5', 'basketball', 'shoes', 160, 'NIKE', 25, '2023-04-17', TRUE);
+INSERT INTO products(id, title, category, description, price, brand, quantity, created_at, onsale) 
+VALUES (6, 'SHOE 6', 'basketball', 'shoes', 180, 'NIKE', 4, '2023-04-17', TRUE);
 SELECT * FROM products;
 
 INSERT INTO product_pictures(id, picture_url) 

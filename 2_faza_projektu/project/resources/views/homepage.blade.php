@@ -19,6 +19,7 @@
     <nav>
       <ul>
         <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketball</a></li>
+        <li><a href="{{redirect('all-products/volleyball')->headers->get('Location')}}">Volleyball</a></li>
         <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Football</a></li>
         <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tennis</a></li>
         <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Running</a></li>
@@ -46,7 +47,7 @@
 
     <!-- AKCIE -->
     <div class="container">
-      <h1>Sales</h1>
+      <h1 onclick="window.location.replace(`{{redirect('sales')->headers->get('Location')}}`)" class="sales_header">Sales</h1>
       <section class="product_section">
         @foreach($sales as $sale)
           <!-- akciovy produkt -->

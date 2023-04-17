@@ -16,17 +16,21 @@ use App\Models\Product;
 |
 */
 
-Route::fallback(function () {
+/*Route::fallback(function () {
     return redirect('/');
-});
+});*/
 
 Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
 
-Route::get('/all-products', [ProductController::class, 'index']);
+//Route::get('/all-products', [ProductController::class, 'index']);
 
 Route::get('/all-products/{category}', [ProductController::class, 'filter_category']);
 
+Route::get('/all-products/page/{page}', [ProductController::class, 'show_page']);
+
 Route::get('/all-products/price/{price}', [ProductController::class, 'filter_price']);
+
+Route::get('/sales', [ProductController::class, 'filter_sales']);
 
 Route::get('/search/{search}', [ProductController::class, 'search']);
 

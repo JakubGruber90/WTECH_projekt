@@ -24,23 +24,30 @@
         <nav>
         <ul>
             <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketball</a></li>
+            <li><a href="{{redirect('all-products/volleyball')->headers->get('Location')}}">Volleyball</a></li>
             <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Football</a></li>
             <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tenis</a></li>
             <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Running</a></li>
             <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Hiking</a></li>
             <br>
-            <li class="sales"><a href="{{redirect('all-products/sales')->headers->get('Location')}}">Sales</a><br></li>
+            <li class="sales"><a href="{{redirect('sales')->headers->get('Location')}}">Sales</a><br></li>
             <br>
             <li class="price"><a href="{{redirect('all-products/price/50')->headers->get('Location')}}">0€ - 50€</a></li>
             <li class="price"><a href="{{redirect('all-products/price/100')->headers->get('Location')}}">50€ - 150€</a></li>
             <li class="price"><a href="{{redirect('all-products/price/150')->headers->get('Location')}}">150€+</a></li>
         </ul>
         </nav>
+        @if ($paging)
+        <div class="paging">
+          <a href="#" onclick="prev_page()">Previous Page</a>
+          <a href="#" onclick="next_page()">Next Page</a>
+        </div>
+        @endif
       </aside>
       
       <!-- PRODUKTY -->
       <div class="products">
-        <h2>Počet produktov: {{count($products)}}</h2>
+        <h2>Počet produktov: {{$count}}</h2>
         <section class="product_section">
           @foreach($products as $product)
             <!-- produkt -->
@@ -53,9 +60,38 @@
               <button onclick="window.location.replace('selected-product/' + {{$product->id}})">Show Details</button>
             </div>
         @endforeach
+      </div>
     </section>
 
     <!--footer-->
     @include('footer')
+
+    @if ($paging)
+    <script>
+      function next_page() {
+        const url = window.location.href;
+        const current_page = url.substring(url.lastIndexOf('/') + 1);
+        if (isNaN(current_page) || url.includes("price")) {
+          //console.log("{{redirect('all-products/page/0')->headers->get('Location')}}");
+          window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
+        }
+        else {
+          //console.log("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) + 1).toString());
+          window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) + 1).toString());
+        }
+      }
+
+      function prev_page() {
+        const url = window.location.href;
+        const current_page = url.substring(url.lastIndexOf('/') + 1);
+        if (isNaN(current_page) || url.includes("price")) {
+          window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
+        }
+        else {
+          window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) - 1).toString());
+        }
+      }
+    </script>
+    @endif
   </body>
 </html>

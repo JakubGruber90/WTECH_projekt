@@ -132,6 +132,25 @@ html {
       clear: both;
     }
   }
+
+  @media screen and (max-width: 480px) {
+
+    .input_section form textarea {
+      margin-left: 0;
+      max-width: 280px;
+    }
+
+    footer {
+      text-align: left;
+    }
+
+    .all_input section input {
+      margin-left: 0;
+      font-size: 24px;
+      max-width: 280px;
+    }
+  }
+  
   /*@media screen and (max-width: 920px) {
     .all_input {
       flex-direction: column;

@@ -55,6 +55,12 @@
         <section class="input_section">
             <form>
               <br>
+              <select title="onsale" class="categories" placeholder="Kategória produktu" id="onsale">
+                <option value="Empty" class="empty" id="empty">V akcií</option>
+                <option value="True">Áno</option>
+                <option value="False">Nie</option>
+              </select><br>
+              <br>
               <input type="text" placeholder="Farba produktu" id="color" class="color"><br>
               <br>
               <span class="files_label">Nahrať veľkosti</span>
@@ -75,16 +81,18 @@
     @include('footer')
 
     <script>
-      document.getElementById('category').style.color = "#707070";
-      document.getElementById('category').addEventListener(('change'), (event) => {
+      var elements = document.querySelectorAll('.categories');
+      elements.forEach(element => {
+        element.style.color = "#707070";
+        element.addEventListener(('change'), (event) => {
           if (event.target.value != 'Empty') {
               event.target.style.color = "black";
           }
           else {
             event.target.style.color = "#707070";
           }
+        });
       });
-
       document.getElementById('price').addEventListener(('change'), (event) => {
           if (parseFloat(event.target.value) <= 0) {
               event.target.value = 0;

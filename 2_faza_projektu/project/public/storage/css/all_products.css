@@ -147,10 +147,44 @@ html {
   .paging {
     margin-left: 10px;
     margin-right: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
     color: white;
+  }
+  .paging a {
+    font-weight: bold;
+  }
+  .paging a:hover {
+    cursor: pointer;
+    background-color: #46a2da;
+  }
+  .paging a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  .paging a:link {
+    color: white;
+    text-decoration: none;
   }
   button {
     border: none;
     background-color: #23395d;
     color: white;
+  }
+
+  @media screen and (max-width: 490px) {
+    .container {
+      flex-flow: column;
+      max-height: 100%;
+    }
+
+    .product_section {
+      margin-left: 0;
+      justify-content: unset;
+    }
+
+    .product_card {
+      margin-left: 0;
+    }
   }

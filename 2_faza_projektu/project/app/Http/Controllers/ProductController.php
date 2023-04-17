@@ -14,8 +14,8 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
     public function homepage() {
-        $news = Product::limit(10)->get();
-        $sales = Product::limit(10)->get();
+        $news = Product::whereRaw("created_at > (CURRENT_DATE - INTERVAL '30 days')")->limit(10)->get();
+        $sales = Product::whereRaw("onsale = TRUE")->limit(10)->get();
         $recommends = Product::limit(10)->get();
         $picture_finder = new Finder();
         return view('homepage', [
@@ -30,9 +30,12 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $picture_finder = new Finder();
+        $count = count($products);
         return view('all_products', [
             'products' => $products,
             'picture_finder' => $picture_finder,
+            'count' => $count,
+            'paging' => false,
         ]);
     }
 
@@ -43,10 +46,13 @@ class ProductController extends Controller
             return redirect('all-products');
         }
         $products = Product::where('category','=',$category)->get();
+        $count = count($products);
         $picture_finder = new Finder();
         return view('all_products', [
             'products' => $products,
             'picture_finder' => $picture_finder,
+            'count' => $count,
+            'paging' => false,
         ]);
     }
 
@@ -55,10 +61,25 @@ class ProductController extends Controller
         else if ($price == '100') $products = Product::whereRaw('price > 50 and price < 150')->get();
         else if ($price == '150') $products = Product::whereRaw('price > 150')->get();
         else return redirect('all-products');
+        $count = count($products);
         $picture_finder = new Finder();
         return view('all_products', [
             'products' => $products,
             'picture_finder' => $picture_finder,
+            'count' => $count,
+            'paging' => false,
+        ]);
+    }
+
+    public function filter_sales() {
+        $products = Product::whereRaw('onsale = TRUE')->get();
+        $count = count($products);
+        $picture_finder = new Finder();
+        return view('all_products', [
+            'products' => $products,
+            'picture_finder' => $picture_finder,
+            'count' => $count,
+            'paging' => false,
         ]);
     }
 
@@ -86,6 +107,40 @@ class ProductController extends Controller
             'product' => Product::find($product_id),
             'pictures' => $pictures,
             'sizes' => $sizes,
+        ]);
+    }
+
+    public function show_page($page) {
+        $count = Product::all()->count();
+        //number of items on selected page
+        $page_count = ($count / 12) - 1;
+        if ($page_count < 1) $page_count = 1;
+        //input
+        if (is_numeric($page) == false) {
+            return redirect('/all-products/page/0');
+        }
+        else if ($page < 0 || $page > $page_count - 1) {
+            return redirect('/all-products/page/0');
+        }
+        else if ($page == $page_count - 1 && $page_count > 1) {
+            return redirect('/all-products/page/0');
+        }
+        else if ($page == -1 && $page_count > 1) {
+            return redirect('/all-products/page/' . ($page_count - 1));
+        }
+        //paging
+        if ($page == 0) {
+            $products = Product::skip(0)->take(12)->get();
+        }
+        else {
+            $products = Product::skip($page * 12)->take($page * 12)->get();
+        }
+        $picture_finder = new Finder();
+        return view('all_products', [
+            'products' => $products,
+            'picture_finder' => $picture_finder,
+            'count' => $count,
+            'paging' => true,
         ]);
     }
 }
