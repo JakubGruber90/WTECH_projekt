@@ -12,8 +12,9 @@ class Cart {
         }
     }
 
-    public function add($item, $product_id, $size) {
+    public function add($item, $product_id, $size, $number) {
         $item->setAttribute('size', $size);
+        $item->setAttribute('number', $number);
         $storedItem = ['item' => $item];
         if ($this->items) {
             if (array_key_exists($product_id, $this->items)) {

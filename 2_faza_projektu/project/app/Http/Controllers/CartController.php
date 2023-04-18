@@ -17,7 +17,8 @@ class CartController extends Controller
         $cart = new Cart($oldcart);
 
         $size = $request->input('size');
-        $cart->add($product, $product->id, $size);
+        $number = $request->input('prod_num');
+        $cart->add($product, $product->id, $size, $number);
 
         $request->session()->put('cart', $cart);
 

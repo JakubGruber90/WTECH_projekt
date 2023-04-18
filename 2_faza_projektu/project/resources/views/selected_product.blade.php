@@ -40,14 +40,19 @@
         </select>
 
         <!-- pridat do kosika -->
-        <br>
-        <label id="sklad" class="count"><span>Na sklade: {{ $product->quantity }}</span></label>
-        <br>
         <form method="GET" action="{{ route('cartAdd', $product->id) }}" accept-charset="UTF-8">
           {{ csrf_field() }}
           <input id="size_input" type="hidden" name="size" value="">
+          <h3>Počet:</h3>
+          <input type="number" class="product_num" name="prod_num" value=1 min="1" max="{{ $product->quantity }}">
+
+          <br>
+          <label id="sklad" class="count"><span>Na sklade: {{ $product->quantity }}</span></label>
+          <br>
+
           <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
         </form>
+
         <!-- <label id="rating" class="rating"> <span>Hodnotenie: @rating</span></label> -->
       @endif
       </div>
