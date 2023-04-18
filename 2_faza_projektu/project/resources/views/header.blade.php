@@ -4,7 +4,7 @@
         <div class="nav-bar-left">
             <a class="link" href="{{ redirect('/')->headers->get('Location') }}">Hlavná stránka</a>
             <a class="link" href="{{ redirect('all-products/page/0')->headers->get('Location') }}">Všetky produkty</a>
-            <a class="link" href="{{ redirect('cart')->headers->get('Location') }}">Košík</a>
+            <a class="link" href="{{ redirect('cart')->headers->get('Location') }}">Košík @if (Session::has('cart') && !empty(Session::get('cart')->items)) ({{ count(Session::get('cart')->items)}}) @endif</a>
         </div>
         <div class="nav-bar-right">
             <a class="link" href="{{ redirect('contact')->headers->get('Location') }}">Kontakt</a>
@@ -17,4 +17,4 @@
     <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
     <input type="text" class="header-search" id="search" placeholder="Vyhľadávanie">
 </header>
-<img src="{{ asset('storage/src/logo.jpg') }}" alt="Logo" class="header-logo">
+<a method="GET" href="{{ route('homepage') }}"><img src="{{ asset('storage/src/logo.jpg') }}" alt="Logo" class="header-logo"></a>

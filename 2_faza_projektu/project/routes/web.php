@@ -58,8 +58,9 @@ Route::get('/cartAdd/{product_id}', [CartController::class, 'cartAdd'])->name('c
 Route::get('/carDelete/{product_id}', [CartController::class, 'cartDelete'])->name('cartDelete');
 
 Route::get('/cart-payment', function() {
-    return view('cart_payment');
-});
+    if (!empty(Session::get('cart')->items)) return view('cart_payment');
+    else return view('cart');
+})->name('cart-payment');
 
 Route::get('/cart-address', function() {
     return view('cart_address');

@@ -40,7 +40,7 @@
 
 		</div>
 		<button type="button" class="cart-button" onclick="window.location.replace('homepage')">Zrušiť</button>
-		<button type="button" class="cart-button"  onclick="window.location.replace('cart-payment')">Pokračovať</button>
+		<a class="continue" method="GET" href="{{ route('cart-payment') }}"><button type="button" class="cart-button" onclick="window.location.replace('cart-payment')">Pokračovať</button></a>
 	</div>
 
     <!--Nožička stránky-->
