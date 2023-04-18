@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
@@ -62,13 +63,9 @@ Route::get('/cart-address', function() {
     return view('cart_address');
 });
 
-Route::get('/login', function() {
-    return view('login');
-});
+Route::get('/login', [LoginRegisterController::class, 'getLogin'])->name('getLogin');
 
-Route::get('/register', function() {
-    return view('registration');
-});
+Route::get('/register', [LoginRegisterController::class, 'getRegister'])->name('getRegister');
 
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');
