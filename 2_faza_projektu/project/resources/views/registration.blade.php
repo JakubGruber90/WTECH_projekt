@@ -18,40 +18,43 @@
     <!-- REGISTRÁCIA -->
     <div class="canvas">
       <h1>Registrácia</h1>
-      <section class="register">
+      <form action="{{ route('registerCheck') }}" method="post" class="register">
+        {!! csrf_field() !!}
         <!-- prihlasovacie údaje -->
         <section class="login_data">
           <h2>Prihlasovacie údaje</h2>
-          <form>
             <br>
-            <input type="email" placeholder="Email" id="email_field"><br>
+            <input type="email" name="email" placeholder="Email" id="email_field"><br>
             <br>
-            <input type="text" placeholder="Login" id="login"><br>
+            <input type="text" name="first_name" placeholder="Krstné meno" id="first_name_field"><br>
             <br>
-            <input type="password" placeholder="Password" id="password"><br>
+            <input type="text" name="last_name" placeholder="Priezvisko" id="last_name_field"><br>
             <br>
-            <input type="password" placeholder="Password" id="password_confirmation"><br>
+            <input type="password" name="password" placeholder="Heslo" id="password_field"><br>
             <br>
-          </form>
+            <input type="password" name="password2" placeholder="Zopakuj heslo" id="password_confirmation_field"><br>
+            <br>
         </section>
 
         <!-- fakturacne udaje -->
         <section class="billing_data">
           <h2>Fakturačné údaje</h2>
-            <form>
               <br>
-              <input type="text" placeholder="Ulica" id="street"><br>
+              <input type="text" name="phone_number" placeholder="Telefónne číslo" id="phone_number_field"><br>
               <br>
-              <input type="text" placeholder="PSČ" id="city_code"><br>
+              <input type="text" name="address" placeholder="Ulica" id="street_field"><br>
               <br>
-              <input type="text" placeholder="Mesto" id="city"><br>
+              <input type="text" name="city_code" placeholder="PSČ" id="city_code_field"><br>
+              <br>
+              <input type="text" name="city" placeholder="Mesto" id="city_field"><br>
+              <br>
+              <input type="text" name="country" placeholder="Štát" id="country_field"><br>
               <br>
               <label>
                 <input type="checkbox" id="confirm_terms_of_use">
                 <span>Potvrdzujem, že súhlasím s obchodnými podmienkami tejto spoločnosti</span>
               </label>
               <br>
-          </form>
         </section>
 
         <!-- potvrdenie registracie -->
@@ -59,9 +62,9 @@
           <!--<br><br>-->
           <img src="{{ asset('storage/src/reg_img_1.png') }}">
           <!--<br><br>-->
-          <button id="confirm_registration">Registrovať</button>
+          <input type="submit" value="Registrovať sa" id="confirm_registration"></input>
         </section>
-      </section>
+      </form>
     </div>
 
     <!--Nožička stránky-->

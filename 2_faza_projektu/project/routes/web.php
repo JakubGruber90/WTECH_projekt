@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
@@ -73,6 +73,8 @@ Route::get('/login', function() {
 Route::get('/register', function() {
     return view('registration');
 });
+
+Route::post('/registerCheck', [RegisterController::class, 'registerCheck'])->name('registerCheck');
 
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');
