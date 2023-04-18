@@ -36,6 +36,16 @@
             <li class="price"><a href="{{redirect('all-products/price/100')->headers->get('Location')}}">50€ - 150€</a></li>
             <li class="price"><a href="{{redirect('all-products/price/150')->headers->get('Location')}}">150€+</a></li>
         </ul>
+
+        <div class="dropdown">
+          <button class="dropbutton">Zoradiť podľa ceny</button>
+          <div class="dropdown-content">
+            <a href="{{redirect('all-products/price_order/asc')->headers->get('Location')}}">Vzostupne</a>
+            <a href="{{redirect('all-products/price_order/desc')->headers->get('Location')}}">Zostupne</a>
+            <a href="{{redirect('all-products/price_order/default')->headers->get('Location')}}">Vypnúť</a>
+          </div>
+        </div>
+
         </nav>
         @if ($paging)
         <div class="paging">

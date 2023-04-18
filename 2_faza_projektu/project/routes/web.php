@@ -27,9 +27,11 @@ Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
 
 Route::get('/all-products/{category}', [ProductController::class, 'filter_category']);
 
-Route::get('/all-products/page/{page}', [ProductController::class, 'show_page']);
+Route::get('/all-products/page/{page}', [ProductController::class, 'show_page'])->name('page');
 
 Route::get('/all-products/price/{price}', [ProductController::class, 'filter_price']);
+
+Route::get('/all-products/price_order/{order}', [ProductController::class, 'order_by_price']);
 
 Route::get('/sales', [ProductController::class, 'filter_sales']);
 

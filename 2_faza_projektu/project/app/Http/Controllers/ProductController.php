@@ -71,6 +71,20 @@ class ProductController extends Controller
         ]);
     }
 
+    public function order_by_price($order) {
+        if ($order == "asc") $products = Product::orderBy('price', 'asc')->get();
+        else if ($order == "desc") $products = Product::orderBy('price', 'desc')->get();
+        else if ($order == "default") return redirect()->route('page', [0]); 
+        $count = count($products);
+        $picture_finder = new Finder();
+        return view('all_products', [
+            'products' => $products,
+            'picture_finder' => $picture_finder,
+            'count' => $count,
+            'paging' => false,
+        ]);
+    }
+
     public function filter_sales() {
         $products = Product::whereRaw('onsale = TRUE')->get();
         $count = count($products);
