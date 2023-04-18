@@ -89,6 +89,8 @@ class ProductController extends Controller
         return view('all_products', [
             'products' => $products,
             'picture_finder' => $picture_finder,
+            'count' => count($products),
+            'paging' => false,
         ]);
     }
 

@@ -16,9 +16,9 @@ use App\Models\Product;
 |
 */
 
-/*Route::fallback(function () {
+Route::fallback(function () {
     return redirect('/');
-});*/
+});
 
 Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
 

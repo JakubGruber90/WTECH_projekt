@@ -57,7 +57,7 @@
                 <h3>{{$product->title}}</h3>
               </a>
               <p>{{$product->price}} €</p>
-              <button onclick="window.location.replace('selected-product/' + {{$product->id}})">Show Details</button>
+              <button onclick="window.location.replace(`{{redirect('selected-product/')->headers->get('Location')}}/` + {{$product->id}})">Show Details</button>
             </div>
         @endforeach
       </div>
@@ -72,11 +72,9 @@
         const url = window.location.href;
         const current_page = url.substring(url.lastIndexOf('/') + 1);
         if (isNaN(current_page) || url.includes("price")) {
-          //console.log("{{redirect('all-products/page/0')->headers->get('Location')}}");
           window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
         }
         else {
-          //console.log("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) + 1).toString());
           window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) + 1).toString());
         }
       }
