@@ -18,7 +18,9 @@ class CartController extends Controller
 
         $size = $request->input('size');
         $number = $request->input('prod_num');
-        $cart->add($product, $product->id, $size, $number);
+        $finder = new Finder();
+        $max_number = $finder->findOneSize($product_id, $size)[0]->quantity;
+        $cart->add($product, $product->id, $size, $number, $max_number);
 
         $request->session()->put('cart', $cart);
 

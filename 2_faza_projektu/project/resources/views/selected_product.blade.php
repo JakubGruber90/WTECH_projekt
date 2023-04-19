@@ -44,10 +44,10 @@
           {{ csrf_field() }}
           <input id="size_input" type="hidden" name="size" value="">
           <h3>Počet:</h3>
-          <input type="number" class="product_num" name="prod_num" value=1 min="1" max="{{ $product->quantity }}">
+          <input type="number" class="product_num" name="prod_num" value=1 min="1" max="{{ $count }}">
 
           <br>
-          <label id="sklad" class="count"><span>Na sklade: {{ $product->quantity }}</span></label>
+          <label id="sklad" class="count"><span>Na sklade: {{ $count }}</span></label>
           <br>
 
           <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>

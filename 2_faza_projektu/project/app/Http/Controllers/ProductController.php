@@ -119,10 +119,15 @@ class ProductController extends Controller
         $finder = new Finder();
         $pictures = $finder->findManyPictures($product_id);
         $sizes = $finder->findManySizes($product_id);
+        $count = 0;
+        foreach ($sizes as $size) {
+            $count = $count + $size->quantity;
+        }
         return view('selected_product', [
             'product' => Product::find($product_id),
             'pictures' => $pictures,
             'sizes' => $sizes,
+            'count' => $count,
         ]);
     }
 

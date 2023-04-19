@@ -30,7 +30,7 @@
                     <p>Price: {{ $product['item']->price }}€</p>
                     </section>
                     <p>Počet:</p>
-                    <input type="number" class="count" name="count" value="{{ $product['item']['number'] }}" min=1 max="{{ $product['item']->quantity }}">
+                    <input type="number" class="count" name="count" value="{{ $product['item']['number'] }}" min=1 max="{{ $product['item']->max_number }}">
                     <a method="GET" href="{{ route('cartDelete', $product['item']['id']) }}"><img src="{{ asset('storage/src/x.png') }}" alt="X"></a>
                 </div>
             @endforeach

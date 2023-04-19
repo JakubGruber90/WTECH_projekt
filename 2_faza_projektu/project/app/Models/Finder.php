@@ -23,7 +23,14 @@ class Finder extends Model
     public function findManySizes($product_id) {
         return SizeProduct::join('sizes', 'sizes.id', '=', 'size_products.size_id')
                             ->where('product_id', $product_id)
-                            ->select('sizes.size')
+                            ->select('sizes.size', 'sizes.quantity')
+                            ->get();
+    }
+
+    public function findOneSize($product_id, $size) {
+        return SizeProduct::join('sizes', 'sizes.id', '=', 'size_products.size_id')
+                            ->whereRaw('product_id = ' . $product_id . ' and sizes.size = ' . $size)
+                            ->select('sizes.quantity')
                             ->get();
     }
 }
