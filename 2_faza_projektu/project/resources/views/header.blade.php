@@ -16,5 +16,11 @@
     <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('register')->headers->get('Location') }}')">Registrácia</button>
     <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
     <input type="text" class="header-search" id="search" placeholder="Vyhľadávanie">
+    @auth
+    <form action="{{ route('showProfile') }}" method="post">
+    {!! csrf_field() !!}
+        <input type=image class="profile-button" src="{{ asset('storage/src/user-icon.png') }}" alt="Profile">
+    </form>
+    @endauth
 </header>
 <a method="GET" href="{{ route('homepage') }}"><img src="{{ asset('storage/src/logo.jpg') }}" alt="Logo" class="header-logo"></a>

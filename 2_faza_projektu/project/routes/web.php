@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -76,6 +77,8 @@ Route::get('/register', function() {
 });
 
 Route::post('/registerCheck', [RegisterController::class, 'registerCheck'])->name('registerCheck');
+
+Route::post('/profile', [ProfileController::class, 'showProfile'])->name('showProfile');
 
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');

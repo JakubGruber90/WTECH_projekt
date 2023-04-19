@@ -16,7 +16,6 @@ body {
 .conditions {
     width: 80%;
     background-image: url(../src/blue-marble.jpg);
-    border: 4px solid;
     padding: 2%;
     display: block;
     overflow: auto;

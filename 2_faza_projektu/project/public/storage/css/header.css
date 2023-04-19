@@ -105,6 +105,13 @@
     z-index: 1000;
 }
 
+.profile-button {
+    position: absolute;
+    top: 120px;
+    right: 25px;
+    width: 50px;
+}
+
 @media screen and (max-width: 1110px) {
     .header-button:nth-of-type(1) {
         left: 100px;
