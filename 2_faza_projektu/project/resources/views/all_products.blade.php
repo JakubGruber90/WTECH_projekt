@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
   <!-- head -->
   <head>
     <title>Footwear Shop</title>

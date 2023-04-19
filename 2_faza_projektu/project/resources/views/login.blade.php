@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,9 +27,9 @@
       <section>
         <form action="{{ route('loginCheck') }}" method="post">
           {!! csrf_field() !!}
-          <input type="email" name="email" placeholder="Email" id="email_field"><br>
+          <input type="email" name="email" placeholder="E-Mail" id="email_field"><br>
           <br>
-          <input type="password" name="password" placeholder="Password" id="password_field"><br>
+          <input type="password" name="password" placeholder="Heslo" id="password_field"><br>
           <br>
           <!-- login confirmation button -->
           <input type="submit" value="Prihlásiť sa" id="confirm_login"></button>

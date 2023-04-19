@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
         <section class="login_data">
           <h2>Prihlasovacie údaje</h2>
             <br>
-            <input type="email" name="email" placeholder="Email" id="email_field"><br>
+            <input type="email" name="email" placeholder="E-Mail" id="email_field"><br>
             <br>
             <input type="text" name="first_name" placeholder="Krstné meno" id="first_name_field"><br>
             <br>
@@ -70,6 +70,7 @@
           <input type="submit" value="Registrovať sa" id="confirm_registration"></input>
         </section>
       </form>
+      <br><br>
     </div>
 
     <!--Nožička stránky-->
