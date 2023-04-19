@@ -24,8 +24,6 @@ Route::fallback(function () {
 
 Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
 
-//Route::get('/all-products', [ProductController::class, 'index']);
-
 Route::get('/all-products/{category}', [ProductController::class, 'filter_category']);
 
 Route::get('/all-products/page/{page}', [ProductController::class, 'show_page'])->name('page');
