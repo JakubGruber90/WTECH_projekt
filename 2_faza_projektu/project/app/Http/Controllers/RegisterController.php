@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,7 @@ class RegisterController extends Controller {
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            return redirect()->route('homepage');
+            return redirect()->back()->with('error', 'Tento email sa už používa');
         }
         else {
             User::create([
@@ -34,4 +35,7 @@ class RegisterController extends Controller {
         }
     }
 
+    function alert($msg) {
+        echo "<script type='text/javascript'>alert('$msg');</script>";
+    }
 }

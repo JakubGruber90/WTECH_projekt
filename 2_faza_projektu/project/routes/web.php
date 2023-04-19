@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -69,6 +70,8 @@ Route::get('/cart-address', function() {
 Route::get('/login', function() {
     return view('login');
 });
+
+Route::post('/loginCheck', [LoginController::class, 'loginCheck'])->name('loginCheck');
 
 Route::get('/register', function() {
     return view('registration');

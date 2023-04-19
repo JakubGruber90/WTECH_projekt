@@ -19,19 +19,25 @@
     <section class="canvas">
       <h1>Prihlásenie do účtu</h1>
       <!-- email field, password field, picture -->
+      @if (session('error'))     
+      <h3 style="text-align: center;">         
+        {{ session('error') }}      
+      </h3> 
+      @endif
       <section>
-          <form>
-            <input type="email" placeholder="Email" id="email_field"><br>
-            <br>
-            <input type="password" placeholder="Password" id="password_field"><br>
-            <br>
-          </form>
-        <img src="{{ asset('storage/src/login_1.png') }}" alt=" ">
+        <form action="{{ route('loginCheck') }}" method="post">
+          {!! csrf_field() !!}
+          <input type="email" name="email" placeholder="Email" id="email_field"><br>
+          <br>
+          <input type="password" name="password" placeholder="Password" id="password_field"><br>
+          <br>
+          <!-- login confirmation button -->
+          <input type="submit" value="Prihlásiť sa" id="confirm_login"></button>
+          <br><br><br>
+        </form>
       </section>
-      <!-- login confirmation button -->
-      <button id="confirm_login">Prihlásiť sa</button>
+      <img src="{{ asset('storage/src/login_1.png') }}" alt=" " class="loginImage">
     </section>
-
     <!--Nožička stránky-->
     @include('footer')
 </body>

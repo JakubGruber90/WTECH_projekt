@@ -18,6 +18,11 @@
     <!-- REGISTRÁCIA -->
     <div class="canvas">
       <h1>Registrácia</h1>
+      @if (session('error'))     
+      <h3 style="text-align: center;">         
+        {{ session('error') }}      
+      </h3> 
+      @endif
       <form action="{{ route('registerCheck') }}" method="post" class="register">
         {!! csrf_field() !!}
         <!-- prihlasovacie údaje -->
