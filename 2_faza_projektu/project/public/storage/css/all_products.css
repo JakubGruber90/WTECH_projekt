@@ -46,7 +46,7 @@ html {
   /* Categories styling */
   .nav {
     min-width: 160px;
-    max-width: 250px;
+    max-width: 260px;
     width: 100%;
     margin: 0;
   }
@@ -83,6 +83,29 @@ html {
   }
   nav ul li:hover {
     background-color: #23395d;
+  }
+  .price input {
+    color: white;
+    font-weight: bold;
+    background-color: #46a2da;
+    border: solid #46a2da 1px;
+    font-size: 20px;
+    width: 210px;
+    padding: 10px;
+  }
+  .price:hover {
+    background-color: #23395d;
+  }
+  .price input:hover {
+    background-color: #23395d;
+    color: white;
+  }
+  .price input:focus {
+    background-color: #23395d;
+    color: white;
+  }
+  .price input::placeholder {
+    color: white;
   }
 
   /* product items styling */
@@ -176,17 +199,25 @@ html {
   /* dropdown styling */
 
   .dropbutton {
-    margin-left: 10px;
     background-color: #46a2da;
     color: white;
-    padding: 10px;
-    font-size: 16px;
-    width: 160px;
+    margin-left: 10px;
+    border-right: 10px solid #46a2da;
+    border-top: 5px solid #46a2da;
+    border-bottom: 10px solid #46a2da;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    width: 220px;
+  }
+  .dropbuton:hover {
+    cursor: pointer;
   }
   
   .dropdown {
     position: relative;
     display: inline-block;
+
   }
   
   .dropdown-content {
@@ -194,7 +225,7 @@ html {
     position: absolute;
     top: 28px;
     background-color: #f1f1f1;
-    width: 160px;
+    width: 220px;
     z-index: 1;
   }
   
@@ -211,10 +242,14 @@ html {
   
   .dropdown:hover .dropdown-content {
     display: block;
+    cursor: pointer;
   }
   
   .dropdown:hover .dropbutton {
     background-color: #23395d;
+    border-right: 20px solid #23395d;
+    border-top: 5px solid #23395d;
+    border-bottom: 10px solid #23395d;
   }
 
   @media screen and (max-width: 490px) {

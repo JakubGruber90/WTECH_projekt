@@ -12,9 +12,14 @@
             <a class="link" href="{{ redirect('complaints')->headers->get('Location') }}">Reklamácia</a>
         </div>
 </nav>
+    @auth
+    <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('homepage')->headers->get('Location') }}')">Odhlásiť sa</button>
+    @else
     <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('login')->headers->get('Location') }}')">Prihlásenie</button>
     <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('register')->headers->get('Location') }}')">Registrácia</button>
+    @endauth
     <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
+    
     <input type="text" class="header-search" id="search" placeholder="Vyhľadávanie">
     @auth
     <form action="{{ route('showProfile') }}" method="post">

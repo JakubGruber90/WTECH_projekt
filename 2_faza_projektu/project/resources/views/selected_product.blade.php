@@ -44,16 +44,14 @@
           {{ csrf_field() }}
           <input id="size_input" type="hidden" name="size" value="">
           <h3>Počet:</h3>
-          <input type="number" class="product_num" name="prod_num" value=1 min="1" max="{{ $count }}">
+          <input type="number" id ="number" class="product_num" name="prod_num" value=1 min="1" max="1">
 
           <br>
-          <label id="sklad" class="count"><span>Na sklade: {{ $count }}</span></label>
+          <label class="count"><span id="sklad">Na sklade:</span></label>
           <br>
 
           <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
         </form>
-
-        <!-- <label id="rating" class="rating"> <span>Hodnotenie: @rating</span></label> -->
       @endif
       </div>
     </section>
@@ -62,9 +60,30 @@
     @include('footer')
 
     <script>
+      const sizes = <?php echo $sizes_js ?>;
+      let size_quantity;
       document.getElementById('size_input').value = document.getElementById('shoe_size').value;
+
+      function update_size() {
+          size_quantity = sizes.find(item => item.size == document.getElementById('shoe_size').value).quantity;
+          document.getElementById('number').setAttribute("max", size_quantity);
+          document.getElementById('sklad').innerHTML = 'Na sklade: ' + size_quantity.toString();
+          document.getElementById('number').value = 1;
+      }
+      update_size();
+
       document.getElementById('shoe_size').addEventListener('change', (event) => {
-        document.getElementById('size_input').value = event.target.value;
+          document.getElementById('size_input').value = document.getElementById('shoe_size').value;
+          update_size();
+      });
+
+      document.getElementById('number').addEventListener('change', (event) => {
+          if (document.getElementById('number').value <= 0) {
+              document.getElementById('number').value = 1;
+          }
+          else if (document.getElementById('number').value > size_quantity) {
+              document.getElementById('number').value = 1;
+          }
       });
     </script>
 </body>

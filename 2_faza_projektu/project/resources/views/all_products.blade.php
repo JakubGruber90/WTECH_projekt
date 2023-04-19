@@ -32,9 +32,7 @@
             <br>
             <li class="sales"><a href="{{redirect('sales')->headers->get('Location')}}">Sales</a><br></li>
             <br>
-            <li class="price"><a href="{{redirect('all-products/price/50')->headers->get('Location')}}">0€ - 50€</a></li>
-            <li class="price"><a href="{{redirect('all-products/price/100')->headers->get('Location')}}">50€ - 150€</a></li>
-            <li class="price"><a href="{{redirect('all-products/price/150')->headers->get('Location')}}">150€+</a></li>
+            <li class="price"><input type="number" id="price" step=".01" placeholder="Filtrovať podľa ceny" value="" min="0"></li>
         </ul>
 
         <div class="dropdown">
@@ -77,29 +75,41 @@
     @include('footer')
 
     @if ($paging)
-    <script>
-      function next_page() {
-        const url = window.location.href;
-        const current_page = url.substring(url.lastIndexOf('/') + 1);
-        if (isNaN(current_page) || url.includes("price")) {
-          window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
+      <script>
+        function next_page() {
+          const url = window.location.href;
+          const current_page = url.substring(url.lastIndexOf('/') + 1);
+          if (isNaN(current_page) || url.includes("price")) {
+            window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
+          }
+          else {
+            window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) + 1).toString());
+          }
         }
-        else {
-          window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) + 1).toString());
-        }
-      }
 
-      function prev_page() {
-        const url = window.location.href;
-        const current_page = url.substring(url.lastIndexOf('/') + 1);
-        if (isNaN(current_page) || url.includes("price")) {
-          window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
+        function prev_page() {
+          const url = window.location.href;
+          const current_page = url.substring(url.lastIndexOf('/') + 1);
+          if (isNaN(current_page) || url.includes("price")) {
+            window.location.replace("{{redirect('all-products/page/0')->headers->get('Location')}}");
+          }
+          else {
+            window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) - 1).toString());
+          }
         }
-        else {
-          window.location.replace("{{redirect('all-products/page/')->headers->get('Location')}}/" + (parseInt(current_page) - 1).toString());
-        }
-      }
-    </script>
+      </script>
     @endif
+      <script>
+        document.getElementById("price").addEventListener('change', () => {
+            const input = document.getElementById("price");
+            if (isNaN(input.value)) {
+                input.value = 0;
+            }
+            else if (input.value < 0) {
+                input.value = 0;
+            }
+            window.location.replace("{{redirect('/all-products/price')->headers->get('Location')}}/" + input.value);
+        });
+      </script>
   </body>
 </html>
