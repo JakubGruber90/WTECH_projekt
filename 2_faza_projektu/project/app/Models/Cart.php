@@ -1,33 +1,23 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Support\Facades\Log;
 
-class Cart {
-    public $items = null;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-    public function __construct($oldcart) {
-        if ($oldcart) {
-            $this->items = $oldcart->items;
-        }
+class Cart extends Model
+{
+    use HasFactory;
+    protected $fillable = ['id', 'customer_id', 'price', 'status'];
+    public $timestamps = false;
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
     }
 
-    public function add($item, $product_id, $size, $number, $max_number) {
-        $item->setAttribute('size', $size);
-        $item->setAttribute('number', $number);
-        $item->setAttribute('max_number', $max_number);
-        $storedItem = ['item' => $item];
-        if ($this->items) {
-            if (array_key_exists($product_id, $this->items)) {
-                $storedItem = $this->items[$product_id];
-            }
-        }
-        $this->items[$product_id] = $storedItem;
-    }
-
-    public function delete($item, $product_id) {
-        if (array_key_exists($product_id, $this->items)) {
-            unset($this->items[$product_id]);
-        }
+    public function orders()
+    {
+        return $this->belongsTo(Order::class);
     }
 }

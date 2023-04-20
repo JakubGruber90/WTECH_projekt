@@ -39,19 +39,35 @@
           @endforeach
         </select>
 
-        <!-- pridat do kosika -->
-        <form method="GET" action="{{ route('cartAdd', $product->id) }}" accept-charset="UTF-8">
-          {{ csrf_field() }}
-          <input id="size_input" type="hidden" name="size" value="">
-          <h3>Počet:</h3>
-          <input type="number" id ="number" class="product_num" name="prod_num" value=1 min="1" max="1">
+        @auth
+          <!-- pridat do kosika pre prihlaseneho-->
+          <form method="GET" action="{{ route('cartAddAuth', $product->id) }}" accept-charset="UTF-8">
+            {{ csrf_field() }}
+            <input id="size_input" type="hidden" name="size" value="">
+            <h3>Počet:</h3>
+            <input type="number" id ="number" class="product_num" name="prod_num" value=1 min="1" max="1">
 
-          <br>
-          <label class="count"><span id="sklad">Na sklade:</span></label>
-          <br>
+            <br>
+            <label class="count"><span id="sklad">Na sklade:</span></label>
+            <br>
 
-          <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
-        </form>
+            <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
+          </form>
+        @else
+          <!-- pridat do kosika pre neprihlaseneho-->
+          <form method="GET" action="{{ route('cartAdd', $product->id) }}" accept-charset="UTF-8">
+            {{ csrf_field() }}
+            <input id="size_input" type="hidden" name="size" value="">
+            <h3>Počet:</h3>
+            <input type="number" id ="number" class="product_num" name="prod_num" value=1 min="1" max="1">
+
+            <br>
+            <label class="count"><span id="sklad">Na sklade:</span></label>
+            <br>
+
+            <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
+          </form>
+        @endauth
       @endif
       </div>
     </section>
@@ -72,12 +88,12 @@
       }
       update_size();
 
-      document.getElementById('shoe_size').addEventListener('change', (event) => {
+      document.getElementById('shoe_size').addEventListener('change', () => {
           document.getElementById('size_input').value = document.getElementById('shoe_size').value;
           update_size();
       });
 
-      document.getElementById('number').addEventListener('change', (event) => {
+      document.getElementById('number').addEventListener('change', () => {
           if (document.getElementById('number').value <= 0) {
               document.getElementById('number').value = 1;
           }

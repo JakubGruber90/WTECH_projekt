@@ -53,9 +53,15 @@ Route::get('/complaints', function() {
 
 Route::get('/cart', [CartController::class, 'getCart'])->name('getCart');
 
+Route::get('/cartAuth', [CartController::class, 'getCartAuth'])->name('getCartAuth');
+
 Route::get('/cartAdd/{product_id}', [CartController::class, 'cartAdd'])->name('cartAdd');
 
-Route::get('/carDelete/{product_id}', [CartController::class, 'cartDelete'])->name('cartDelete');
+Route::get('/cartAddAuth/{product_id}', [CartController::class, 'cartAddAuth'])->name('cartAddAuth');
+
+Route::get('/cartDelete/{product_id}', [CartController::class, 'cartDelete'])->name('cartDelete');
+
+Route::get('/cartDeleteAuth/{product_id}', [CartController::class, 'cartDeleteAuth'])->name('cartDeleteAuth');
 
 Route::get('/cart-payment', function() {
     if (!empty(Session::get('cart')->items)) return view('cart_payment');
