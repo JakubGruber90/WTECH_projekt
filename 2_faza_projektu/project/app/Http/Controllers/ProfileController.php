@@ -8,13 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
-
-    public function showProfile() {
-        return view('profile');
-    }
 
     /**
      * Display the user's profile form.
@@ -61,5 +58,16 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function showProfile(Request $request) {
+        $id = $request->session()->get('user')->id;
+        $email = $request->session()->get('user')->email;
+    
+        $user = User::whereRaw("email = '" . $email . "'")->get()[0];
+
+        return view('profile', [
+            'user' => $user
+        ]);
     }
 }

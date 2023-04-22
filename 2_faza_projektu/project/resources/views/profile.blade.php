@@ -21,24 +21,56 @@
             <h2>PRIHLASOVACIE ÚDAJE</h2>
             <table class="profile-table">
                 <tr>
-                    <th><label class="profile-label">E-Mail</label></th>
-                    <th><label class="profile-info-label">email@email.sk</label></th>
-                    <th><input type="submit" value="Zmeniť" class="profile-change-button"></input></th>
+                    <td>
+                        <label class="profile-label">E-Mail</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->email}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editEmail') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>
+                    </td>
                 </tr>
                 <tr>
-                    <th><label class="profile-label">Krstné meno</label></th>
-                    <th><label class="profile-info-label">Jozef</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
+                    <td>
+                        <label class="profile-label">Krstné meno</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->first_name}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editFirstName') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>                    
+                    </td>
                 </tr>
                 <tr>
-                    <th><label class="profile-label">Priezvisko</label></th>
-                    <th><label class="profile-info-label">Mrkva</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
+                    <td>
+                        <label class="profile-label">Priezvisko</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->last_name}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editLastName') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>                     
+                    </td>
                 </tr>
                 <tr>
-                    <th><label class="profile-label">Heslo</label></th>
-                    <th><label class="profile-info-label">********</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
+                    <td></td>
+                    <td>
+                        <form action="{{ route('editPassword') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>                     
+                    </td>
+                    <td></td>
                 </tr>
             </table>
         </section>
@@ -48,29 +80,60 @@
             <h2>FAKTURAČNÉ ÚDAJE</h2>
             <table class="profile-table">
                 <tr>
-                    <th><label class="profile-label">Telefónne číslo</label></th>
-                    <th><label class="profile-info-label">+42190000000</label></th>
-                    <th><input type="submit" value="Zmeniť" class="profile-change-button"></input></th>
+                    <td>
+                        <label class="profile-label">Telefónne číslo</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->phone_number}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editPhoneNumber') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>  
+                    </td>
                 </tr>
                 <tr>
-                    <th><label class="profile-label">Adresa</label></th>
-                    <th><label class="profile-info-label">Kvetová 85</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
+                    <td>
+                        <label class="profile-label">Adresa</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->address}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editAddress') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>  
+                    </td>
                 </tr>
                 <tr>
-                    <th><label class="profile-label">PSČ</label></th>
-                    <th><label class="profile-info-label">99091</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
+                    <td>
+                        <label class="profile-label">Mesto</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->city}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editCity') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>  
+                    </td>
                 </tr>
                 <tr>
-                    <th><label class="profile-label">Mesto</label></th>
-                    <th><label class="profile-info-label">Bratislava</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
-                </tr>
-                <tr>
-                    <th><label class="profile-label">Štát</label></th>
-                    <th><label class="profile-info-label">Slovensko</label></th>
-                    <td><input type="submit" value="Zmeniť" class="profile-change-button"></input></td>
+                    <td>
+                        <label class="profile-label">Štát</label>
+                    </td>
+                    <td>
+                        <label class="profile-info-label">{{$user->country}}</label>
+                    </td>
+                    <td>
+                        <form action="{{ route('editCountry') }}" method="post">
+                            {!! csrf_field() !!}
+                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
+                        </form>  
+                    </td>
                 </tr>
             </table>
         </section>
