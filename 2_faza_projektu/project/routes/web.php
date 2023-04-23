@@ -84,23 +84,17 @@ Route::get('/register', function() {
 
 Route::post('/registerCheck', [RegisterController::class, 'registerCheck'])->name('registerCheck');
 
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::post('/profile', [ProfileController::class, 'showProfile'])->name('showProfile');
 
-Route::post('/editEmail', [ProfileController::class, 'editEmail'])->name('editEmail');
+Route::post('/editLoginInformation', [ProfileController::class, 'editLoginInfo'])->name('editLoginInfo');
 
-Route::post('/editFirstName', [ProfileController::class, 'editFirstName'])->name('editFirstName');
+Route::post('/editshippingInformation', [ProfileController::class, 'editShippingInfo'])->name('editShippingInfo');
 
-Route::post('/editLastName', [ProfileController::class, 'editLastName'])->name('editLastName');
+Route::post('/saveNewLoginInfo', [ProfileController::class, 'editLogin'])->name('editLogin');
 
-Route::post('/editPassword', [ProfileController::class, 'editPassword'])->name('editPassword');
-
-Route::post('/editPhoneNumber', [ProfileController::class, 'editPhoneNumber'])->name('editPhoneNumber');
-
-Route::post('/editAddress', [ProfileController::class, 'editAddress'])->name('editAddress');
-
-Route::post('/editCity', [ProfileController::class, 'editCity'])->name('editCity');
-
-Route::post('/editCountry', [ProfileController::class, 'editCountry'])->name('editCountry');
+Route::post('/saveNewShippingInfo', [ProfileController::class, 'editShipping'])->name('editShipping');
 
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');

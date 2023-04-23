@@ -23,14 +23,14 @@
         <!-- kategorie -->
         <nav>
         <ul>
-            <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketball</a></li>
-            <li><a href="{{redirect('all-products/volleyball')->headers->get('Location')}}">Volleyball</a></li>
-            <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Football</a></li>
+            <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketbal</a></li>
+            <li><a href="{{redirect('all-products/volleyball')->headers->get('Location')}}">Volejbal</a></li>
+            <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Futbal</a></li>
             <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tenis</a></li>
-            <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Running</a></li>
-            <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Hiking</a></li>
+            <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Beh</a></li>
+            <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Turistika</a></li>
             <br>
-            <li class="sales"><a href="{{redirect('sales')->headers->get('Location')}}">Sales</a><br></li>
+            <li class="sales"><a href="{{redirect('sales')->headers->get('Location')}}">Zľavy</a><br></li>
             <br>
             <li class="price"><input type="number" id="price" step=".01" placeholder="Filtrovať podľa ceny" value="" min="0"></li>
         </ul>
@@ -47,8 +47,8 @@
         </nav>
         @if ($paging)
         <div class="paging">
-          <a href="#" onclick="prev_page()">Previous Page</a>
-          <a href="#" onclick="next_page()">Next Page</a>
+          <a href="#" onclick="prev_page()">Predchádzajúca</a>
+          <a href="#" onclick="next_page()">Nasledujúca</a>
         </div>
         @endif
       </aside>
@@ -65,7 +65,7 @@
                 <h3>{{$product->title}}</h3>
               </a>
               <p>{{$product->price}} €</p>
-              <button onclick="window.location.replace(`{{redirect('selected-product/')->headers->get('Location')}}/` + {{$product->id}})">Show Details</button>
+              <button onclick="window.location.replace(`{{redirect('selected-product/')->headers->get('Location')}}/` + {{$product->id}})">Detail</button>
             </div>
         @endforeach
       </div>

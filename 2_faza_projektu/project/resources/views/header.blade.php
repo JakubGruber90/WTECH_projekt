@@ -17,19 +17,26 @@
         </div>
 </nav>
     @auth
-        <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('homepage')->headers->get('Location') }}')">Odhlásiť sa</button>
+        <form action="{{ route('logout') }}" method="post">
+            {!! csrf_field() !!}
+            <input type=submit class="header-button-logout" value="Odhlásiť sa"></input>
+        </form>
+        <form action="{{ route('showProfile') }}" method="post">
+        {!! csrf_field() !!}
+            <input type=submit class="header-button-profile" value="Zobraziť profil"></input>
+        </form>
     @else
-        <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('login')->headers->get('Location') }}')">Prihlásenie</button>
-        <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('register')->headers->get('Location') }}')">Registrácia</button>
+        <button type="button" class="header-button-login" onclick="window.location.replace('{{ redirect('login')->headers->get('Location') }}')">Prihlásenie</button>
+        <button type="button" class="header-button-register" onclick="window.location.replace('{{ redirect('register')->headers->get('Location') }}')">Registrácia</button>
     @endauth
-        <button type="button" class="header-button" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
+        <button type="button" class="header-button-search" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
     
     <input type="text" class="header-search" id="search" placeholder="Vyhľadávanie">
-    @auth
+    <!--@auth
         <form action="{{ route('showProfile') }}" method="post">
         {!! csrf_field() !!}
             <input type=image class="profile-button" src="{{ asset('storage/src/user-icon.png') }}" alt="Profile">
         </form>
-    @endauth
+    @endauth-->
 </header>
 <a method="GET" href="{{ route('homepage') }}"><img src="{{ asset('storage/src/logo.jpg') }}" alt="Logo" class="header-logo"></a>

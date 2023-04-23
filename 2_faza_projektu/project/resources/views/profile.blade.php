@@ -27,12 +27,6 @@
                     <td>
                         <label class="profile-info-label">{{$user->email}}</label>
                     </td>
-                    <td>
-                        <form action="{{ route('editEmail') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>
-                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -40,12 +34,6 @@
                     </td>
                     <td>
                         <label class="profile-info-label">{{$user->first_name}}</label>
-                    </td>
-                    <td>
-                        <form action="{{ route('editFirstName') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>                    
                     </td>
                 </tr>
                 <tr>
@@ -55,23 +43,11 @@
                     <td>
                         <label class="profile-info-label">{{$user->last_name}}</label>
                     </td>
-                    <td>
-                        <form action="{{ route('editLastName') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>                     
-                    </td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <form action="{{ route('editPassword') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>                     
-                    </td>
-                    <td></td>
-                </tr>
+                <form action="{{ route('editLoginInfo') }}" method="post">
+                    {!! csrf_field() !!}
+                    <input type="submit" value="Zmeniť prihlasovacie údaje" class="profile-change-button"></input>
+                </form>                    
             </table>
         </section>
         <br>
@@ -86,12 +62,6 @@
                     <td>
                         <label class="profile-info-label">{{$user->phone_number}}</label>
                     </td>
-                    <td>
-                        <form action="{{ route('editPhoneNumber') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>  
-                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -99,12 +69,6 @@
                     </td>
                     <td>
                         <label class="profile-info-label">{{$user->address}}</label>
-                    </td>
-                    <td>
-                        <form action="{{ route('editAddress') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>  
                     </td>
                 </tr>
                 <tr>
@@ -114,12 +78,6 @@
                     <td>
                         <label class="profile-info-label">{{$user->city}}</label>
                     </td>
-                    <td>
-                        <form action="{{ route('editCity') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>  
-                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -128,13 +86,11 @@
                     <td>
                         <label class="profile-info-label">{{$user->country}}</label>
                     </td>
-                    <td>
-                        <form action="{{ route('editCountry') }}" method="post">
-                            {!! csrf_field() !!}
-                            <input type="submit" value="Zmeniť" class="profile-change-button"></input>
-                        </form>  
-                    </td>
                 </tr>
+                    <form action="{{ route('editShippingInfo') }}" method="post">
+                        {!! csrf_field() !!}
+                        <input type="submit" value="Zmeniť fakturačné údaje" class="profile-change-button"></input>
+                    </form>
             </table>
         </section>
     </div>

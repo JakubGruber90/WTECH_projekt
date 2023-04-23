@@ -21,6 +21,7 @@ body {
     overflow: hidden;
     margin: auto;
     border: 4px solid #46a2da;
+    text-align: center;
 }
 
 h1 {
@@ -69,7 +70,10 @@ h2 {
     color: white;
     padding: 8px 15px;
     font-size: 15px;
-    width: 120px;
+}
+
+.profile-change-button:hover {
+    cursor: pointer;
 }
 
 .profile-table {
@@ -79,6 +83,14 @@ h2 {
 .profile-table th {
     width: 33%;
     text-align: center;
+}
+
+.profile-input {
+    display: block;
+    padding: 8px 15px;
+    font-size: 15px;
+    border: none;
+    margin: 20px auto;
 }
 
 @media screen and (max-width: 900px) {
