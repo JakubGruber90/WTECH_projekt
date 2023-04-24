@@ -37,7 +37,7 @@ class CartController extends Controller
     public function cartAddAuth(Request $request, $product_id) {
         $product = Product::find($product_id);
         $userSession = Session::has('user') ? Session::get('user'): null;
-        if ($userSession == null) return;
+        if (!$userSession) return redirect('select-product/' . $product_id);
 
         $userDB = User::where("email", $userSession->email)->get()[0];
         $cart = Cart::where("customer_id", $userDB->id)->where("status", TRUE)->get();
@@ -64,6 +64,8 @@ class CartController extends Controller
     public function cartDeleteAuth(Request $request, $product_id) {
         $product = Product::find($product_id);
         $user = Session::get('user');
+        if (!$user) return redirect('cart');
+
         $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get()[0];
         if (ProductCart::where("cart_id", $cart->id)->where("product_id", $product_id)->exists()) {
             ProductCart::where("cart_id", $cart->id)->where("product_id", $product_id)->delete();
@@ -100,23 +102,30 @@ class CartController extends Controller
         $cartDB->save();
     }
 
+    public function getCartCount($userId) {
+        return count(Cart::join('product_carts', 'product_carts.cart_id', '=', 'carts.id')
+        ->where("customer_id", $userId)->where("status", TRUE)->get());
+    }
+
     public function getCartAuth(Request $request) {
         $new_cart = new CartSession([]);
 
+        $user = Session::get('user');
+        if (!$user) return redirect('cart');
+
         if (!Session::has('cart')) {
-            $user = Session::get('user');
             $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get();
             if (!$cart[0]) return view('cart');
             else $cart = $cart[0];
             $this->listCartDB($cart, $new_cart);
         }
-        else if (empty(Session::get('cart')->items)) {
-            $user = Session::get('user');
+        else if (count(Session::get('cart')->items) != $this->getCartCount($user->id)) {
             $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get();
             if (!$cart[0]) return view('cart');
             else $cart = $cart[0];
             $this->listCartDB($cart, $new_cart);
         }
+        else $new_cart = Session::get('cart'); 
         
         $request->session()->put('cart', $new_cart);
         $picture_finder = new Finder();

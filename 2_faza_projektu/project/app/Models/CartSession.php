@@ -39,7 +39,7 @@ class CartSession {
         unset($item->quality);
         unset($item->count);
         $storedItem = ['item' => $item];
-        if ($this->items && count($this->items) == $count) {
+        if ($this->items) {
             if (array_key_exists($product_id, $this->items)) {
                 $storedItem = $this->items[$product_id];
             }
