@@ -24,6 +24,14 @@
     font-size: 30px;
   }
 
+  .back {
+    position: relative;
+    left: 700px;
+    top: -20px;
+    width: 60px;
+    height: 60px;
+  }
+
   /*product section*/
   .product_section {
     border-top: 4px solid #46a2da;
