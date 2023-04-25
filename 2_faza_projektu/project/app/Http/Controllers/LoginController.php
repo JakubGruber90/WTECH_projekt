@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\CartController;
 use App\Models\User;
+use App\Models\UserSession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class LoginController extends Controller {
 
@@ -18,6 +21,10 @@ class LoginController extends Controller {
         ]);
 
         if (Auth::attempt($credentials)) {
+            $user = new UserSession($request->input('email'));
+            $request->session()->put('user', $user);
+            $load_cart = new CartController();
+            $load_cart->getCartAuth($request);
             return redirect()->route('homepage');
         }
         else {
@@ -25,4 +32,9 @@ class LoginController extends Controller {
         }
     }
 
+    public function logout(Request $request) {
+        auth()->logout();
+        Session::get('user')->logout($request);
+        return redirect()->route('homepage');
+    }
 }

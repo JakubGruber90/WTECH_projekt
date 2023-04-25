@@ -8,9 +8,7 @@ use App\Models\Size;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Finder extends Model
-{
-    use HasFactory;
+class Finder {
     public function findOnePicture($product_id)
     {
         return ProductPicture::find($product_id, 'picture_url')->picture_url;
@@ -29,7 +27,8 @@ class Finder extends Model
 
     public function findOneSize($product_id, $size) {
         return SizeProduct::join('sizes', 'sizes.id', '=', 'size_products.size_id')
-                            ->whereRaw('product_id = ' . $product_id . ' and sizes.size = ' . $size)
+                            ->where('product_id', $product_id)
+                            ->where('sizes.size', $size)
                             ->select('sizes.quantity')
                             ->get();
     }

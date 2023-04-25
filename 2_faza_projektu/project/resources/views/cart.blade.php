@@ -19,10 +19,10 @@
 	<div class="cart">
 		<p><b>Košík</b> > Doprava a platba > Dodacie údaje</p>
 		<div class="products">
-        @if (Session::has('cart') && !empty(Session::get('cart')->items))
+        @if ((Session::has('cart') && !empty(Session::get('cart')->items)) || Session::has('user'))
             @foreach ($products as $product)
                 <div class="item">
-                    <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']['id'])) }}" alt="product">
+                    <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']->id)) }}" alt="product">
                     <section class="specs">
                     <p>Title: {{ $product['item']->title }}</p>
                     <p>Brand: {{ $product['item']->brand }}</p>
@@ -30,8 +30,12 @@
                     <p>Price: {{ $product['item']->price }}€</p>
                     </section>
                     <p>Počet:</p>
-                    <input type="number" class="count" name="count" value="{{ $product['item']['number'] }}" min=1 max="{{ $product['item']->max_number }}">
-                    <a method="GET" href="{{ route('cartDelete', $product['item']['id']) }}"><img src="{{ asset('storage/src/x.png') }}" alt="X"></a>
+                    <input type="number" class="count" name="count" value="{{ $product['item']->number }}" min=1 max="{{ $product['item']->max_number }}">
+                    @auth
+                        <a method="GET" href="{{ route('cartDeleteAuth', $product['item']->id) }}"><img src="{{ asset('storage/src/x.png') }}" alt="X"></a>
+                    @else
+                        <a method="GET" href="{{ route('cartDelete', $product['item']->id) }}"><img src="{{ asset('storage/src/x.png') }}" alt="X"></a>
+                    @endauth
                 </div>
             @endforeach
         @else

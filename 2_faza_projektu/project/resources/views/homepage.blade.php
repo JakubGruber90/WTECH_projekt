@@ -18,18 +18,18 @@
     <!-- nav-kategorie -->
     <nav>
       <ul>
-        <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketball</a></li>
-        <li><a href="{{redirect('all-products/volleyball')->headers->get('Location')}}">Volleyball</a></li>
-        <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Football</a></li>
-        <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tennis</a></li>
-        <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Running</a></li>
-        <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Hiking</a></li>
+        <li><a href="{{redirect('all-products/basketball')->headers->get('Location')}}">Basketbal</a></li>
+        <li><a href="{{redirect('all-products/volleyball')->headers->get('Location')}}">Volejbal</a></li>
+        <li><a href="{{redirect('all-products/football')->headers->get('Location')}}">Futbal</a></li>
+        <li><a href="{{redirect('all-products/tennis')->headers->get('Location')}}">Tenis</a></li>
+        <li><a href="{{redirect('all-products/running')->headers->get('Location')}}">Beh</a></li>
+        <li><a href="{{redirect('all-products/hiking')->headers->get('Location')}}">Turistika</a></li>
       </ul>
     </nav>
 
     <!-- NOVINKY -->
     <div class="container">
-      <h1>New</h1>
+      <h1>NOVINKY</h1>
       <section class="product_section">
         @foreach($news as $new)
           <!-- novy produkt -->
@@ -39,7 +39,7 @@
               <h3>{{$new->title}}</h3>
             </a>
             <p>{{$new->price}} €</p>
-            <button onclick="window.location.replace('selected-product/' + {{$new->id}})"">Show Details</button>
+            <button onclick="window.location.replace('selected-product/' + {{$new->id}})">Detail</button>
           </div>
         @endforeach
       </section>
@@ -47,7 +47,7 @@
 
     <!-- AKCIE -->
     <div class="container">
-      <h1 onclick="window.location.replace(`{{redirect('sales')->headers->get('Location')}}`)" class="sales_header">Sales</h1>
+      <h1 onclick="window.location.replace(`{{redirect('sales')->headers->get('Location')}}`)" class="sales_header">AKCIE</h1>
       <section class="product_section">
         @foreach($sales as $sale)
           <!-- akciovy produkt -->
@@ -57,7 +57,7 @@
               <h3>{{$sale->title}}</h3>
             </a>
             <p>{{$sale->price}} €</p>
-            <button onclick="window.location.replace('selected-product/' + {{$sale->id}})"">Show Details</button>
+            <button onclick="window.location.replace('selected-product/' + {{$sale->id}})">Detail</button>
           </div>
         @endforeach
       </section>
@@ -65,7 +65,8 @@
 
     <!-- ODPORÚČANÉ -->
     <div class="recommended">
-      <h1>Recommended</h1>
+      <h1>ODPORÚČANÉ
+      </h1>
       <section class="product_section">
         @foreach($recommends as $recommend)
           <!-- odporucany produkt -->

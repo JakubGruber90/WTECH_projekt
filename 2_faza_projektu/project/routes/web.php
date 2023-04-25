@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -52,9 +53,15 @@ Route::get('/complaints', function() {
 
 Route::get('/cart', [CartController::class, 'getCart'])->name('getCart');
 
+Route::get('/cartAuth', [CartController::class, 'getCartAuth'])->name('getCartAuth');
+
 Route::get('/cartAdd/{product_id}', [CartController::class, 'cartAdd'])->name('cartAdd');
 
-Route::get('/carDelete/{product_id}', [CartController::class, 'cartDelete'])->name('cartDelete');
+Route::get('/cartAddAuth/{product_id}', [CartController::class, 'cartAddAuth'])->name('cartAddAuth');
+
+Route::get('/cartDelete/{product_id}', [CartController::class, 'cartDelete'])->name('cartDelete');
+
+Route::get('/cartDeleteAuth/{product_id}', [CartController::class, 'cartDeleteAuth'])->name('cartDeleteAuth');
 
 Route::get('/cart-payment', function() {
     if (!empty(Session::get('cart')->items)) return view('cart_payment');
@@ -76,6 +83,18 @@ Route::get('/register', function() {
 });
 
 Route::post('/registerCheck', [RegisterController::class, 'registerCheck'])->name('registerCheck');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::post('/profile', [ProfileController::class, 'showProfile'])->name('showProfile');
+
+Route::post('/editLoginInformation', [ProfileController::class, 'editLoginInfo'])->name('editLoginInfo');
+
+Route::post('/editshippingInformation', [ProfileController::class, 'editShippingInfo'])->name('editShippingInfo');
+
+Route::post('/saveNewLoginInfo', [ProfileController::class, 'editLogin'])->name('editLogin');
+
+Route::post('/saveNewShippingInfo', [ProfileController::class, 'editShipping'])->name('editShipping');
 
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');

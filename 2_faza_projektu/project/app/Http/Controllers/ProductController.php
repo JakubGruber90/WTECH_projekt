@@ -57,10 +57,10 @@ class ProductController extends Controller
     }
 
     public function filter_price($price) {
-        if ($price == '50') $products = Product::whereRaw('price < 50')->get();
-        else if ($price == '100') $products = Product::whereRaw('price > 50 and price < 150')->get();
-        else if ($price == '150') $products = Product::whereRaw('price > 150')->get();
-        else return redirect('all-products');
+        if (is_numeric($price) == false || $price < 0) {
+            return redirect('all-products/page/0');
+        }
+        $products = Product::whereRaw('price <= ' . $price)->get();
         $count = count($products);
         $picture_finder = new Finder();
         return view('all_products', [
@@ -119,15 +119,11 @@ class ProductController extends Controller
         $finder = new Finder();
         $pictures = $finder->findManyPictures($product_id);
         $sizes = $finder->findManySizes($product_id);
-        $count = 0;
-        foreach ($sizes as $size) {
-            $count = $count + $size->quantity;
-        }
         return view('selected_product', [
             'product' => Product::find($product_id),
             'pictures' => $pictures,
             'sizes' => $sizes,
-            'count' => $count,
+            'sizes_js' => json_encode($sizes),
         ]);
     }
 

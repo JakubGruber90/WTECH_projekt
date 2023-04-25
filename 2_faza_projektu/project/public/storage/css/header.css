@@ -50,7 +50,8 @@
     padding: 8px 15px;
 }
 
-.header-button {
+.header-button-logout, .header-button-login, .header-button-register, 
+.header-button-search, .header-button-profile {
     border: none;
     background-color: #23395d;
     color: white;
@@ -62,20 +63,22 @@
     width: 120px;
 }
 
-.header-button:hover {
+.header-button-logout:hover, .header-button-login:hover, 
+.header-button-register:hover, .header-button-search:hover,
+.header-button-profile:hover {
     background-color: #46a2da;
     cursor: pointer;
 }
 
-.header-button:nth-of-type(1) {
+.header-button-logout, .header-button-login {
     left: 190px;
 }
 
-.header-button:nth-of-type(2) {
+.header-button-register, .header-button-profile {
     left: 320px;
 }
 
-.header-button:nth-of-type(3) {
+.header-button-search {
     right: 190px;
 }
 
@@ -105,14 +108,21 @@
     z-index: 1000;
 }
 
+.profile-button {
+    position: absolute;
+    top: 120px;
+    right: 25px;
+    width: 50px;
+}
+
 @media screen and (max-width: 1110px) {
-    .header-button:nth-of-type(1) {
+    .header-button-login, .header-button-logout {
         left: 100px;
     }
-    .header-button:nth-of-type(2) {
+    .header-button-register, .header-button-profile {
         left: 230px;
     }
-    .header-button:nth-of-type(3) {
+    .header-button-search {
         right: 100px;
     }
     .header-search {
@@ -121,13 +131,13 @@
 }
 
 @media screen and (max-width: 920px) {
-    .header-button:nth-of-type(1) {
+    .header-button-login, .header-button-logout {
         left: 10px;
     }
-    .header-button:nth-of-type(2) {
+    .header-button-register, .header-button-profile {
         left: 140px;
     }
-    .header-button:nth-of-type(3) {
+    .header-button-search {
         right: 10px;
     }
     .header-search {
@@ -156,17 +166,17 @@
 }
 
 @media screen and (max-width: 650px) {
-    .header-button:nth-of-type(1) {
+    .header-button-login, .header-button-logout {
         left: 2px;
     }
-    .header-button:nth-of-type(2) {
+    .header-button-register, .header-button-profile {
         top: 84px;
         left: 2px;
     }
     .header-search {
         right: 2px;
     }
-    .header-button:nth-of-type(3) {
+    .header-button-search {
         top: 84px;
         right: 2px;
     }

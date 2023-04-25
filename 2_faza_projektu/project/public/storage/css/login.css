@@ -88,13 +88,3 @@ html {
       width: 200px;
     }
   }
-
-  @media screen and (max-width: 490px) {
-    .canvas section {
-      flex-direction: column;
-      margin-left: 0;
-    }
-    .canvas section form input {
-      max-width: 260px;
-    }
-  }
