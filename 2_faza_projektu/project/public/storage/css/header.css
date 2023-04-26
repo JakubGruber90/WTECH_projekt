@@ -51,7 +51,7 @@
 }
 
 .header-button-logout, .header-button-login, .header-button-register, 
-.header-button-search, .header-button-profile {
+.header-button-search, .header-button-profile, .header-button-admin {
     border: none;
     background-color: #23395d;
     color: white;
@@ -65,9 +65,14 @@
 
 .header-button-logout:hover, .header-button-login:hover, 
 .header-button-register:hover, .header-button-search:hover,
-.header-button-profile:hover {
+.header-button-profile:hover, .header-button-admin:hover {
     background-color: #46a2da;
     cursor: pointer;
+}
+
+.header-button-admin {
+    left: 60px;
+    background-color: gray;
 }
 
 .header-button-logout, .header-button-login {

@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\AdminController;
 use App\Models\Product;
 
 /*
@@ -99,6 +100,8 @@ Route::post('/saveNewShippingInfo', [ProfileController::class, 'editShipping'])-
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');
 });
+
+Route::get('/admin', [AdminController::class, 'product_menu'])->name('admin');
 
 Route::get('/create-product', function() {
     return view('create_product');

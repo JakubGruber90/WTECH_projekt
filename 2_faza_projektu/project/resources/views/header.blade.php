@@ -29,8 +29,8 @@
         <button type="button" class="header-button-login" onclick="window.location.replace('{{ redirect('login')->headers->get('Location') }}')">Prihlásenie</button>
         <button type="button" class="header-button-register" onclick="window.location.replace('{{ redirect('register')->headers->get('Location') }}')">Registrácia</button>
     @endauth
-        @if 
-        <button type="button">Admin</button>
+        @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+        <button type="button" class="header-button-admin" onclick="window.location.replace('{{ redirect('admin')->headers->get('Location') }}')">Admin</button>
         @endif
         <button type="button" class="header-button-search" onclick="window.location.replace('{{ redirect('search')->headers->get('Location') }}/' + document.getElementById('search').value)">Hľadať</button>
     
