@@ -21,7 +21,7 @@ use App\Models\Product;
 */
 
 Route::fallback(function () {
-    return redirect('/');
+    //return redirect('/');
 });
 
 Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
@@ -103,14 +103,17 @@ Route::get('/forgotten-password', function() {
 
 Route::get('/admin', [AdminController::class, 'product_menu'])->name('admin');
 
-Route::get('/create-product', function() {
+Route::get('/admin/create-product', function() {
     return view('create_product');
 });
+Route::post('/admin/create-product/confirm', [AdminController::class, 'create_product'])->name('createProduct');
 
-Route::get('/edit-product', function() {
+Route::get('/admin/edit-product', function() {
     return view('edit_product');
 });
+Route::get('/admin/edit-product/{product_id}', [AdminController::class, 'edit_product'])->name('editProduct');
 
-Route::get('/delete-product', function() {
+Route::get('/admin/delete-product', function() {
     return view('delete_product');
 });
+Route::get('/admin/delete-product/{product_id}', [AdminController::class, 'delete_product'])->name('deleteProduct');

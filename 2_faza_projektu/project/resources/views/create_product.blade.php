@@ -43,8 +43,6 @@
                 <option value="Running">Running</option>
                 <option value="Hiking">Hiking</option>
               </select><br><br>
-              <input type="text" placeholder="Materiál produktu" id="material"><br>
-              <br>
               <input type="text" placeholder="Značka produktu" id="brand"><br>
               <br>
               <input type="text" placeholder="Farba produktu" id="color"><br>
@@ -61,18 +59,27 @@
                 <option value="False">Nie</option>
               </select><br>
               <br>
-              <span class="files_label">Nahrať veľkosti</span>
-              <br>
-              <input type="file" id="sizes" class="input_files" multiple="multiple" accept="text/csv">
+              <input type="text" placeholder="Veľkosti produktu (sid,sq;..)" id="sizes"><br>
               <br>
               <span class="files_label">Nahrať obrázky</span>
               <br>
-              <input type="file" id="images" class="input_files" multiple="multiple" accept=".jpg, .png">
           </form>
         </section>
       </section>
       <!-- potvrdenie vytvorenia -->
-      <button id="confirm_button" class="confirm_button">Vytvoriť produkt</button>
+      <form method="POST" action="{{ route('createProduct') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <input id="input_name" type="hidden" name="name" value="">
+        <input id="input_desc" type="hidden" name="desc" value="">
+        <input id="input_price" type="hidden" name="price" step=".01" value="">
+        <input id="input_category" type="hidden" name="cat" value="">
+        <input id="input_brand" type="hidden" name="brand" value="">
+        <input id="input_color" type="hidden" name="color" value="">
+        <input id="input_sale" type="hidden" name="sale" value="">
+        <input id="input_sizes" type="hidden" name="sizes" value="">
+        <input type="file" id="images" class="input_files" multiple="multiple" accept=".jpg, .png" name="images[]">
+        <button id="confirm_button" class="confirm_button">Vytvoriť produkt</button>
+      </form>
     </div>
 
     <!--Nožička stránky-->
@@ -96,6 +103,17 @@
           if (parseFloat(event.target.value) <= 0) {
               event.target.value = 0;
           }
+      });
+
+      document.getElementById('confirm_button').addEventListener(('click'), () => {
+          document.getElementById('input_name').value = document.getElementById('name').value;
+          document.getElementById('input_desc').value = document.getElementById('description').value;
+          document.getElementById('input_price').value = document.getElementById('price').value;
+          document.getElementById('input_category').value = document.getElementById('category').value;
+          document.getElementById('input_brand').value = document.getElementById('brand').value;
+          document.getElementById('input_color').value = document.getElementById('color').value;
+          document.getElementById('input_sale').value = document.getElementById('onsale').value;
+          document.getElementById('input_sizes').value = document.getElementById('sizes').value;
       });
     </script>
 </body>

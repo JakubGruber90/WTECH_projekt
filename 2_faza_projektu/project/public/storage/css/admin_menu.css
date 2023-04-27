@@ -45,8 +45,20 @@ a:hover {
     font-size: 15px;
     margin-bottom: 10px;
 }
-
 .product_list .add_product:hover {
+    background-color: #46a2da;
+}
+
+.product_list .other_button {
+    background-color: #23395d;
+    color: white;
+    width: 10%;
+    min-width: 100px;
+    height: 50px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.product_list .other_button:hover {
     background-color: #46a2da;
 }
 

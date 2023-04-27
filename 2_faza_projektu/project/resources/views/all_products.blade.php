@@ -65,7 +65,11 @@
                 <h3>{{$product->title}}</h3>
               </a>
               <p>{{$product->price}} €</p>
-              <button onclick="window.location.replace(`{{redirect('selected-product/')->headers->get('Location')}}/` + {{$product->id}})">Detail</button>
+              <button onclick="window.location.replace(`{{redirect('selected-product/')->headers->get('Location')}}/` + {{$product->id}})">Detail
+                @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+                  (ID:{{$product->id}})
+                @endif
+              </button>
             </div>
         @endforeach
       </div>

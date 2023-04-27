@@ -98,6 +98,17 @@
               event.target.value = 0;
           }
       });
+
+      document.getElementById('confirm_button').addEventListener(('click'), () => {
+          document.getElementById('input_name').value = document.getElementById('name').value;
+          document.getElementById('input_desc').value = document.getElementById('description').value;
+          document.getElementById('input_price').value = document.getElementById('price').value;
+          document.getElementById('input_category').value = document.getElementById('category').value;
+          document.getElementById('input_brand').value = document.getElementById('brand').value;
+          document.getElementById('input_color').value = document.getElementById('color').value;
+          document.getElementById('input_sale').value = document.getElementById('onsale').value;
+          document.getElementById('input_sizes').value = document.getElementById('sizes').value;
+      });
     </script>
 </body>
 </html>

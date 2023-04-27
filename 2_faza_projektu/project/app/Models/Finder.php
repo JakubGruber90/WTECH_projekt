@@ -21,7 +21,7 @@ class Finder {
     public function findManySizes($product_id) {
         return SizeProduct::join('sizes', 'sizes.id', '=', 'size_products.size_id')
                             ->where('product_id', $product_id)
-                            ->select('sizes.size', 'sizes.quantity')
+                            ->select('sizes.size', 'size_products.quantity')
                             ->get();
     }
 
@@ -29,7 +29,7 @@ class Finder {
         return SizeProduct::join('sizes', 'sizes.id', '=', 'size_products.size_id')
                             ->where('product_id', $product_id)
                             ->where('sizes.size', $size)
-                            ->select('sizes.quantity')
+                            ->select('size_products.quantity')
                             ->get();
     }
 }

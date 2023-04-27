@@ -29,6 +29,9 @@
       <div class="shoe_info">
       @if ($product)
         <h1>{{ $product->title }}</h1>
+        @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+          <h2>ID:{{$product->id}}</h2>
+        @endif
         <h2>{{ $product->price }} €</h2>
         <article class="description">
           <span>{{ $product->description }}</span>

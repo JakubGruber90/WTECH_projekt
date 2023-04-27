@@ -29,10 +29,21 @@
         <img src="{{ asset('storage/src/delete_product.png') }}" alt=" ">
       </section>
       <!-- forgotten password email confirmation button -->
-      <button id="confirm_deletion">Vymazať</button>
+      <button id="confirm_button" onclick="confirm_deletion()">Vymazať</button>
     </section>
 
     <!--Nožička stránky-->
     @include('footer')
+
+    <script>
+      function confirm_deletion() {
+        if (document.getElementById('id_field').value == "") {
+            return;
+        }
+        else {
+            window.replace.location('{{ redirect('/admin/edit-product')->headers->get('Location') }}/' + document.getElementById('id_field').value);
+        }
+      }
+    </script>
 </body>
 </html>

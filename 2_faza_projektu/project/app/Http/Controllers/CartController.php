@@ -115,13 +115,16 @@ class CartController extends Controller
 
         if (!Session::has('cart')) {
             $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get();
-            if (!$cart[0]) return view('cart');
+            if ($cart->isEmpty()) {
+                $new_cart = Session::get('cart');
+                return view('cart', ['products' => [], 'picture_finder' => null]);
+            }
             else $cart = $cart[0];
             $this->listCartDB($cart, $new_cart);
         }
         else if (count(Session::get('cart')->items) != $this->getCartCount($user->id)) {
             $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get();
-            if (!$cart[0]) return view('cart');
+            if (!$cart[0]) return view('cart', ['products' => [], 'picture_finder' => null]);
             else $cart = $cart[0];
             $this->listCartDB($cart, $new_cart);
         }

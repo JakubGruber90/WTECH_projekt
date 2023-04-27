@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProductPicture extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
     protected $fillable = ['product_id', 'picture_url'];
 
     public function product()

@@ -44,16 +44,16 @@ html {
     border-color: #46a2da;
     border-radius: 5px 5px 5px 5px;
     background-color: #46a2da;
-    font-size: 28px;
+    font-size: 24px;
     color: white;
   }
   .files_label {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     color: white;
   }
 
-  button:hover, .input_img:hover {
+  button:hover, .input_img:hover, .input_files:hover {
     cursor: pointer;
   }
 
@@ -131,13 +131,17 @@ html {
     .confirm_button {
       clear: both;
     }
+    .input_files {
+      margin-left: 33.5%
+    }
   }
 
-  @media screen and (max-width: 480px) {
-
-    .input_section form textarea {
-      margin-left: 0;
-      max-width: 280px;
+  @media screen and (max-width: 600px) {
+    .all_input section {
+      margin-top: 5%;
+      font-size: 24px;
+      height: auto;
+      width: 100%;
     }
 
     footer {
@@ -145,8 +149,19 @@ html {
     }
 
     .all_input section input {
-      margin-left: 0;
       font-size: 24px;
+      max-width: 280px;
+    }
+
+    .input_section form textarea {
+      max-width: 280px;
+    }
+
+    .categories {
+      max-width: 288px;
+    }
+    .input_files {
+      margin-left: 0%;
       max-width: 280px;
     }
   }

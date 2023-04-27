@@ -39,7 +39,11 @@
               <h3>{{$new->title}}</h3>
             </a>
             <p>{{$new->price}} €</p>
-            <button onclick="window.location.replace('selected-product/' + {{$new->id}})">Detail</button>
+            <button onclick="window.location.replace('selected-product/' + {{$new->id}})">Detail
+              @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+                (ID:{{$new->id}})
+              @endif
+            </button>
           </div>
         @endforeach
       </section>
@@ -57,7 +61,11 @@
               <h3>{{$sale->title}}</h3>
             </a>
             <p>{{$sale->price}} €</p>
-            <button onclick="window.location.replace('selected-product/' + {{$sale->id}})">Detail</button>
+            <button onclick="window.location.replace('selected-product/' + {{$sale->id}})">Detail
+              @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+                   (ID:{{$sale->id}})
+              @endif
+            </button>
           </div>
         @endforeach
       </section>
@@ -76,7 +84,11 @@
               <h3>{{$recommend->title}}</h3>
             </a>
             <p>{{$recommend->price}} €</p>
-            <button onclick="window.location.replace('selected-product/' + {{$recommend->id}})"">Show Details</button>
+            <button onclick="window.location.replace('selected-product/' + {{$recommend->id}})"">Detail
+              @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+                (ID:{{$recommend->id}})
+              @endif
+            </button>
           </div>
         @endforeach
       </section>
