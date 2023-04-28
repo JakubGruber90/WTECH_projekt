@@ -54,7 +54,7 @@ Route::get('/complaints', function() {
 
 Route::get('/cart', [CartController::class, 'getCart'])->name('getCart');
 
-Route::get('/cartAuth', [CartController::class, 'getCartAuth'])->name('getCartAuth');
+Route::get('/cart/auth', [CartController::class, 'getCartAuth'])->name('getCartAuth');
 
 Route::get('/cartAdd/{product_id}', [CartController::class, 'cartAdd'])->name('cartAdd');
 
@@ -77,7 +77,7 @@ Route::get('/login', function() {
     return view('login');
 });
 
-Route::post('/loginCheck', [LoginController::class, 'loginCheck'])->name('loginCheck');
+Route::post('/login/check', [LoginController::class, 'loginCheck'])->name('loginCheck');
 
 Route::get('/register', function() {
     return view('registration');
@@ -89,13 +89,13 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('/profile', [ProfileController::class, 'showProfile'])->name('showProfile');
 
-Route::post('/editLoginInformation', [ProfileController::class, 'editLoginInfo'])->name('editLoginInfo');
+Route::post('/profile/editLoginInfo', [ProfileController::class, 'editLoginInfo'])->name('editLoginInfo');
 
-Route::post('/editshippingInformation', [ProfileController::class, 'editShippingInfo'])->name('editShippingInfo');
+Route::post('/profile/editShippingInfo', [ProfileController::class, 'editShippingInfo'])->name('editShippingInfo');
 
-Route::post('/saveNewLoginInfo', [ProfileController::class, 'editLogin'])->name('editLogin');
+Route::post('/profile/editLoginInfo/save', [ProfileController::class, 'editLogin'])->name('editLogin');
 
-Route::post('/saveNewShippingInfo', [ProfileController::class, 'editShipping'])->name('editShipping');
+Route::post('/profile/editShippingInfo/save', [ProfileController::class, 'editShipping'])->name('editShipping');
 
 Route::get('/forgotten-password', function() {
     return view('forgotten_password');
