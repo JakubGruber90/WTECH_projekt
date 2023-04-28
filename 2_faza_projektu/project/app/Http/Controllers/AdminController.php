@@ -9,6 +9,8 @@ use App\Models\ProductPicture;
 use App\Models\Finder;
 use App\Models\Size;
 use App\Models\SizeProduct;
+use App\Models\PaymentMethod;
+use App\Models\ShippingType;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -19,18 +21,36 @@ class AdminController extends Controller
     {
         $products = Product::all();
         $picture_finder = new Finder();
-        $count = count($products);
+        $payment_methods = PaymentMethod::all();
+        $shipping_types = ShippingType::all();
         return view('admin_menu', [
             'products' => $products,
             'picture_finder' => $picture_finder,
-            'count' => $count,
+            'payment_methods' => $payment_methods,
+            'shipping_types' => $shipping_types,
         ]);
     }
 
     public function create_product(Request $request)
+<<<<<<< Updated upstream
     {   
         $categories = ['Basketball', 'Football', 'Voleyball', 'Tennis', 'Running', 'Hiking'];
         if (!in_array($request->input('cat'), $categories)) return back()->with('failed', 'Chybná kategória');
+=======
+    {
+        /*$validator = Validator::make($request->all(), [
+            'name' => 'required|string|min:5|max:50',
+            'cat' => 'required|string|min:5|max:12',
+            'desc' => 'required|string|min:10|max:500',
+            'price' => 'required',
+            'brand' => 'required|string|min:3|max:50',
+            'onsale' => 'required|string|min:3|max:3',
+            'color' => 'required|string|min:5|max:20',
+        ]);*/
+        
+        $categories = ['Basketball', 'Football', 'Volleyball', 'Tennis', 'Running', 'Hiking'];
+        if (!in_array($request->input('cat'), $categories)) return back();
+>>>>>>> Stashed changes
 
         $id = intval(Product::max('id')) + 1;
         $price = $request->input('price');

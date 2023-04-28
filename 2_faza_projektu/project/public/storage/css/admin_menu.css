@@ -28,9 +28,10 @@ a:hover {
     display: block;
     overflow: hidden;
     margin: auto;
+    border: 4px solid #46a2da;
 }
 
-.product_list p {
+.product_list p, .div-table p, .header-label {
     text-align: center;
     font-size: 140%;
 }
@@ -114,6 +115,49 @@ a:hover {
     line-height: 7px;
     width: 20%;
     margin-right: 15%;
+}
+
+.div-table {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    background-image: url(../src/blue-marble.jpg);
+    display: block;
+    margin: auto;
+    border: 4px solid #46a2da;
+}
+
+.payment_methods_table, .shipping_types_table {
+    width: 93%;
+    background-color: #23395d;
+    border: 4px solid #46a2da;
+    margin: auto;
+}
+
+.payment_methods_table tr, .shipping_types_table tr {
+    width: 100%;
+}
+
+.payment_methods_table tr td {
+    width: 50%;
+}
+
+.shipping_types_table tr td {
+    width: 33%;
+}
+
+.table-header {
+    font-size: 17px;
+    color: #46a2da;
+    padding: 8px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.table-info {
+    font-size: 20px;
+    color: white;
+    padding: 15px 15px;
 }
 
 @media (max-width: 920px) {
