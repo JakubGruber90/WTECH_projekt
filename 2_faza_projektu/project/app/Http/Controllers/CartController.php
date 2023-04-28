@@ -16,7 +16,7 @@ use Session;
 
 class CartController extends Controller
 {
-    public function createCartDB($id) {
+    public function createCartDB($userDB) {
         $cart = new Cart();
         $cart->customer_id = $userDB->id;
         $cart->price = 0;
@@ -41,8 +41,8 @@ class CartController extends Controller
 
         $userDB = User::where("email", $userSession->email)->get()[0];
         $cart = Cart::where("customer_id", $userDB->id)->where("status", TRUE)->get();
-        if (!$cart[0]) {
-            $this->createCartDB($id);
+        if (!$cart || $cart->count() == 0) {
+            $this->createCartDB($userDB);
             $cart = Cart::where("customer_id", $userDB->id)->where("status", TRUE)->get();
         }
         $size = $request->input('size');

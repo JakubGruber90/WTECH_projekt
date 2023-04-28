@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\RoleUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,16 +22,22 @@ class RegisterController extends Controller {
             return redirect()->back()->with('error', 'Tento email sa už používa');
         }
         else {
-            User::create([
+           $user = User::create([
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
                 'first_name' => $input['first_name'],
                 'last_name' => $input['last_name'],
                 'phone_number' => $input['phone_number'],
                 'address' => $input['address'],
+                'postal_code' => $input['city_code'],
                 'city' => $input['city'],
                 'country' => $input['country'],
             ]);
+
+            RoleUser::create([
+            'user_id' => $user->id,
+            'role_id' => 2,]);
+
             return redirect()->route('homepage');
         }
     }

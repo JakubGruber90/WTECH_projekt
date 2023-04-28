@@ -19,7 +19,7 @@
 	<div class="cart">
 		<p><b>Košík</b> > Doprava a platba > Dodacie údaje</p>
 		<div class="products">
-        @if ((Session::has('cart') && !empty(Session::get('cart')->items)) || Session::has('user'))
+        @if ((Session::has('cart') && !empty(Session::get('cart')->items)))
             @foreach ($products as $product)
                 <div class="item">
                     <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']->id)) }}" alt="product">

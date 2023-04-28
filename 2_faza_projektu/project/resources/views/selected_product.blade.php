@@ -25,7 +25,7 @@
       </div>
 
       <!-- velkost topanky -->
-      <a method ="GET" href="{{ route('page', [0]) }}"><img src="{{ asset('storage/src/x.png') }}" class="back"></a>
+      <a method ="GET" href="{{ url()->previous() }}"><img src="{{ asset('storage/src/x.png') }}" class="back"></a>
       <div class="shoe_info">
       @if ($product)
         <h1>{{ $product->title }}</h1>

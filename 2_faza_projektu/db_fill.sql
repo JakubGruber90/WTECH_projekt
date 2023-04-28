@@ -3,6 +3,7 @@ INSERT INTO payment_methods(id, title) VALUES (2, 'Cash');
 SELECT * FROM payment_methods;
 
 INSERT INTO roles(id, created_at, updated_at, role) VALUES (1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'ADMIN');
+INSERT INTO roles(id, created_at, updated_at, role) VALUES (2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'USER');
 SELECT * FROM roles;
 
 INSERT INTO shipping_types(id, title, price) VALUES (1, 'Courier', 3.60);

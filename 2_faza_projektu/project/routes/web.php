@@ -38,7 +38,7 @@ Route::get('/sales', [ProductController::class, 'filter_sales']);
 
 Route::get('/search/{search}', [ProductController::class, 'search']);
 
-Route::get('/selected-product/{product_id}', [ProductController::class, 'select']);
+Route::get('/selected-product/{product_id}', [ProductController::class, 'select'])->name('selected-product');
 
 Route::get('/contact', function() {
     return view('contact');

@@ -60,7 +60,7 @@
           @foreach($products as $product)
             <!-- produkt -->
             <div class="product_card">
-              <a href="selected-product/{{$product->id}}">
+              <a href="{{ route('selected-product', $product->id) }}">
                 <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product->id)) }}" alt=" ">
                 <h3>{{$product->title}}</h3>
               </a>

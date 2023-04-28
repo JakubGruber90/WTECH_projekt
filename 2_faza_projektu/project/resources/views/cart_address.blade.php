@@ -19,9 +19,15 @@
     <div class="info">
         <p class="info-title">Košík > Doprava a platba > <b>Dodacie údaje</b></p>
         <div class="billing">
+        @if (Auth::user() !== null)
+        <input type="text" id="ulica" value="{{ Auth::user()->address }}" id="street" class="billing-input">
+        <input type="text" id="psc" value="{{ Auth::user()->postal_code }}" id="code" class="billing-input">
+        <input type="text" id="mesto" value="{{ Auth::user()->city }}" id="city" class="billing-input">
+        @else
         <input type="text" id="ulica" placeholder="Ulica" id="street" class="billing-input">
         <input type="text" id="psc" placeholder="PSČ" id="code" class="billing-input">
         <input type="text" id="mesto" placeholder="Mesto" id="city" class="billing-input">
+        @endif
         </div>
         <button type="button" onclick="payment()">Zrušiť</button>
         <button type="button" onclick="homepage()">Dokončiť</button>
