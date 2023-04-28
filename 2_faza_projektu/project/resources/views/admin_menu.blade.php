@@ -27,11 +27,11 @@
                 <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product->id)) }}" alt="product">
                 <section class="specs">
                 <p>Title: {{ $product->title }}</p>
-                <p>ID: {{$product->id}}</p>
+                <p>ID: <span>{{$product->id}}</span></p>
                 <p>Brand: {{ $product->brand }}</p>
                 <p>Price: {{ $product->price }}€</p>
                 </section>
-                <a method="GET"><img src="{{ asset('storage/src/x.png') }}" alt="X"></a>
+                <img class="delete" src="{{ asset('storage/src/x.png') }}" alt="X">
                 </div>
             @endforeach
 
@@ -40,5 +40,15 @@
 
     <!--Nožička stránky-->
     @include('footer')
+
+    <script>
+        const deletes = document.querySelectorAll(".delete");
+        deletes.forEach(del => {
+            del.addEventListener('click', (event) => {
+                var id = event.target.parentNode.children[1].children[1].children[0].innerText;
+                window.location.replace("{{ redirect('admin/delete-product')->headers->get('Location') }}/" + id);
+            });
+        });
+    </script>
 </body>
 </html>

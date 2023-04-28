@@ -100,13 +100,13 @@ a:hover {
     height: 100%;
 }
 
-.item a {
+.delete {
     width: auto;
     height: 50%;
     margin-left: auto;
 }
 
-.item img:nth-of-type(2):hover {
+.delete:hover {
     cursor: pointer;
 }
 

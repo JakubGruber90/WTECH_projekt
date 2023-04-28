@@ -59,7 +59,7 @@
                 <option value="False">Nie</option>
               </select><br>
               <br>
-              <input type="text" placeholder="Veľkosti produktu (sid,sq;..)" id="sizes"><br>
+              <input type="text" placeholder="Veľkosti produktu (sid:sq;..)" id="sizes"><br>
               <br>
               <span class="files_label">Nahrať obrázky</span>
               <br>

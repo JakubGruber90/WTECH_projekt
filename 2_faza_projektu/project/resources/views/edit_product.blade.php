@@ -23,7 +23,7 @@
         <section class="input_section">
           <form>
             <br>
-            <input type="text" placeholder="ID produktu" id="id"><br>
+            <input type="number" placeholder="ID produktu" id="id"><br>
             <br>
             <input type="text" placeholder="Nazov produktu" id="name"><br>
             <br>
@@ -61,20 +61,30 @@
                 <option value="False">Nie</option>
               </select><br>
               <br>
-              <input type="text" placeholder="Farba produktu" id="color" class="color"><br>
+              <!--<input type="text" placeholder="Farba produktu" id="color" class="color"><br>-->
               <br>
-              <span class="files_label">Nahrať veľkosti</span>
-              <br>
-              <input type="file" id="sizes" class="input_files" multiple="multiple" accept="text/csv">
+              <input type="text" placeholder="Veľkosti produktu (sid:sq;..)" id="sizes"><br>
               <br>
               <span class="files_label">Nahrať obrázky</span>
               <br>
-              <input type="file" id="images" class="input_files" multiple="multiple" accept=".jpg, .png">
-          </form>
+            </form>
         </section>
       </section>
-      <!-- potvrdenie vytvorenia -->
-      <button id="confirm_button" class="confirm_button">Upraviť produkt</button>
+      <!-- potvrdenie úpravy -->
+      <form method="POST" action="{{ route('editProduct') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <input id="input_id" type="hidden" name="id" value="">
+        <input id="input_name" type="hidden" name="name" value="">
+        <input id="input_desc" type="hidden" name="desc" value="">
+        <input id="input_price" type="hidden" name="price" step=".01" value="">
+        <input id="input_category" type="hidden" name="cat" value="">
+        <input id="input_brand" type="hidden" name="brand" value="">
+        <input id="input_material" type="hidden" name="material" value="">
+        <input id="input_sale" type="hidden" name="sale" value="">
+        <input id="input_sizes" type="hidden" name="sizes" value="">
+        <input type="file" id="images" class="input_files" multiple="multiple" accept=".jpg, .png" name="images[]">
+        <button id="confirm_button" class="confirm_button">Upraviť produkt</button>
+      </form>
     </div>
 
     <!--Nožička stránky-->
@@ -100,12 +110,13 @@
       });
 
       document.getElementById('confirm_button').addEventListener(('click'), () => {
+          document.getElementById('input_id').value = document.getElementById('id').value;
           document.getElementById('input_name').value = document.getElementById('name').value;
           document.getElementById('input_desc').value = document.getElementById('description').value;
           document.getElementById('input_price').value = document.getElementById('price').value;
           document.getElementById('input_category').value = document.getElementById('category').value;
           document.getElementById('input_brand').value = document.getElementById('brand').value;
-          document.getElementById('input_color').value = document.getElementById('color').value;
+          document.getElementById('input_material').value = document.getElementById('material').value;
           document.getElementById('input_sale').value = document.getElementById('onsale').value;
           document.getElementById('input_sizes').value = document.getElementById('sizes').value;
       });

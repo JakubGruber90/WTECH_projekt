@@ -111,7 +111,7 @@ Route::post('/admin/create-product/confirm', [AdminController::class, 'create_pr
 Route::get('/admin/edit-product', function() {
     return view('edit_product');
 });
-Route::get('/admin/edit-product/{product_id}', [AdminController::class, 'edit_product'])->name('editProduct');
+Route::post('/admin/edit-product/confirm', [AdminController::class, 'edit_product'])->name('editProduct');
 
 Route::get('/admin/delete-product', function() {
     return view('delete_product');

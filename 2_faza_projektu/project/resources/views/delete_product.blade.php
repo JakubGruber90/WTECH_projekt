@@ -23,7 +23,7 @@
           <form>
             <h2>Vymazať produkt z ponuky</h2>
             <br>
-            <input type="text" placeholder="ID produktu" id="id_field"><br>
+            <input type="number" placeholder="ID produktu" id="id_field"><br>
             <br>
           </form>
         <img src="{{ asset('storage/src/delete_product.png') }}" alt=" ">
@@ -41,7 +41,7 @@
             return;
         }
         else {
-            window.replace.location('{{ redirect('/admin/edit-product')->headers->get('Location') }}/' + document.getElementById('id_field').value);
+            window.location.replace('{{ redirect('/admin/delete-product')->headers->get('Location') }}/' + document.getElementById('id_field').value);
         }
       }
     </script>
