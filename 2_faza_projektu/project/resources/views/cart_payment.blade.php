@@ -20,34 +20,51 @@
         <p class="cart-title">Košík > <b>Doprava a platba</b> > Dodacie údaje</p>
         <div class="payment">
             <label for="payment">Vyberte spôsob platby:</label>
-            <select name="payment" class="select">
-                <option value="karta" id="card">Karta</option>
-                <option value="hotovost" id="cash">Hotovosťou pri dobierke</option>
-              </select>
+            <select class="select" id="payment">
+                <option value="1" id="card">Karta</option>
+                <option value="2" id="change">Hotovosťou pri dobierke</option>
+            </select>
         </div>
         <div class="delivery">
             <label for="delivery">Vyberte spôsob dopravy:</label>
-            <select name="delivery" class="select">
-                <option value="kurier" id="courier">Kuriérom (osobný odber)</option>
-                <option value="zasielkovna" id="mail">Zásielkovňa</option>
-                <option value="posta" id="post">Poštou</option>
-              </select>
+            <select class="select" id="delivery">
+                <option value="1" id="courier">Kuriérom (osobný odber)</option>
+                <option value="2" id="post">Poštou</option>
+                <option value="3" id="mail">Zásielkovňa</option>
+            </select>
         </div>
         <button type="button" class="cancel-btn"  onclick="cart()">Zrušiť</button>
-        <button type="button" class="continue-btn"  onclick="billing()">Pokračovať</button>
+
+        <form class="continue-form" method="GET" action="{{ route('payment-delivery-save') }}" accept-charset="UTF-8">
+        <button type="submit" class="continue-btn">Pokračovať</button> 
+        <input id="payment_input" type="hidden" name="payment_method" value="">
+        <input id="delivery_input" type="hidden" name="delivery_method" value="">
+        </form>
     </div>
 
     <!--Nožička stránky-->
     @include('footer')
 
     <script>
+        const payment_input = document.getElementById('payment_input');
+        const payment = document.getElementById('payment');
+        const delivery_input = document.getElementById('delivery_input'); 
+        const delivery = document.getElementById('delivery');
+        
+         payment_input.value = payment.value;
+        delivery_input.value = delivery.value;
+
+        payment.addEventListener('change', () => {
+            payment_input.value = payment.value;
+        });
+
+        delivery.addEventListener('change', () => {
+            delivery_input.value = delivery.value;
+        });
+
         function cart() {
             window.location = "cart";
         }
-
-        function billing() {
-            window.location = "cart-address";
-        }
-    </script>
+        </script>
 </body>
 </html>

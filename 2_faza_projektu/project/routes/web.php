@@ -117,3 +117,7 @@ Route::get('/admin/delete-product', function() {
     return view('delete_product');
 });
 Route::get('/admin/delete-product/{product_id}', [AdminController::class, 'delete_product'])->name('deleteProduct');
+
+Route::get('/order-finish', [CartController::class, 'saveOrder']);
+
+Route::get('payment-delivery-save', [CartController::class, 'paymentDeliverySave'])->name('payment-delivery-save');

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('customer_id');
             $table->integer('shipping_id');
             $table->integer('payment_id');
+            $table->integer('delivery_id');
             $table->integer('cart_id');
             $table->float('price');
             $table->string('status');

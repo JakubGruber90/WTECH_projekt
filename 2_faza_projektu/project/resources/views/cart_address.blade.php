@@ -30,17 +30,13 @@
         @endif
         </div>
         <button type="button" onclick="payment()">Zrušiť</button>
-        <button type="button" onclick="homepage()">Dokončiť</button>
+        <button type="button" onclick="window.location.replace(`{{redirect('order-finish/')->headers->get('Location')}}/`)">Dokončiť</button>
     </div>
 
     <!--Nožička stránky-->
     @include('footer')
 
     <script>
-        function homepage() {
-            window.location = "homepage";
-        }
-
         function payment() {
             window.location = "cart-payment";
         }

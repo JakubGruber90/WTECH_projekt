@@ -8,10 +8,12 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\ProductCart;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\ProductPicture;
 use App\Models\Finder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class CartController extends Controller
@@ -124,7 +126,7 @@ class CartController extends Controller
         }
         else if (count(Session::get('cart')->items) != $this->getCartCount($user->id)) {
             $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get();
-            if (!$cart[0]) return view('cart', ['products' => [], 'picture_finder' => null]);
+            if (!$cart || $cart->count() == 0) return view('cart', ['products' => [], 'picture_finder' => null]);
             else $cart = $cart[0];
             $this->listCartDB($cart, $new_cart);
         }
@@ -171,5 +173,31 @@ class CartController extends Controller
         $cart = new CartSession($oldcart);
         $picture_finder = new Finder();
         return view('cart', ['products' => $cart->items, 'picture_finder' => $picture_finder]);
+    }
+
+    public function saveOrder () {
+        Order::create([
+            'customer_id' => Auth::user()->id,
+            'shipping_id' => 10,
+            'payment_id' => Session::get('payment'),
+            'delivery_id' => Session::get('delivery'),
+            'cart_id' => 50,
+            'price' => 200,
+            'status' => 'Shipping',
+            'created_at' => now(),
+            'shipped_at' => null,
+        ]);
+
+        return redirect()->route('homepage');
+    }
+
+    public function paymentDeliverySave (Request $request) {
+        $payment = $request->input('payment_method');
+        $delivery = $request->input('delivery_method');
+
+        Session::put('payment', $payment);
+        Session::put('delivery', $delivery);
+
+        return view('cart_address');
     }
 }
