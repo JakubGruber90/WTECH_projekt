@@ -18,19 +18,26 @@
     <!--Dodacie údaje-->
     <div class="info">
         <p class="info-title">Košík > Doprava a platba > <b>Dodacie údaje</b></p>
-        <div class="billing">
-        @if (Auth::user() !== null)
-        <input type="text" id="ulica" value="{{ Auth::user()->address }}" id="street" class="billing-input">
-        <input type="text" id="psc" value="{{ Auth::user()->postal_code }}" id="code" class="billing-input">
-        <input type="text" id="mesto" value="{{ Auth::user()->city }}" id="city" class="billing-input">
-        @else
-        <input type="text" id="ulica" placeholder="Ulica" id="street" class="billing-input">
-        <input type="text" id="psc" placeholder="PSČ" id="code" class="billing-input">
-        <input type="text" id="mesto" placeholder="Mesto" id="city" class="billing-input">
-        @endif
-        </div>
+        <form class="finish-form" method="GET" action="{{ route('order-finish') }}" accept-charset="UTF-8">
+            <div class="billing">
+                @if (Auth::user() !== null)
+                <input name="country" type="text" id="stat" value="{{ Auth::user()->country }}" id="country" class="billing-input">
+                <input name="city" type="text" id="mesto" value="{{ Auth::user()->city }}" id="city" class="billing-input">
+                <input name="address" type="text" id="ulica" value="{{ Auth::user()->address }}" id="street" class="billing-input">
+                <input name="postal_code" type="text" id="psc" value="{{ Auth::user()->postal_code }}" id="code" class="billing-input">
+                <input name="phone_number" type="text" id="tel_cislo" value="{{ Auth::user()->phone_number }}" id="phone_num" class="billing-input">
+                @else
+                <input name="country" type="text" id="stat" placeholder="Štát" id="country" class="billing-input">
+                <input name="city" type="text" id="mesto" placeholder="Mesto" id="city" class="billing-input">
+                <input name="address" type="text" id="ulica" placeholder="Ulica" id="street" class="billing-input">
+                <input name="postal_code" type="text" id="psc" placeholder="PSČ" id="code" class="billing-input">
+                <input name="phone_number" type="text" id="tel_cislo" placeholder="Telefónne číslo" id="phone_num" class="billing-input">
+                @endif
+            </div>
+            <button type="submit" class="finish-button">Dokončiť</button>
+        </form>
+
         <button type="button" onclick="payment()">Zrušiť</button>
-        <button type="button" onclick="window.location.replace(`{{redirect('order-finish/')->headers->get('Location')}}/`)">Dokončiť</button>
     </div>
 
     <!--Nožička stránky-->

@@ -46,4 +46,8 @@ class CartSession {
         }
         $this->items[$product_id] = $storedItem;
     }
+
+    public function deleteCart () {
+        $this->items = null;
+    }
 }

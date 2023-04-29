@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductCart;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\ProductPicture;
 use App\Models\Finder;
 use Illuminate\Http\Request;
@@ -175,18 +176,45 @@ class CartController extends Controller
         return view('cart', ['products' => $cart->items, 'picture_finder' => $picture_finder]);
     }
 
-    public function saveOrder () {
-        Order::create([
-            'customer_id' => Auth::user()->id,
-            'shipping_id' => 10,
-            'payment_id' => Session::get('payment'),
-            'delivery_id' => Session::get('delivery'),
-            'cart_id' => 50,
-            'price' => 200,
-            'status' => 'Shipping',
-            'created_at' => now(),
-            'shipped_at' => null,
-        ]);
+    public function saveOrder (Request $request) {
+        $order = new Order();
+        $cart = Session::get('cart');
+        $total_price = null;
+        foreach ($cart->items as $item) {
+            $total_price += $item['item']->price*$item['item']->number;
+        }
+
+        if (Auth::user() !== null) {
+            $order->customer_id = Auth::user()->id;
+            $order->cart_id = 10; //??
+        }
+        else {
+            $order->customer_id = null;
+            $order->cart_id = 10; //??
+        }
+        $order->shipping_id = Session::get('delivery');
+        $order->payment_id = Session::get('payment');
+        $order->price = $total_price;
+        $order->status= "Shipping";
+        $order->created_at = now();
+        $order->shipped_at = now();
+        $order->phone_number = $request->input('phone_number');
+        $order->address = $request->input('address');
+        $order->postal_code = $request->input('postal_code');
+        $order->city = $request->input('city');
+        $order->country = $request->input('country');
+        $order->save();
+
+        foreach ($cart->items as $item) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $item['item']->id,
+                'quantity' => $item['item']->number,
+                'size' => $item['item']->size,
+            ]);
+        }
+
+        Session::get('cart')->deleteCart();
 
         return redirect()->route('homepage');
     }

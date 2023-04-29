@@ -5,7 +5,7 @@
             <a class="link" href="{{ redirect('/')->headers->get('Location') }}">Hlavná stránka</a>
             <a class="link" href="{{ redirect('all-products/page/0')->headers->get('Location') }}">Všetky produkty</a>
             @auth
-                <a class="link" href="{{ redirect('cartAuth')->headers->get('Location') }}">Košík @if (Session::has('cart') && !empty(Session::get('cart')->items)) ({{ count(Session::get('cart')->items)}}) @endif</a>
+                <a class="link" href="{{ redirect('cart/auth')->headers->get('Location') }}">Košík @if (Session::has('cart') && !empty(Session::get('cart')->items)) ({{ count(Session::get('cart')->items)}}) @endif</a>
             @else
                 <a class="link" href="{{ redirect('cart')->headers->get('Location') }}">Košík @if (Session::has('cart') && !empty(Session::get('cart')->items)) ({{ count(Session::get('cart')->items)}}) @endif</a>
             @endauth

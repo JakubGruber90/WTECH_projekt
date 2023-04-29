@@ -18,7 +18,7 @@ button:hover {
 }
 
 .info {
-    height: 400px;
+    height: 480px;
     width: 80%;
     background-image: url(../src/blue-marble.jpg);
     border: 4px solid;
@@ -56,16 +56,15 @@ button:hover {
     height: 30px;
 }
 
-.info button:nth-of-type(2) {
+.finish-button {
     margin-right: 50px;
-    margin-top: 15px;
-    float: right;
     border: none;
     background-color: #23395d;
     color: white;
     width: 10%;
     min-width: 100px;
-    height: 30px;
+    height: 30px; 
+    float: right;
 }
 
 @media (max-width: 920px) {

@@ -9,7 +9,7 @@ class Order extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['customer_id','shipping_id','payment_id', 'delivery_id', 'cart_id', 'price', 'status', 'created_at', 'shipped_at'];
+    protected $fillable = ['customer_id','shipping_id','payment_id', 'cart_id', 'price', 'phone_number', 'address', 'postal_code', 'city', 'country', 'status', 'created_at', 'shipped_at'];
 
     public function users()
     {
@@ -29,5 +29,9 @@ class Order extends Model
     public function carts()
     {
         return $this->belongsTo(Cart::class);
+    }
+
+    public function products() {
+        return $this->belongsToMany(Product::class);
     }
 }

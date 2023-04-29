@@ -19,4 +19,7 @@ class Product extends Model
         return $this->belongsToMany(ProductCart::class);
     }
     
+    public function orders() {
+        return $this->belongsToMany(Order::class);
+    }
 }
