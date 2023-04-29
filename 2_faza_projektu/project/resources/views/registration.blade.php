@@ -28,49 +28,39 @@
         <!-- prihlasovacie údaje -->
         <section class="login_data">
           <h2>Prihlasovacie údaje</h2>
-            <br>
-            <input type="email" name="email" placeholder="E-Mail" id="email_field"><br>
-            <br>
-            <input type="text" name="first_name" placeholder="Krstné meno" id="first_name_field"><br>
-            <br>
-            <input type="text" name="last_name" placeholder="Priezvisko" id="last_name_field"><br>
-            <br>
-            <input type="password" name="password" placeholder="Heslo" id="password_field"><br>
-            <br>
-            <input type="password" name="password2" placeholder="Zopakuj heslo" id="password_confirmation_field"><br>
-            <br>
+            <input type="email" name="email" placeholder="E-Mail" id="email_field" class="input_field" required>
+            <input type="text" name="first_name" placeholder="Krstné meno" id="first_name_field" class="input_field" required>
+            <input type="text" name="last_name" placeholder="Priezvisko" id="last_name_field" class="input_field" required>
+            <input type="password" name="password" placeholder="Heslo" id="password_field" class="input_field" required>
+            <input type="password" name="password2" placeholder="Zopakuj heslo" id="password_confirmation_field" class="input_field" required>
         </section>
 
         <!-- fakturacne udaje -->
         <section class="billing_data">
           <h2>Fakturačné údaje</h2>
-              <br>
-              <input type="text" name="phone_number" placeholder="Telefónne číslo" id="phone_number_field"><br>
-              <br>
-              <input type="text" name="address" placeholder="Ulica" id="street_field"><br>
-              <br>
-              <input type="text" name="city_code" placeholder="PSČ" id="city_code_field"><br>
-              <br>
-              <input type="text" name="city" placeholder="Mesto" id="city_field"><br>
-              <br>
-              <input type="text" name="country" placeholder="Štát" id="country_field"><br>
-              <br>
-              <label>
-                <input type="checkbox" id="confirm_terms_of_use">
-                <span>Potvrdzujem, že súhlasím s obchodnými podmienkami tejto spoločnosti</span>
+              
+              <input type="text" name="phone_number" placeholder="Telefónne číslo" id="phone_number_field" class="input_field">
+              <input type="text" name="address" placeholder="Ulica" id="street_field" class="input_field">
+              <input type="text" name="city_code" placeholder="PSČ" id="city_code_field" class="input_field">
+              <input type="text" name="city" placeholder="Mesto" id="city_field" class="input_field">
+              <input type="text" name="country" placeholder="Štát" id="country_field" class="input_field">
+
+              <label class="checkbox-label">
+                <input type="checkbox" name="agree" id="confirm_terms_of_use" class="agree-checkbox">
+                Potvrdzujem, že súhlasím s obchodnými podmienkami tejto spoločnosti
               </label>
-              <br>
+              
         </section>
 
         <!-- potvrdenie registracie -->
         <section class="confirm">
-          <!--<br><br>-->
+          <!---->
           <img src="{{ asset('storage/src/reg_img_1.png') }}">
-          <!--<br><br>-->
-          <input type="submit" value="Registrovať sa" id="confirm_registration"></input>
+          <!---->
+          <input type="submit" value="Registrovať sa" id="confirm_registration" class="submit_button"></input>
         </section>
       </form>
-      <br><br>
+      
     </div>
 
     <!--Nožička stránky-->

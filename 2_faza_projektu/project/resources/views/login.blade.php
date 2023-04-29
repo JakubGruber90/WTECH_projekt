@@ -25,6 +25,7 @@
       </h3> 
       @endif
       <section>
+      <img src="{{ asset('storage/src/login_1.png') }}" alt=" " class="loginImage">
         <form action="{{ route('loginCheck') }}" method="post">
           {!! csrf_field() !!}
           <input type="email" name="email" placeholder="E-Mail" id="email_field"><br>
@@ -36,7 +37,6 @@
           <br><br><br>
         </form>
       </section>
-      <img src="{{ asset('storage/src/login_1.png') }}" alt=" " class="loginImage">
     </section>
     <!--Nožička stránky-->
     @include('footer')

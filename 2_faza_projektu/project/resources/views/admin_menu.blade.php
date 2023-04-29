@@ -26,17 +26,10 @@
             <div class="item">
                 <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product->id)) }}" alt="product">
                 <section class="specs">
-<<<<<<< Updated upstream
-                <p>Title: {{ $product->title }}</p>
-                <p>ID: <span>{{$product->id}}</span></p>
-                <p>Brand: {{ $product->brand }}</p>
-                <p>Price: {{ $product->price }}€</p>
-=======
-                    <p>Title: {{ $product->title }}</p>
-                    <p>ID: {{$product->id}}</p>
-                    <p>Brand: {{ $product->brand }}</p>
-                    <p>Price: {{ $product->price }}€</p>
->>>>>>> Stashed changes
+                <p>Názov: {{ $product->title }}</p>
+                <p>ID: {{$product->id}}</p>
+                <p>Značka: {{ $product->brand }}</p>
+                <p>Cena: {{ $product->price }}€</p>
                 </section>
                 <img class="delete" src="{{ asset('storage/src/x.png') }}" alt="X">
                 </div>
@@ -75,7 +68,7 @@
                 <tr class="table-info">
                     <td>{{ $shipping_type->id }}</td>
                     <td>{{ $shipping_type->title }}</td>
-                    <td>{{ $shipping_type->price }}</td>
+                    <td>{{ $shipping_type->price }}€</td>
                 </tr>
                 @endforeach
             </table>

@@ -19,6 +19,7 @@ html {
     margin-left: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
+    text-align: center;
   }
   .canvas h1 {
     font-size: 46px;
@@ -34,39 +35,34 @@ html {
     justify-content: unset;
     width: 80%;
     max-height: 550px;
-    display: flex;
-    flex-direction: column;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-bottom: 0px;
-    align-items: center;
     margin: auto;
   }
   .canvas section {
-    margin-left: 100px;
-    margin-right: 50px;
     margin-top: 50px;
     font-size: 24px;
     max-width: 1000px;
     max-height: 500px;
-    flex-wrap: none;
-    justify-content: unset;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
   }
   .canvas section form {
     font-size: 24px;
-    margin-right: 10% + 10px;
     min-width: 100px;
+    text-align: center;
+    margin: auto;
   }
   .canvas section form input {
     font-size: 24px;
-    margin-left: calc(25% - 50px);
-    margin-right: 10px;
+    text-align: center;
+    margin: auto;
+    padding: 5px;
   }
   .canvas section img {
-    margin-left: 75px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
   }
   .canvas button {
     margin-top: 50px;

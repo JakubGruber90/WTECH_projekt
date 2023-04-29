@@ -32,11 +32,6 @@ class AdminController extends Controller
     }
 
     public function create_product(Request $request)
-<<<<<<< Updated upstream
-    {   
-        $categories = ['Basketball', 'Football', 'Voleyball', 'Tennis', 'Running', 'Hiking'];
-        if (!in_array($request->input('cat'), $categories)) return back()->with('failed', 'Chybná kategória');
-=======
     {
         /*$validator = Validator::make($request->all(), [
             'name' => 'required|string|min:5|max:50',
@@ -50,7 +45,6 @@ class AdminController extends Controller
         
         $categories = ['Basketball', 'Football', 'Volleyball', 'Tennis', 'Running', 'Hiking'];
         if (!in_array($request->input('cat'), $categories)) return back();
->>>>>>> Stashed changes
 
         $id = intval(Product::max('id')) + 1;
         $price = $request->input('price');

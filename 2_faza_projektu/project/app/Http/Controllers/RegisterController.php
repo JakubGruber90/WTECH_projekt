@@ -7,6 +7,7 @@ use App\Models\RoleUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller {
@@ -18,7 +19,13 @@ class RegisterController extends Controller {
 
         $validator = Validator::make($input, $rules);
 
-        if ($validator->fails()) {
+        if(!isset($_POST['agree'])) {
+            return redirect()->back()->with('error', 'Registrácia vyžaduje súhlas s obchodnými podmienkami');
+        }
+        else if ($input['password'] != $input['password2']) {
+            return redirect()->back()->with('error', 'Heslá sa nezhodujú');
+        }
+        else if ($validator->fails()) {
             return redirect()->back()->with('error', 'Tento email sa už používa');
         }
         else {

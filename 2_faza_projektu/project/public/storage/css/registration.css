@@ -24,13 +24,15 @@
     background-color: #23395d;
     color: white;
     padding-top: 10px;
+    width: 80%;
+    margin: auto;
   }
   .canvas h1 {
     font-size: 46px;
   }
   .confirm_registration {
     border-color: #46a2da;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 5px;
     background-color: #46a2da;
     color: white;
   }
@@ -45,31 +47,56 @@
     width: 100%;
     min-height: 550px;
     height: 100%;
-    display: flex;
-    flex-direction: row;
     padding-top: 50px;
     padding-bottom: 10px;
     margin-bottom: 0px;
+    overflow: hidden;
   }
   .register section {
-    margin-left: calc(2% + 20px);
-    margin-right: calc(2% + 20px);
     margin-top: 5%;
     font-size: 24px;
-    min-width: 350px;
-    max-width: 350px;
+    width: 33.33333333333%;
+    float: left;
   }
   .register section label {
     font-size: 16px;
     max-width: 50px;
     max-height: 50px;
   }
-  .register section input {
-    margin-left: 25px;
+  .input_field {
     font-size: 24px;
+    max-width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+  }
+  .submit_button {
+    border: none;
+    background-color:#23395d;
+    color: white;
+    padding: 8px 15px;
+    font-size: 15px;
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid #46a2da;
+  }
+  .submit_button:hover {
+    background-color: #46a2da;
+    cursor: pointer;
+  }
+  .register section label {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .agree-checkbox {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
   }
   .confirm {
-    margin-left: 1%;
     min-width: 100px;
     max-width: 350px
   }
@@ -82,59 +109,36 @@
     margin-left: 23px;
     margin-top: 50px
   }
-  @media screen and (max-width: 1110px) {
-    .register section {
-      margin-right: 0;
-      margin-left: 10px
-    }
-  }
-  @media screen and (max-width: 920px) {
+
+@media screen and (max-width: 1300px) {
     .register {
-      flex-direction: column;
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
     }
     .register section {
-      margin-top: 10px
+      float: none;
+      display: block;
+      width: 100%;
+      margin: 10px auto auto auto;
+      text-align: center;
     }
-    .confirm {
-      margin-top: 10px
-    }
-    .confirm img {
-      margin-top: 0px
-    }
-    .confirm button {
-      margin-top: 0px
-    }
-  }
-  @media screen and (orientation: portrait) {
-    .register {
-      flex-direction: column;
-    }
-    .register section {
-      margin-top: 10px
-    }
-    .confirm {
-      margin-top: 10px
-    }
-    .confirm img {
-      margin-top: 0px
-    }
-    .confirm button {
-      margin-top: 0px
-    }
-  }
-  @media screen and (max-width: 490px) {
-    .register section form input {
-      margin-left: 0;
-      max-width: 240px;
-    }
-    h2 {
-      max-width: 260px;
-    }
-    footer {
-      text-align: left;
-      padding-left: 5px;
+    .input_field {
+      margin: 20px auto;
+      display: block;
     }
     .register section label {
-      max-width: 260px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .confirm {
+      margin-top: 10px
+    }
+    .confirm img {
+      display: block;
+      margin: 0 auto;
+    }
+    .confirm button {
+      margin-top: 0px
     }
   }
