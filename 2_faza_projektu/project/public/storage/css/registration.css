@@ -64,20 +64,19 @@
     max-height: 50px;
   }
   .input_field {
+    display: block;
     font-size: 24px;
     max-width: 250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 30px;
+    margin: 25px auto;
   }
   .submit_button {
     border: none;
     background-color:#23395d;
     color: white;
     padding: 8px 15px;
-    font-size: 15px;
+    font-size: 20px;
     display: block;
-    width: 150px;
+    width: 200px;
     margin: 0 auto;
     text-align: center;
     border: 2px solid #46a2da;
@@ -101,13 +100,8 @@
     max-width: 350px
   }
   .confirm img {
-    margin-top: 40px
-  }
-  .confirm button {
-    text-align: center;
-    font-size: 28px;
-    margin-left: 23px;
-    margin-top: 50px
+    display: block;
+    margin: 40px auto 0 auto;
   }
 
 @media screen and (max-width: 1300px) {

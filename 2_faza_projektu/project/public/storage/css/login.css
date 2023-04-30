@@ -45,6 +45,7 @@ html {
     font-size: 24px;
     max-width: 1000px;
     max-height: 500px;
+    margin: 30px auto 0 auto;
   }
   .canvas section form {
     font-size: 24px;
@@ -64,15 +65,20 @@ html {
     margin-right: auto;
     margin-bottom: 50px;
   }
-  .canvas button {
-    margin-top: 50px;
-    font-size: 32px;
-    border-color: #46a2da;
-    border-radius: 5px 5px 5px 5px;
-    background-color: #46a2da;
+  #confirm_login {
+    border: none;
+    background-color:#23395d;
     color: white;
+    padding: 8px 15px;
+    font-size: 20px;
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid #46a2da;
   }
-  button:hover {
+  #confirm_login:hover {
+    background-color: #46a2da;
     cursor: pointer;
   }
 
