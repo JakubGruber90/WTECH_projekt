@@ -43,7 +43,7 @@ class AdminController extends Controller
             'color' => 'required|string|min:5|max:20',
         ]);*/
         
-        $categories = ['Basketball', 'Football', 'Volleyball', 'Tennis', 'Running', 'Hiking'];
+        $categories = ['basketball', 'football', 'volleyball', 'tennis', 'running', 'hiking'];
         if (!in_array($request->input('cat'), $categories)) return back();
 
         $id = intval(Product::max('id')) + 1;

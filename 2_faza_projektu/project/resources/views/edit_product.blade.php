@@ -38,12 +38,12 @@
               <br>
               <select title="category" class="categories" placeholder="Kategória produktu" id="category">
                 <option value="Empty" class="empty" id="empty">Kategória produktu</option>
-                <option value="Basketball">Basketball</option>
-                <option value="Football">Football</option>
-                <option value="Voleyball">Voleyball</option>
-                <option value="Tennis">Tennis</option>
-                <option value="Running">Running</option>
-                <option value="Hiking">Hiking</option>
+                <option value="Basketball">basketball</option>
+                <option value="Football">football</option>
+                <option value="Voleyball">voleyball</option>
+                <option value="Tennis">tennis</option>
+                <option value="Running">running</option>
+                <option value="Hiking">hiking</option>
               </select><br><br>
               <input type="text" placeholder="Materiál produktu" id="material"><br>
               <br>

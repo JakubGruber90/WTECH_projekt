@@ -120,7 +120,7 @@ Route::group(['middleware' => 'userlogin'], function () {
 });
 
 
-/* admin fufnctionality routes */
+/* admin functionality routes */
 Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', [AdminController::class, 'product_menu'])->name('admin');
 
