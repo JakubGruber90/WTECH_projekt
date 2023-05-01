@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCart;
 use App\Models\ProductPicture;
 use App\Models\Finder;
 use App\Models\Size;
@@ -15,8 +16,11 @@ class ProductController extends Controller
      */
     public function homepage() {
         $news = Product::whereRaw("created_at > (CURRENT_DATE - INTERVAL '30 days')")->limit(10)->get();
-        $sales = Product::whereRaw("onsale = TRUE")->limit(10)->get();
-        $recommends = Product::limit(10)->get();
+        $sales = Product::where("onsale", "TRUE")->limit(10)->get();
+        $recommends = ProductCart::selectRaw('product_id AS id, products.title, products.price, count(*) as count')
+                                            ->groupBy('product_id', 'products.title', 'products.price')
+                                            ->join('products', 'product_carts.product_id', '=', 'products.id')
+                                            ->orderByDesc('count')->limit(10)->get();
         $picture_finder = new Finder();
         return view('homepage', [
             'news' => $news,
