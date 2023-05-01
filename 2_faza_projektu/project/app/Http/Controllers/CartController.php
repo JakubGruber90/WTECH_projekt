@@ -186,11 +186,11 @@ class CartController extends Controller
 
         if (Auth::user() !== null) {
             $order->customer_id = Auth::user()->id;
-            $order->cart_id = 10; //??
+            $order->cart_id = 10; //ked mas customer_id, tak vies ziskat potom cart_id z tabulky carts podla toho customer_id z db
         }
         else {
             $order->customer_id = null;
-            $order->cart_id = 10; //??
+            $order->cart_id = 10; //ked mas customer_id, tak vies ziskat potom cart_id z tabulky carts podla toho customer_id z db
         }
         $order->shipping_id = Session::get('delivery');
         $order->payment_id = Session::get('payment');

@@ -21,11 +21,13 @@ use App\Models\Product;
 */
 
 Route::fallback(function () {
-    //return redirect('/');
+    return redirect('/');
 });
 
 Route::get('/', [ProductController::class, 'homepage'])->name('homepage');
 
+
+/* all products / filtering routes */
 Route::get('/all-products/{category}', [ProductController::class, 'filter_category']);
 
 Route::get('/all-products/page/{page}', [ProductController::class, 'show_page'])->name('page');
@@ -40,6 +42,8 @@ Route::get('/search/{search}', [ProductController::class, 'search']);
 
 Route::get('/selected-product/{product_id}', [ProductController::class, 'select'])->name('selected-product');
 
+
+/* bussiness routes */
 Route::get('/contact', function() {
     return view('contact');
 });
@@ -52,6 +56,8 @@ Route::get('/complaints', function() {
     return view('complaints');
 });
 
+
+/* cart routes */
 Route::get('/cart', [CartController::class, 'getCart'])->name('getCart');
 
 Route::get('/cart/auth', [CartController::class, 'getCartAuth'])->name('getCartAuth');
@@ -64,6 +70,8 @@ Route::get('/cartDelete/{product_id}', [CartController::class, 'cartDelete'])->n
 
 Route::get('/cartDeleteAuth/{product_id}', [CartController::class, 'cartDeleteAuth'])->name('cartDeleteAuth');
 
+
+/* order routes */
 Route::get('/cart-payment', function() {
     if (!empty(Session::get('cart')->items)) return view('cart_payment');
     else return view('cart');
@@ -73,6 +81,12 @@ Route::get('/cart-address', function() {
     return view('cart_address');
 });
 
+Route::get('/order-finish', [CartController::class, 'saveOrder'])->name('order-finish');
+
+Route::get('payment-delivery-save', [CartController::class, 'paymentDeliverySave'])->name('payment-delivery-save');
+
+
+/* authentification routes */
 Route::get('/login', function() {
     return view('login');
 });
@@ -85,39 +99,43 @@ Route::get('/register', function() {
 
 Route::post('/registerCheck', [RegisterController::class, 'registerCheck'])->name('registerCheck');
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/profile', [ProfileController::class, 'showProfile'])->name('showProfile');
+/* user functionality routes */
+Route::group(['middleware' => 'userlogin'], function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/profile/editLoginInfo', [ProfileController::class, 'editLoginInfo'])->name('editLoginInfo');
-
-Route::post('/profile/editShippingInfo', [ProfileController::class, 'editShippingInfo'])->name('editShippingInfo');
-
-Route::post('/profile/editLoginInfo/save', [ProfileController::class, 'editLogin'])->name('editLogin');
-
-Route::post('/profile/editShippingInfo/save', [ProfileController::class, 'editShipping'])->name('editShipping');
-
-Route::get('/forgotten-password', function() {
-    return view('forgotten_password');
+    Route::post('/profile', [ProfileController::class, 'showProfile'])->name('showProfile');
+    
+    Route::post('/profile/editLoginInfo', [ProfileController::class, 'editLoginInfo'])->name('editLoginInfo');
+    
+    Route::post('/profile/editShippingInfo', [ProfileController::class, 'editShippingInfo'])->name('editShippingInfo');
+    
+    Route::post('/profile/editLoginInfo/save', [ProfileController::class, 'editLogin'])->name('editLogin');
+    
+    Route::post('/profile/editShippingInfo/save', [ProfileController::class, 'editShipping'])->name('editShipping');
+    
+    Route::get('/forgotten-password', function() {
+        return view('forgotten_password');
+    });
 });
 
-Route::get('/admin', [AdminController::class, 'product_menu'])->name('admin');
 
-Route::get('/admin/create-product', function() {
-    return view('create_product');
+/* admin fufnctionality routes */
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin', [AdminController::class, 'product_menu'])->name('admin');
+
+    Route::get('/admin/create-product', function() {
+        return view('create_product');
+    });
+    Route::post('/admin/create-product/confirm', [AdminController::class, 'create_product'])->name('createProduct');
+
+    Route::get('/admin/edit-product', function() {
+        return view('edit_product');
+    });
+    Route::post('/admin/edit-product/confirm', [AdminController::class, 'edit_product'])->name('editProduct');
+
+    Route::get('/admin/delete-product', function() {
+        return view('delete_product');
+    });
+    Route::get('/admin/delete-product/{product_id}', [AdminController::class, 'delete_product'])->name('deleteProduct');
 });
-Route::post('/admin/create-product/confirm', [AdminController::class, 'create_product'])->name('createProduct');
-
-Route::get('/admin/edit-product', function() {
-    return view('edit_product');
-});
-Route::post('/admin/edit-product/confirm', [AdminController::class, 'edit_product'])->name('editProduct');
-
-Route::get('/admin/delete-product', function() {
-    return view('delete_product');
-});
-Route::get('/admin/delete-product/{product_id}', [AdminController::class, 'delete_product'])->name('deleteProduct');
-
-Route::get('/order-finish', [CartController::class, 'saveOrder'])->name('order-finish');
-
-Route::get('payment-delivery-save', [CartController::class, 'paymentDeliverySave'])->name('payment-delivery-save');
