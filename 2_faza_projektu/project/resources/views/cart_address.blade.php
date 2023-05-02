@@ -21,11 +21,11 @@
         <form class="finish-form" method="GET" action="{{ route('order-finish') }}" accept-charset="UTF-8">
             <div class="billing">
                 @if (Auth::user() !== null)
-                <input name="country" type="text" id="stat" value="{{ Auth::user()->country }}" id="country" class="billing-input">
-                <input name="city" type="text" id="mesto" value="{{ Auth::user()->city }}" id="city" class="billing-input">
-                <input name="address" type="text" id="ulica" value="{{ Auth::user()->address }}" id="street" class="billing-input">
-                <input name="postal_code" type="text" id="psc" value="{{ Auth::user()->postal_code }}" id="code" class="billing-input">
-                <input name="phone_number" type="text" id="tel_cislo" value="{{ Auth::user()->phone_number }}" id="phone_num" class="billing-input">
+                <input name="country" type="text" id="stat" placeholder="Štát" value="{{ Auth::user()->country }}" id="country" class="billing-input">
+                <input name="city" type="text" id="mesto" placeholder="Mesto" value="{{ Auth::user()->city }}" id="city" class="billing-input">
+                <input name="address" type="text" id="ulica" placeholder="Ulica" value="{{ Auth::user()->address }}" id="street" class="billing-input">
+                <input name="postal_code" type="text" id="psc" placeholder="PSČ" value="{{ Auth::user()->postal_code }}" id="code" class="billing-input">
+                <input name="phone_number" type="text" id="tel_cislo" placeholder="Telefónne číslo" value="{{ Auth::user()->phone_number }}" id="phone_num" class="billing-input">
                 @else
                 <input name="country" type="text" id="stat" placeholder="Štát" id="country" class="billing-input">
                 <input name="city" type="text" id="mesto" placeholder="Mesto" id="city" class="billing-input">

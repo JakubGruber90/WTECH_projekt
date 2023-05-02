@@ -22,6 +22,7 @@ class Finder {
         return SizeProduct::join('sizes', 'sizes.id', '=', 'size_products.size_id')
                             ->where('product_id', $product_id)
                             ->select('sizes.size', 'size_products.quantity')
+                            ->orderBy('sizes.size', 'asc')
                             ->get();
     }
 

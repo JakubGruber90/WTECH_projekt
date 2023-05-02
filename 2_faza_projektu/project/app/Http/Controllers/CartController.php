@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartSession;
+use App\Models\SizeProduct;
 use App\Models\UserSession;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\ProductCart;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Size;
 use App\Models\OrderProduct;
 use App\Models\ProductPicture;
 use App\Models\Finder;
@@ -201,6 +203,12 @@ class CartController extends Controller
     }
 
     public function saveOrder (Request $request) {
+        if (strlen($request->input('phone_number')) != 13) return back();
+        if (strlen($request->input('address')) < 3) return back();
+        if (strlen($request->input('postal_code')) != 5) return back();
+        if (strlen($request->input('city')) < 3) return back();
+        if (strlen($request->input('country')) < 5) return back();
+
         $order = new Order();
         $cart = Session::get('cart');
         $total_price = null;
@@ -244,6 +252,11 @@ class CartController extends Controller
                 'quantity' => $item['item']->number,
                 'size' => $item['item']->size,
             ]);
+            $size = Size::where('size', $item['item']->size)->limit(1)->get()[0];
+            $sizeproduct = SizeProduct::where('product_id', $item['item']->id)->where('size_id', $size->id)->limit(1)->get()[0];
+            $sizeproduct->quantity = $sizeproduct->quantity - $item['item']->number;
+            if ($sizeproduct->quantity <= 0) SizeProduct::where('product_id', $item['item']->id)->where('size_id', $item['item']->size)->limit(1)->delete();
+            else $sizeproduct->save();
         }
 
         Session::get('cart')->deleteCart();
