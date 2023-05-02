@@ -23,6 +23,7 @@ class LoginController extends Controller {
         if (Auth::attempt($credentials)) {
             $user = new UserSession($request->input('email'));
             $request->session()->put('user', $user);
+            $request->session()->forget('cart');
             $load_cart = new CartController();
             $load_cart->getCartAuth($request);
             return redirect()->route('homepage');

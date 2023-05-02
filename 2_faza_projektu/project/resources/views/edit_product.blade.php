@@ -44,8 +44,7 @@
                 <option value="Tennis">tennis</option>
                 <option value="Running">running</option>
                 <option value="Hiking">hiking</option>
-              </select><br><br>
-              <input type="text" placeholder="Materiál produktu" id="material"><br>
+              </select><br>
               <br>
               <input type="text" placeholder="Značka produktu" id="brand"><br>
               <br>
@@ -60,8 +59,6 @@
                 <option value="True">Áno</option>
                 <option value="False">Nie</option>
               </select><br>
-              <br>
-              <!--<input type="text" placeholder="Farba produktu" id="color" class="color"><br>-->
               <br>
               <input type="text" placeholder="Veľkosti produktu (sid:sq;..)" id="sizes"><br>
               <br>
@@ -79,10 +76,10 @@
         <input id="input_price" type="hidden" name="price" step=".01" value="">
         <input id="input_category" type="hidden" name="cat" value="">
         <input id="input_brand" type="hidden" name="brand" value="">
-        <input id="input_material" type="hidden" name="material" value="">
         <input id="input_sale" type="hidden" name="sale" value="">
         <input id="input_sizes" type="hidden" name="sizes" value="">
         <input type="file" id="images" class="input_files" multiple="multiple" accept=".jpg, .png" name="images[]">
+        <br><br>
         <button id="confirm_button" class="confirm_button">Upraviť produkt</button>
       </form>
     </div>
@@ -116,7 +113,6 @@
           document.getElementById('input_price').value = document.getElementById('price').value;
           document.getElementById('input_category').value = document.getElementById('category').value;
           document.getElementById('input_brand').value = document.getElementById('brand').value;
-          document.getElementById('input_material').value = document.getElementById('material').value;
           document.getElementById('input_sale').value = document.getElementById('onsale').value;
           document.getElementById('input_sizes').value = document.getElementById('sizes').value;
       });

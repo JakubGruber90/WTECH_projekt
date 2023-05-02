@@ -32,23 +32,17 @@ class AdminController extends Controller
     }
 
     public function create_product(Request $request)
-    {
-        /*$validator = Validator::make($request->all(), [
-            'name' => 'required|string|min:5|max:50',
-            'cat' => 'required|string|min:5|max:12',
-            'desc' => 'required|string|min:10|max:500',
-            'price' => 'required',
-            'brand' => 'required|string|min:3|max:50',
-            'onsale' => 'required|string|min:3|max:3',
-            'color' => 'required|string|min:5|max:20',
-        ]);*/
-        
+    {   
         $categories = ['basketball', 'football', 'volleyball', 'tennis', 'running', 'hiking'];
         if (!in_array($request->input('cat'), $categories)) return back();
 
         $id = intval(Product::max('id')) + 1;
         $price = $request->input('price');
         if ($price < 10) $price = 10;
+        if (strlen($request->input('name')) < 3) return back()->with('failed', 'Krátky názov');
+        if (strlen($request->input('desc')) < 5) return back()->with('failed', 'Krátky popis');
+        if (strlen($request->input('brand')) < 3) return back()->with('failed', 'Krátka značka');
+        if (strlen($request->input('sizes')) < 3) return back()->with('failed', 'Krátka veľkosť');
 
         $product = new Product();
         $product->id = $id;
@@ -100,6 +94,10 @@ class AdminController extends Controller
 
         $price = $request->input('price');
         if ($price < 10) $price = 10;
+        if (strlen($request->input('name')) < 3) return back()->with('failed', 'Krátky názov');
+        if (strlen($request->input('desc')) < 5) return back()->with('failed', 'Krátky popis');
+        if (strlen($request->input('brand')) < 3) return back()->with('failed', 'Krátka značka');
+        if (strlen($request->input('sizes')) < 3) return back()->with('failed', 'Krátka veľkosť');
         
         
         if ($request->input('sale') == 'Áno' || $request->input('sale') == 'True') $product->onsale = 'true';

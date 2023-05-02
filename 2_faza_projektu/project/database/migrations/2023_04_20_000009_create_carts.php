@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id()->unique();
-            $table->integer('customer_id');
+            $table->integer('customer_id')->nullable();
             $table->float('price');
             $table->boolean('status');
         });

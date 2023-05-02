@@ -37,6 +37,28 @@ class CartController extends Controller
         $productcart->save();
     }
 
+    public function recalculatePrice($cartDB) {
+        echo "<script>console.log('" . $cartDB . "' );</script>";
+        $product_carts = DB::select("SELECT count(*), pc.product_id, pc.cart_id, pc.size, pc.quantity, pr.price,
+                                    pr.title, pr.category, pr.description, pr.brand, pr.created_at, pr.onsale
+                                    FROM product_carts AS pc
+                                    JOIN products AS pr
+                                    ON pr.id = pc.product_id
+                                    JOIN size_products AS sp
+                                    ON pc.product_id = sp.product_id
+                                    WHERE pc.cart_id = ?
+                                    GROUP BY pc.product_id, pc.cart_id, pc.size, pc.quantity, pr.price,
+                                    pr.title, pr.category, pr.description, pr.brand, pr.created_at, pr.onsale;",
+                                    [$cartDB->id]);
+
+        $full_price = 0;
+        foreach ($product_carts as $product) {
+            $full_price += $product->price*$product->quantity;
+        }
+        $cartDB->price = $full_price;
+        $cartDB->save();
+    }
+
     public function cartAddAuth(Request $request, $product_id) {
         $product = Product::find($product_id);
         $userSession = Session::has('user') ? Session::get('user'): null;
@@ -51,6 +73,7 @@ class CartController extends Controller
         $size = $request->input('size');
         $number = $request->input('prod_num');
         $this->createProductCartDB($cart[0]->id, $product_id, $size, $number);
+        $this->recalculatePrice($cart[0]);
 
         $oldcart = Session::has('cart') ? Session::get('cart'): null;
         $cart = new CartSession($oldcart);
@@ -74,6 +97,7 @@ class CartController extends Controller
             ProductCart::where("cart_id", $cart->id)->where("product_id", $product_id)->delete();
         }
 
+        $this->recalculatePrice($cart);
         $oldcart = Session::get('cart');
         $oldcart->delete($product, $product->id);
         $picture_finder = new Finder();
@@ -99,7 +123,7 @@ class CartController extends Controller
         $full_price = 0;
         foreach ($product_carts as $product) {
             $cart->restore($product, $product->product_id, count($product_carts));
-            $full_price += $product->price;
+            $full_price += $product->price*$product->quantity;
         }
         $cartDB->price = $full_price;
         $cartDB->save();
@@ -125,7 +149,7 @@ class CartController extends Controller
             else $cart = $cart[0];
             $this->listCartDB($cart, $new_cart);
         }
-        else if (count(Session::get('cart')->items) != $this->getCartCount($user->id)) {
+        else if (Session::get('cart')->items == null || count(Session::get('cart')->items) != $this->getCartCount($user->id)) {
             $cart = Cart::where("customer_id", $user->id)->where("status", TRUE)->get();
             if (!$cart || $cart->count() == 0) return view('cart', ['products' => [], 'picture_finder' => null]);
             else $cart = $cart[0];
@@ -186,11 +210,19 @@ class CartController extends Controller
 
         if (Auth::user() !== null) {
             $order->customer_id = Auth::user()->id;
-            $order->cart_id = 10; //ked mas customer_id, tak vies ziskat potom cart_id z tabulky carts podla toho customer_id z db
+            $cartDB = Cart::where('customer_id', Auth::user()->id)->where('status', TRUE)->limit(1)->get()[0];
+            $order->cart_id = $cartDB->id;
+            $cartDB->status = false;
+            $cartDB->save();
         }
         else {
             $order->customer_id = null;
-            $order->cart_id = 10; //ked mas customer_id, tak vies ziskat potom cart_id z tabulky carts podla toho customer_id z db
+            $cartDB = new Cart();
+            $cartDB->customer_id = null;
+            $cartDB->price = $total_price;
+            $cartDB->status = false;
+            $cartDB->save();
+            $order->cart_id = $cartDB->id;
         }
         $order->shipping_id = Session::get('delivery');
         $order->payment_id = Session::get('payment');

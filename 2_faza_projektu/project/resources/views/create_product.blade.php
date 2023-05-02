@@ -27,7 +27,6 @@
             <br>
             <textarea type="text" rows="3" placeholder="Popis produktu" id="description" class="description"></textarea><br>
             <br>
-            <input type="number" step=".01" placeholder="Cena produktu" id="price"><br>
           </form>
         </section>
         <!-- kategoria,material,znacka,farba -->
@@ -45,7 +44,7 @@
               </select><br><br>
               <input type="text" placeholder="Značka produktu" id="brand"><br>
               <br>
-              <input type="text" placeholder="Farba produktu" id="color"><br>
+              <input type="number" step=".01" placeholder="Cena produktu" id="price"><br>
               <br>
           </form>
         </section>
@@ -74,7 +73,6 @@
         <input id="input_price" type="hidden" name="price" step=".01" value="">
         <input id="input_category" type="hidden" name="cat" value="">
         <input id="input_brand" type="hidden" name="brand" value="">
-        <input id="input_color" type="hidden" name="color" value="">
         <input id="input_sale" type="hidden" name="sale" value="">
         <input id="input_sizes" type="hidden" name="sizes" value="">
         <input type="file" id="images" class="input_files" multiple="multiple" accept=".jpg, .png" name="images[]">
@@ -111,7 +109,6 @@
           document.getElementById('input_price').value = document.getElementById('price').value;
           document.getElementById('input_category').value = document.getElementById('category').value;
           document.getElementById('input_brand').value = document.getElementById('brand').value;
-          document.getElementById('input_color').value = document.getElementById('color').value;
           document.getElementById('input_sale').value = document.getElementById('onsale').value;
           document.getElementById('input_sizes').value = document.getElementById('sizes').value;
       });
