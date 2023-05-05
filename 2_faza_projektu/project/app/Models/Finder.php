@@ -7,6 +7,7 @@ use App\Models\SizeProduct;
 use App\Models\Size;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class Finder {
     public function findOnePicture($product_id)
@@ -32,5 +33,23 @@ class Finder {
                             ->where('sizes.size', $size)
                             ->select('size_products.quantity')
                             ->get();
+    }
+
+    public function findCartItem($id) {
+        if (Session::has('cart') && !empty(Session::get('cart')->items)) {
+            $decisioner = 0;
+            foreach (Session::get('cart')->items as $product) {
+                if ($product['item']->id == $id) $decisioner = 1;
+            }
+            if ($decisioner == 0) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        else { 
+            return false;
+        }
     }
 }

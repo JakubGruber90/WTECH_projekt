@@ -198,4 +198,7 @@
     .product_section {
       flex-direction: column;
     }
+    .shoe_info {
+      padding-bottom: 20px;
+    }
   }

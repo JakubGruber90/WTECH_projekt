@@ -55,8 +55,11 @@
             <label class="count"><span id="sklad">Na sklade:</span></label>
             <br>
 
-            <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
+            <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Pridať do košíka</button>
           </form>
+          @if ($finder && $finder->findCartItem($product->id))
+            <button id="remove_from_cart" onclick="window.location.replace(`{{ route('cartDeleteAuth', $product->id) }}`)">Odobrať z košíka</button>
+          @endif
         @else
           <!-- pridat do kosika pre neprihlaseneho-->
           <form method="GET" action="{{ route('cartAdd', $product->id) }}" accept-charset="UTF-8">
@@ -69,8 +72,11 @@
             <label class="count"><span id="sklad">Na sklade:</span></label>
             <br>
 
-            <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Add to Cart</button>
+            <button id="add_to_cart"><img src="{{ asset('storage/src/add_to_cart.png') }}" alt=" "> Pridať do košíka</button>
           </form>
+          @if ($finder && $finder->findCartItem($product->id))
+            <button id="remove_from_cart" onclick="window.location.replace(`{{ route('cartDelete', $product->id) }}`)">Odobrať z košíka</button>
+          @endif
         @endauth
       @endif
       </div>

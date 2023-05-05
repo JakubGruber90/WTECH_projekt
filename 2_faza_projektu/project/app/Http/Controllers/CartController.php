@@ -102,7 +102,6 @@ class CartController extends Controller
         $this->recalculatePrice($cart);
         $oldcart = Session::get('cart');
         $oldcart->delete($product, $product->id);
-        $picture_finder = new Finder();
 
         $request->session()->put('cart', $oldcart);
 
@@ -185,7 +184,6 @@ class CartController extends Controller
         $product = Product::find($product_id);
         $oldcart = Session::get('cart');
         $oldcart->delete($product, $product->id);
-        $picture_finder = new Finder();
 
         $request->session()->put('cart', $oldcart);
 

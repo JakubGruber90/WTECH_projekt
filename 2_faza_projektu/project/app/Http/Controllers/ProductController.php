@@ -115,6 +115,7 @@ class ProductController extends Controller
     public function select($product_id) {
         if (is_numeric($product_id) == false) {
             return view('selected_product', [
+                'finder' => null,
                 'product' => null,
                 'pictures' => [],
                 'sizes' => [],
@@ -123,7 +124,9 @@ class ProductController extends Controller
         $finder = new Finder();
         $pictures = $finder->findManyPictures($product_id);
         $sizes = $finder->findManySizes($product_id);
+        $picture_finder = new Finder();
         return view('selected_product', [
+            'finder' => $picture_finder,
             'product' => Product::find($product_id),
             'pictures' => $pictures,
             'sizes' => $sizes,
