@@ -19,7 +19,7 @@
     <section class="container">
       <!-- CATEGORIES -->
       <aside class="nav">
-        <h1>List of all products</h1>
+        <h1>Zoznam všetkých produktov</h1>
         <!-- kategorie -->
         <nav>
         <ul>

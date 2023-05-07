@@ -30,6 +30,9 @@
       @if ($product)
         <h1>{{ $product->title }}</h1>
         @if (Auth::user() !== null && Auth::user()->hasRole('ADMIN', 'role_users'))
+          <h2>Značka: {{ $product->brand }}</h2>
+          <h2>Kategória: {{ $product->category }}</h2>
+          <h2>Akcia: {{ $product->onsale }}</h2>
           <h2>ID:{{$product->id}}</h2>
         @endif
         <h2>{{ $product->price }} €</h2>

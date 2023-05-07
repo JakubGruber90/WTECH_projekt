@@ -113,8 +113,12 @@ a:hover {
 
 .specs {
     line-height: 7px;
-    width: 20%;
+    width: 40%;
     margin-right: 15%;
+}
+
+.specs p {
+    text-align: left;
 }
 
 .div-table {

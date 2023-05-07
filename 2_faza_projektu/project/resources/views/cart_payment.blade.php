@@ -28,8 +28,8 @@
         <div class="delivery">
             <label for="delivery">Vyberte spôsob dopravy:</label>
             <select class="select" id="delivery">
-                <option value="1" id="courier">Kuriérom (osobný odber)</option>
-                <option value="2" id="post">Poštou</option>
+                <option value="1" id="courier">Kuriér</option>
+                <option value="2" id="post">Pošta</option>
                 <option value="3" id="mail">Zásielkovňa</option>
             </select>
         </div>

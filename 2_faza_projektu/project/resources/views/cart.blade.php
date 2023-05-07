@@ -24,10 +24,10 @@
                 <div class="item">
                     <img class="product-card-img" src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']->id)) }}" alt="product">
                     <section class="specs">
-                    <p>Title: <b>{{ $product['item']->title }}</b></p>
-                    <p>Brand: <b>{{ $product['item']->brand }}</b></p>
-                    <p>Size: <b>{{ $product['item']->size }}</b></p>
-                    <p>Price: <b>{{ $product['item']->price }}€</b></p>
+                    <p>Názov: <b>{{ $product['item']->title }}</b></p>
+                    <p>Značka: <b>{{ $product['item']->brand }}</b></p>
+                    <p>Veľkosť: <b>{{ $product['item']->size }}</b></p>
+                    <p>Cena: <b>{{ $product['item']->price }}€</b></p>
                     </section>
                     <p>Počet:</p>
                     <input type="number" class="count" name="count" value="{{ $product['item']->number }}" min=1 max="{{ $product['item']->max_number }}">

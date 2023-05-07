@@ -137,27 +137,24 @@ class ProductController extends Controller
     public function show_page($page) {
         $count = Product::all()->count();
         //number of items on selected page
-        $page_count = ($count / 12) - 1;
+        $page_count = ($count / 15) - 1;
         if ($page_count < 1) $page_count = 1;
         //input
         if (is_numeric($page) == false) {
             return redirect('/all-products/page/0');
         }
-        else if ($page < 0 || $page > $page_count - 1) {
-            return redirect('/all-products/page/0');
+        else if ($page == -1) {
+            return redirect('/all-products/page/' . $page_count);
         }
-        else if ($page == $page_count - 1 && $page_count > 1) {
+        else if ($page < -1 || $page > $page_count) {
             return redirect('/all-products/page/0');
-        }
-        else if ($page == -1 && $page_count > 1) {
-            return redirect('/all-products/page/' . ($page_count - 1));
         }
         //paging
         if ($page == 0) {
-            $products = Product::skip(0)->take(12)->get();
+            $products = Product::skip(0)->take(15)->get();
         }
         else {
-            $products = Product::skip($page * 12)->take($page * 12)->get();
+            $products = Product::skip($page * 15)->take(15)->get();
         }
         $picture_finder = new Finder();
         return view('all_products', [
