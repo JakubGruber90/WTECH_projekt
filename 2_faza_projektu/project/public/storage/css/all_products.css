@@ -45,12 +45,13 @@ html {
 
   /* Categories styling */
   .nav {
-    min-width: 160px;
+    min-width: 200px;
     max-width: 260px;
     width: 100%;
     margin: 0;
   }
   nav {
+    width: 245px;
     background-color: #46a2da;
     color: white;
     display: block;
@@ -251,7 +252,7 @@ html {
     height: 110px;
   }
 
-  @media screen and (max-width: 490px) {
+  @media screen and (max-width: 500px) {
     .container {
       flex-flow: column;
       max-height: 100%;

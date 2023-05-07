@@ -34,7 +34,7 @@ class AdminController extends Controller
     public function create_product(Request $request)
     {   
         $categories = ['basketball', 'football', 'volleyball', 'tennis', 'running', 'hiking'];
-        if (!in_array($request->input('cat'), $categories)) return back();
+        if (!in_array(strtolower($request->input('cat')), $categories)) return back();
 
         $id = intval(Product::max('id')) + 1;
         $price = $request->input('price');
@@ -47,7 +47,7 @@ class AdminController extends Controller
         $product = new Product();
         $product->id = $id;
         $product->title = $request->input('name');
-        $product->category = $request->input('cat');
+        $product->category = strtolower($request->input('cat'));
         $product->description = $request->input('desc');
         $product->price = number_format(floatval($price), 2, '.', '');
         $product->brand = $request->input('brand');
@@ -89,58 +89,52 @@ class AdminController extends Controller
         if (SizeProduct::where("product_id", $id)->get()->count() == 0) return back()->with('failed', 'ID sa nenašlo');
         if (ProductPicture::find($id)->count() == 0) return back()->with('failed', 'ID sa nenašlo');
         if ($product->count() == 0) return back()->with('failed', 'ID sa nenašlo');
-        $categories = ['Basketball', 'Football', 'Voleyball', 'Tennis', 'Running', 'Hiking'];
-        if (!in_array($request->input('cat'), $categories)) return back()->with('failed', 'Chybná kategória');
-
+        
+        $categories = ['basketball', 'football', 'voleyball', 'tennis', 'running', 'hiking'];
+        if (in_array(strtolower($request->input('cat')), $categories)) $product->category = strtolower($request->input('cat'));
         $price = $request->input('price');
-        if ($price < 10) $price = 10;
-        if (strlen($request->input('name')) < 3) return back()->with('failed', 'Krátky názov');
-        if (strlen($request->input('desc')) < 5) return back()->with('failed', 'Krátky popis');
-        if (strlen($request->input('brand')) < 3) return back()->with('failed', 'Krátka značka');
-        if (strlen($request->input('sizes')) < 3) return back()->with('failed', 'Krátka veľkosť');
-        
-        
+        if ($price > 10) $product->price = number_format(floatval($price), 2, '.', '');
+        if (strlen(trim($request->input('name'))) > 3) $product->title = $request->input('name');
+        if (strlen(trim($request->input('desc'))) > 5) $product->description = $request->input('desc');
+        if (strlen(trim($request->input('brand'))) > 3) $product->brand = $request->input('brand');
         if ($request->input('sale') == 'Áno' || $request->input('sale') == 'True') $product->onsale = 'true';
         elseif ($request->input('sale') == 'Nie' || $request->input('sale') == 'False') $product->onsale = 'false';
-        else return back()->with('failed', 'Chybná hodnota akcie');
-        $product->title = $request->input('name');
-        $product->category = $request->input('cat');
-        $product->description = $request->input('desc');
-        $product->price = number_format(floatval($price), 2, '.', '');
-        $product->brand = $request->input('brand');
-        $product->updated_at = Carbon::now()->toDateString();
 
-        $sizes = $request->input('sizes');
-        $sizes = explode(';', $sizes);
-        SizeProduct::where("product_id", $id)->delete();
-        foreach ($sizes as $size) {
-            $size = explode(':', $size);
-            $sizeproduct = new SizeProduct();
-            $sizeproduct->id = intval(SizeProduct::max('id')) + 1;
-            $sizeproduct->product_id = $id;
-            $sizeproduct->size_id = $size[0];
-            $sizeproduct->quantity = $size[1];
-            $sizeproduct->save();
+        if (strlen(trim($request->input('sizes'))) != 0) {
+            $sizes = $request->input('sizes');
+            $sizes = explode(';', $sizes);
+            SizeProduct::where("product_id", $id)->delete();
+            foreach ($sizes as $size) {
+                $size = explode(':', $size);
+                $sizeproduct = new SizeProduct();
+                $sizeproduct->id = intval(SizeProduct::max('id')) + 1;
+                $sizeproduct->product_id = $id;
+                $sizeproduct->size_id = $size[0];
+                $sizeproduct->quantity = $size[1];
+                $sizeproduct->save();
+            }
         }
 
-        $old_pictures = ProductPicture::where("id", $id)->get();
-        foreach ($old_pictures as $picture) {
-            $url = 'public/' . $picture->picture_url;
-            if(Storage::exists($url)) Storage::delete($url);
+        if ($request->file('images')) { 
+            $old_pictures = ProductPicture::where("id", $id)->get();
+            foreach ($old_pictures as $picture) {
+                $url = 'public/' . $picture->picture_url;
+                if(Storage::exists($url)) Storage::delete($url);
+            }
+            ProductPicture::destroy($id);
+            
+            $imgs = $request->file('images');
+            $name = $request->input('name');
+            foreach ($imgs as $img) {
+                $imgname = time() . "_" . $name . $img->getClientOriginalName();
+                $path = $img->storeAs('public/src', $imgname);
+                $picture = new ProductPicture();
+                $picture->id = $id;
+                $picture->picture_url = 'src/' . $imgname;
+                $picture->save();
+            };
         }
-        ProductPicture::destroy($id);
-        
-        $imgs = $request->file('images');
-        $name = $request->input('name');
-        foreach ($imgs as $img) {
-            $imgname = time() . "_" . $name . $img->getClientOriginalName();
-            $path = $img->storeAs('public/src', $imgname);
-            $picture = new ProductPicture();
-            $picture->id = $id;
-            $picture->picture_url = 'src/' . $imgname;
-            $picture->save();
-        };
-        $product->save();
+        $product->save(['timestamps' => true]);
 
         return redirect('admin')->with('success', 'Produkt úspešne upravený');
     }

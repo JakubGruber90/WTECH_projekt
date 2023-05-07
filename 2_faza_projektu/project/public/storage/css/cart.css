@@ -122,8 +122,12 @@ a:hover {
 
 .specs {
     line-height: 7px;
-    width: auto;
+    width: 40%;
     margin-right: 15%;
+}
+
+.specs p {
+    text-align: left;
 }
 
 .product-card-img {
