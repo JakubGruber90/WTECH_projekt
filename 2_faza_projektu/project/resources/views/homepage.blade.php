@@ -35,7 +35,7 @@
           <!-- novy produkt -->
           <div class="product_card">
             <a href="selected-product/{{$new->id}}">
-              <img src="{{ asset('storage/' . $picture_finder->findOnePicture($new->id)) }}" alt=" ">
+              <img class="product-card-img" src="{{ asset('storage/' . $picture_finder->findOnePicture($new->id)) }}" alt=" ">
               <h3>{{$new->title}}</h3>
             </a>
             <p>{{$new->price}} €</p>
@@ -57,7 +57,7 @@
           <!-- akciovy produkt -->
           <div class="product_card">
             <a href="selected-product/{{$sale->id}}">
-              <img src="{{ asset('storage/' . $picture_finder->findOnePicture($sale->id)) }}" alt=" ">
+              <img class="product-card-img" src="{{ asset('storage/' . $picture_finder->findOnePicture($sale->id)) }}" alt=" ">
               <h3>{{$sale->title}}</h3>
             </a>
             <p>{{$sale->price}} €</p>
@@ -80,7 +80,7 @@
           <!-- odporucany produkt -->
           <div class="product_card">
             <a href="selected-product/{{$recommend->id}}">
-              <img src="{{ asset('storage/' . $picture_finder->findOnePicture($recommend->id)) }}" alt=" ">
+              <img class="product-card-img" src="{{ asset('storage/' . $picture_finder->findOnePicture($recommend->id)) }}" alt=" ">
               <h3>{{$recommend->title}}</h3>
             </a>
             <p>{{$recommend->price}} €</p>

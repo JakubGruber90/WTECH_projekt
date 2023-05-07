@@ -122,9 +122,15 @@ a:hover {
 
 .specs {
     line-height: 7px;
-    width: 20%;
+    width: auto;
     margin-right: 15%;
 }
+
+.product-card-img {
+    object-fit: cover;
+    width: 100%;
+    height: 110px;
+  }
 
 @media (max-width: 920px) {
     .cart {

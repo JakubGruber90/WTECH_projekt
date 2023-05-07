@@ -61,7 +61,7 @@
             <!-- produkt -->
             <div class="product_card">
               <a href="{{ route('selected-product', $product->id) }}">
-                <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product->id)) }}" alt=" ">
+                <img class="product-card-img" src="{{ asset('storage/' . $picture_finder->findOnePicture($product->id)) }}" alt=" ">
                 <h3>{{$product->title}}</h3>
               </a>
               <p>{{$product->price}} €</p>

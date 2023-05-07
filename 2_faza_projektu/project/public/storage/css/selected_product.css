@@ -73,15 +73,12 @@
   }
   .photos img {
     border: 3px solid #46a2da;
-    max-width: 300px;
-    max-height: 300px;
-    min-width: 150px;
-    min-height: 150px;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1 / 1;
     margin-right: 5px;
-    margin-top: 5px
+    margin-top: 5px;
+    object-fit: cover;
+    width: auto;
+    height: 200px;
+    background-color: white;
   }
 
   /*description*/

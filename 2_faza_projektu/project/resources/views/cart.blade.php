@@ -22,12 +22,12 @@
         @if ((Session::has('cart') && !empty(Session::get('cart')->items)))
             @foreach ($products as $product)
                 <div class="item">
-                    <img src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']->id)) }}" alt="product">
+                    <img class="product-card-img" src="{{ asset('storage/' . $picture_finder->findOnePicture($product['item']->id)) }}" alt="product">
                     <section class="specs">
-                    <p>Title: {{ $product['item']->title }}</p>
-                    <p>Brand: {{ $product['item']->brand }}</p>
-                    <p>Size: {{ $product['item']->size }}</p>
-                    <p>Price: {{ $product['item']->price }}€</p>
+                    <p>Title: <b>{{ $product['item']->title }}</b></p>
+                    <p>Brand: <b>{{ $product['item']->brand }}</b></p>
+                    <p>Size: <b>{{ $product['item']->size }}</b></p>
+                    <p>Price: <b>{{ $product['item']->price }}€</b></p>
                     </section>
                     <p>Počet:</p>
                     <input type="number" class="count" name="count" value="{{ $product['item']->number }}" min=1 max="{{ $product['item']->max_number }}">
