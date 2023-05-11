@@ -29,7 +29,7 @@ class ProfileController extends Controller
 
     public function editLogin(Request $request) {
         $userSession = $request->session()->get('user');
-        $user = User::whereRaw("email = '" . $userSession->email . "'")->get()[0];
+        $user = User::whereRaw("id = '" . $userSession->id . "'")->get()[0];
 
         if ($request->email) {
             $user->update([
@@ -57,7 +57,7 @@ class ProfileController extends Controller
 
     public function editShipping(Request $request) {
         $userSession = $request->session()->get('user');
-        $user = User::whereRaw("email = '" . $userSession->email . "'")->get()[0];
+        $user = User::whereRaw("id = '" . $userSession->id . "'")->get()[0];
 
         if ($request->phone_number) {
             $user->update([
@@ -124,7 +124,7 @@ class ProfileController extends Controller
         $id = $request->session()->get('user')->id;
         $email = $request->session()->get('user')->email;
     
-        $user = User::whereRaw("email = '" . $email . "'")->get()[0];
+        $user = User::whereRaw("id = '" . $id . "'")->get()[0];
 
         return view('profile', [
             'user' => $user

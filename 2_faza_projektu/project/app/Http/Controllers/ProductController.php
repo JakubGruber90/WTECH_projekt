@@ -15,7 +15,7 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
     public function homepage() {
-        $news = Product::whereRaw("created_at > (CURRENT_DATE - INTERVAL '30 days')")->limit(10)->get();
+        $news = Product::whereRaw("created_at > (CURRENT_DATE - INTERVAL '30 days')")->orderByDesc('created_at')->limit(10)->get();
         $sales = Product::where("onsale", "TRUE")->limit(10)->get();
         $recommends = ProductCart::selectRaw('product_id AS id, products.title, products.price, count(*) as count')
                                             ->groupBy('product_id', 'products.title', 'products.price')

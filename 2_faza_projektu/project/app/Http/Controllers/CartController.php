@@ -40,7 +40,6 @@ class CartController extends Controller
     }
 
     public function recalculatePrice($cartDB) {
-        echo "<script>console.log('" . $cartDB . "' );</script>";
         $product_carts = DB::select("SELECT count(*), pc.product_id, pc.cart_id, pc.size, pc.quantity, pr.price,
                                     pr.title, pr.category, pr.description, pr.brand, pr.created_at, pr.onsale
                                     FROM product_carts AS pc
@@ -66,7 +65,7 @@ class CartController extends Controller
         $userSession = Session::has('user') ? Session::get('user'): null;
         if (!$userSession) return redirect('select-product/' . $product_id);
 
-        $userDB = User::where("email", $userSession->email)->get()[0];
+        $userDB = User::where("id", $userSession->id)->get()[0];
         $cart = Cart::where("customer_id", $userDB->id)->where("status", TRUE)->get();
         if (!$cart || $cart->count() == 0) {
             $this->createCartDB($userDB);
@@ -201,12 +200,6 @@ class CartController extends Controller
     }
 
     public function saveOrder (Request $request) {
-        if (strlen($request->input('phone_number')) != 13) return back();
-        if (strlen($request->input('address')) < 3) return back();
-        if (strlen($request->input('postal_code')) != 5) return back();
-        if (strlen($request->input('city')) < 3) return back();
-        if (strlen($request->input('country')) < 5) return back();
-
         $order = new Order();
         $cart = Session::get('cart');
         $total_price = null;
